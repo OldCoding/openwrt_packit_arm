@@ -107,7 +107,7 @@ jobs:
         removeArtifacts: true
         tag: ${{ env.FILE_NAME }}
         commit: main
-        token: ${{ secrets.RELEASES_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
           - 测试版本
