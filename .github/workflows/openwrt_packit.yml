@@ -1,10 +1,14 @@
-#========================================================================================================================
-# https://github.com/ophub/amlogic-s9xxx-openwrt
-# Description: Use Releases file to packaging
-# Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
-#========================================================================================================================
+#
+# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
+# https://github.com/P3TERX/Actions-OpenWrt
+# Description: Build OpenWrt using GitHub Actions
+#
 
-name: Releases big openwrt
+name: Packit openwrt to releases
 
 on:
   repository_dispatch:
@@ -14,8 +18,8 @@ on:
         description: 'SSH connection'
         required: false
         default: 'false'
-  schedule:
-    - cron: '45 23 * * *'
+  watch:
+    types: [started]
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
