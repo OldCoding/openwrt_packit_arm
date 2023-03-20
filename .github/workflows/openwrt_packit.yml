@@ -88,10 +88,11 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
         useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
+        VER=$(grep -E "='R.+" ./package/lean/default-settings/files/zzz-default-settings | cut -f2 -d"'")
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
-        echo "VER=$(grep -E "='R.+" ./package/lean/default-settings/files/zzz-default-settings | cut -f2 -d"'" )" >> $GITHUB_ENV
+        echo "VER=$VER" >> $GITHUB_ENV
 
     - name: Update packages
       env:
@@ -429,7 +430,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
-          - 测试版本
+          - 版本号：${{ env.VER }}
           - 默认IP：192.168.10.1
           - 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
