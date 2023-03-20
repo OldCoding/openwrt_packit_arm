@@ -91,6 +91,7 @@ jobs:
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+        echo "VER=$(grep -E "='R.+" ./package/lean/default-settings/files/zzz-default-settings | cut -f2 -d"'" )" >> $GITHUB_ENV
 
     - name: Update packages
       env:
@@ -98,7 +99,7 @@ jobs:
       run: |
         ls
         cd openwrt/package
-        git clone https://github.com/tty228/luci-app-serverchan
+        git clone https://github.com/zzsj0928/luci-app-pushbot
         git clone https://github.com/kongfl888/luci-app-adguardhome
         git clone https://github.com/pymumu/luci-app-smartdns
         git clone https://github.com/lisaac/luci-app-dockerman
@@ -237,7 +238,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-firewall=y
         CONFIG_PACKAGE_luci-app-ssr-plus=y
         CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
-        CONFIG_PACKAGE_luci-app-serverchan=y
+        CONFIG_PACKAGE_luci-app-pushbot=y
         CONFIG_PACKAGE_luci-app-smartdns=y
         CONFIG_PACKAGE_luci-app-samba4=y
         CONFIG_PACKAGE_luci-app-hd-idle=y
@@ -398,6 +399,7 @@ jobs:
         WHOAMI: Wing
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt
         KERNEL_AUTO_LATEST: true
+        OPENWRT_VER: ${{ env.VER }}
         GZIP_IMGS: .gz
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
