@@ -403,13 +403,6 @@ jobs:
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
-      
-    - name: Read md5sum
-      if: env.PACKAGED_STATUS == 'success'
-      run: |
-        MD5=$(cat ${{ env.PACKAGED_OUTPUTPATH }}/md5sum)
-        echo "MD5=$MD5" >> $GITHUB_ENV
-        
 
     - name: Upload OpenWrt Firmware to Release
       id: release
@@ -429,8 +422,6 @@ jobs:
           - 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
-          `md5sum`
-          >${{ env.MD5 }}
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
