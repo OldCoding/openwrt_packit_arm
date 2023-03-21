@@ -429,12 +429,15 @@ jobs:
         commit: main
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        run: md5=$(cat ${{ env.PACKAGED_OUTPUTPATH }}/md5sum)
         body: |
           - 版本号：${{ env.VER }}
           - 默认IP：192.168.10.1
           - 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
+          `md5sum`
+          >$(md5)
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
