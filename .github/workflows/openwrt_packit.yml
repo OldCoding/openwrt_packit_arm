@@ -403,6 +403,11 @@ jobs:
       if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       with:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
+        
+    - name: Read sha256
+      run: |
+        sha256=$(cat sha256sums | sed ':a;N;$!ba;s/\n/<br>/g')
+        echo "sha256=$sha256" >> $GITHUB_ENV
 
     - name: Upload OpenWrt Firmware to Release
       id: release
@@ -422,6 +427,8 @@ jobs:
           - 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
+          `sha256sums`
+          ${{ env.sha256 }}
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
