@@ -406,7 +406,7 @@ jobs:
         
     - name: Read sha256
       run: |
-        sha256=$(cat sha256sums | sed ':a;N;$!ba;s/\n/<br>/g')
+        sha256=$(cat ${{ env.PACKAGED_OUTPUTPATH }}/sha256sums | sed ':a;N;$!ba;s/\n/<br>/g')
         echo "sha256=$sha256" >> $GITHUB_ENV
 
     - name: Upload OpenWrt Firmware to Release
