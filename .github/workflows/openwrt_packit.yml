@@ -430,7 +430,7 @@ jobs:
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
           `md5sum`
-          >${{ md5 }}
+          >${{ env.MD5 }}
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
