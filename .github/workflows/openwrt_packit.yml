@@ -406,7 +406,7 @@ jobs:
         
     - name: Calculate MD5
       run: |
-        rm -rf ${{ env.PACKAGED_OUTPUTPATH }}/sha256sums
+        cd ${{ env.PACKAGED_OUTPUTPATH }} && rm -rf sha256sums
         MD5=$(md5sum ${{ env.PACKAGED_OUTPUTPATH }}/* | sed ':a;N;$!ba;s/\n/<br>/g')
         echo "MD5=$MD5" >> $GITHUB_ENV
 
