@@ -404,10 +404,11 @@ jobs:
       with:
         path: ${{ env.PACKAGED_OUTPUTPATH }}/
         
-    - name: Read sha256
+    - name: Calculate MD5
       run: |
-        sha256=$(cat ${{ env.PACKAGED_OUTPUTPATH }}/sha256sums | sed ':a;N;$!ba;s/\n/<br>/g')
-        echo "sha256=$sha256" >> $GITHUB_ENV
+        rm -rf ${{ env.PACKAGED_OUTPUTPATH }}/sha256sums
+        MD5=$(md5sum ${{ env.PACKAGED_OUTPUTPATH }}/* | sed ':a;N;$!ba;s/\n/<br>/g')
+        echo "MD5=$MD5" >> $GITHUB_ENV
 
     - name: Upload OpenWrt Firmware to Release
       id: release
@@ -427,8 +428,8 @@ jobs:
           - 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
-          `sha256sums`
-          ${{ env.sha256 }}
+          `md5sum`
+          > ${{ env.MD5 }}
 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
