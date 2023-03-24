@@ -398,18 +398,18 @@ jobs:
         GZIP_IMGS: .gz
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload artifact to Actions
-      uses: kittaakos/upload-artifact-as-is@master
-      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
-      with:
-        path: ${{ env.PACKAGED_OUTPUTPATH }}/
-        
     - name: Calculate MD5
       run: |
         cp $GITHUB_WORKSPACE/openwrt/bin/targets/*/*/Packages.tar.gz ${{ env.PACKAGED_OUTPUTPATH }}
         cd ${{ env.PACKAGED_OUTPUTPATH }} && rm -rf sha256sums
         MD5=$(md5sum * | sed ':a;N;$!ba;s/\n/<br>/g')
         echo "MD5=$MD5" >> $GITHUB_ENV
+
+    - name: Upload artifact to Actions
+      uses: kittaakos/upload-artifact-as-is@master
+      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+      with:
+        path: ${{ env.PACKAGED_OUTPUTPATH }}/
 
     - name: Upload OpenWrt Firmware to Release
       id: release
