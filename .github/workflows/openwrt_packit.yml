@@ -101,9 +101,9 @@ jobs:
         ls
         cd openwrt/package
         git clone https://github.com/zzsj0928/luci-app-pushbot
-        git clone https://github.com/kongfl888/luci-app-adguardhome
         git clone https://github.com/pymumu/luci-app-smartdns
         git clone https://github.com/lisaac/luci-app-dockerman
+        svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
         svn export https://github.com/immortalwrt/packages/trunk/net/smartdns
         svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
         svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser
