@@ -120,7 +120,7 @@ jobs:
         cd openwrt
         sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
-        sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+        #sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
         sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 
     - name: Update feeds
@@ -425,7 +425,7 @@ jobs:
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
           - 版本号：${{ env.VER }}
-          - 默认IP：192.168.10.1
+          - 默认IP：192.168.1.1
           - 默认密码：password
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           - 下载后请仔细校验MD5，如不正确请重新下载
