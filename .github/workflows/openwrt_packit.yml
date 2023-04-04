@@ -101,7 +101,7 @@ jobs:
         ls
         cd openwrt/package
         git clone https://github.com/zzsj0928/luci-app-pushbot
-        git clone https://github.com/pymumu/luci-app-smartdns
+        git clone -b lede https://github.com/pymumu/luci-app-smartdns
         git clone https://github.com/lisaac/luci-app-dockerman
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
         svn export https://github.com/immortalwrt/packages/trunk/net/smartdns
@@ -264,6 +264,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-transmission=y
         CONFIG_PACKAGE_luci-app-filebrowser=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
+        CONFIG_PACKAGE_luci-app-openclash=y
         EOF
 
         # LuCI主题:
