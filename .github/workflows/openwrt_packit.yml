@@ -123,6 +123,8 @@ jobs:
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
         #sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
         sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
+        sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
+        sed -i "s|openwrt_armvirt|RELEASES_TAGS_KEYWORD|g" package/luci-app-amlogic/root/etc/config/amlogic
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
@@ -361,13 +363,6 @@ jobs:
         cd openwrt/
         rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
         df -hT ${PWD}
-
-    - name: Upload bin directory
-      uses: actions/upload-artifact@main
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
-      with:
-        name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: openwrt/bin
 
     - name: Organize files
       id: organize
