@@ -1,6 +1,5 @@
-# openwrt_packit_arm
+# Openwrt For ARMv8
 
-Openwrt For ARMv8  
 自动编译ARM盒子固件，点击右上角Star开始编译  
 使用Lede源码构建  
 默认IP：192.168.1.1  
