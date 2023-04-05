@@ -118,6 +118,7 @@ jobs:
     - name: File Patch
       run: |
         cd openwrt
+        ls
         sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
         #sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
