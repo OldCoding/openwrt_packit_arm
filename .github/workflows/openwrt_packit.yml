@@ -121,7 +121,7 @@ jobs:
         sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
         mkdir -p package/luci-app-openclash/files/etc/openclash/core && cd package/luci-app-openclash/files/etc/openclash/core
-        curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/blob/core/master/dev/clash-linux-arm64.tar.gz
+        curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz
         tar zxvf *.tar.gz && chmod +x clash && rm -rf *.tar.gz
 
     - name: Update feeds
