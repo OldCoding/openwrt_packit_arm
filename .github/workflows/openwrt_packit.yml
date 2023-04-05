@@ -381,7 +381,7 @@ jobs:
         echo "status=success" >> ${GITHUB_OUTPUT}
 
     - name: Package Armvirt as OpenWrt
-      if: (!cancelled())
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       uses: ophub/flippy-openwrt-actions@main
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/armvirt/64/openwrt-armvirt-64-default-rootfs.tar.gz
