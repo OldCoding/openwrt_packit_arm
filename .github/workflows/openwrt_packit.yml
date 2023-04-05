@@ -105,7 +105,7 @@ jobs:
         svn export https://github.com/immortalwrt/packages/trunk/net/smartdns
         svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
         svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser
-        git clone https://github.com/ophub/luci-app-amlogic
+        svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
         git clone https://github.com/sbwml/luci-app-alist
         git clone https://github.com/xiaorouji/openwrt-passwall
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2 passwall2 && mv -n passwall2/luci-app-passwall2 ./;rm -rf passwall2
@@ -119,9 +119,8 @@ jobs:
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
         #sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
         sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
-        ls package/luci-app-amlogic
-        sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" ./package/luci-app-amlogic/root/etc/config/amlogic
-        sed -i "s|openwrt_armvirt|RELEASES_TAGS_KEYWORD|g" ./package/luci-app-amlogic/root/etc/config/amlogic
+        sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
+        sed -i "s|openwrt_armvirt|RELEASES_TAGS_KEYWORD|g" package/luci-app-amlogic/root/etc/config/amlogic
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
