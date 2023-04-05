@@ -5,7 +5,7 @@
 默认IP：192.168.1.1  
 默认密码：password  
 默认编译S905X3盒子固件  
-如需其他CPU型号请修改`Package Armvirt as OpenWrt`节点中的`PACKAGE_SOC`变量，详细使用说明：[README1.ACTION.md](README.ACTION.md)
+如需其他CPU型号请修改`Package Armvirt as OpenWrt`节点中的`PACKAGE_SOC`变量，详细使用说明：[README.ACTION.md](https://github.com/unifreq/openwrt_packit/blob/master/README.ACTION.md)
 ```    - name: Package Armvirt as OpenWrt
       if: steps.organize.outputs.status == 'success' && !cancelled()
       uses: ophub/flippy-openwrt-actions@main
