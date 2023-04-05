@@ -120,12 +120,9 @@ jobs:
         #sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
         sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
-        curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/blob/core/master/dev/clash-linux-arm64.tar.gz -o /tmp/clash.tar.gz
-        tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
-        chmod +x /tmp/clash >/dev/null 2>&1
-        mkdir -p package/luci-app-openclash/files/etc/openclash/core
-        mv /tmp/clash package/luci-app-openclash/files/etc/openclash/core/clash >/dev/null 2>&1
-        rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
+        mkdir -p package/luci-app-openclash/files/etc/openclash/core && cd package/luci-app-openclash/files/etc/openclash/core
+        curl -sL -m 30 --retry 2 https://github.com/vernesong/OpenClash/blob/core/master/dev/clash-linux-arm64.tar.gz
+        tar zxvf *.tar.gz && chmod +x clash && rm -rf *.tar.gz
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
@@ -427,8 +424,7 @@ jobs:
           - 当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           - 下载后请仔细校验MD5，如不正确请重新下载
           - 固件请使用晶晨宝盒刷入
-          ${{ env.useVersionInfo }}
-          
+          ${{ env.useVersionInfo }}  
           `md5sum`
           > ${{ env.MD5 }}
 
