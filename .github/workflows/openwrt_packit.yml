@@ -122,7 +122,7 @@ jobs:
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
         mkdir -p package/luci-app-openclash/files/etc/openclash/core && cd package/luci-app-openclash/files/etc/openclash/core
         wget https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz
-        tar zxvf *.tar.gz && chmod +x clash && rm -rf *.tar.gz
+        tar zxvf ./*.tar.gz && chmod +x ./clash && rm -rf ./*.tar.gz
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
@@ -258,7 +258,6 @@ jobs:
         CONFIG_PACKAGE_luci-app-passwall=y
         CONFIG_PACKAGE_luci-app-passwall2=y
         CONFIG_PACKAGE_luci-app-adguardhome=y
-        CONFIG_PACKAGE_luci-app-pptp-server=y
         CONFIG_PACKAGE_luci-app-ipsec-server=y
         CONFIG_PACKAGE_luci-app-rp-pppoe-server=y
         CONFIG_PACKAGE_luci-app-sqm=y
