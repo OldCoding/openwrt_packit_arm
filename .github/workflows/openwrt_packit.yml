@@ -193,12 +193,15 @@ jobs:
         # USB2.0支持:
         cat >> .config <<EOF
         CONFIG_PACKAGE_kmod-usb-core=y
+        CONFIG_PACKAGE_kmod-usb-dwc2=y
         CONFIG_PACKAGE_kmod-usb-dwc3=y
-        CONFIG_PACKAGE_kmod-usb-dwc3-qcom=y
+        CONFIG_PACKAGE_kmod-usb-ehci=y
         CONFIG_PACKAGE_kmod-usb-storage=y
         CONFIG_PACKAGE_kmod-usb-storage-extras=y
         CONFIG_PACKAGE_kmod-usb-storage-uas=y
         CONFIG_PACKAGE_kmod-usb-xhci-hcd=y
+        CONFIG_PACKAGE_kmod-usb-ohci=y
+        CONFIG_PACKAGE_kmod-usb2=y
         CONFIG_PACKAGE_kmod-usb3=y
         EOF
 
