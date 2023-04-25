@@ -104,6 +104,7 @@ jobs:
         git clone --depth 1 https://github.com/sbwml/luci-app-alist
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall
         git clone --depth 1 https://github.com/fw876/helloworld
+        git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2 passwall2 && mv -n passwall2/luci-app-passwall2 ./;rm -rf passwall2
         git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall && mv -n passwall/luci-app-passwall ./;rm -rf passwall
         svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-diskman
@@ -263,6 +264,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-upnp=y
         CONFIG_PACKAGE_luci-app-vsftpd=y
         CONFIG_PACKAGE_luci-app-vlmcsd=y
+        CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-zerotier=y
         CONFIG_PACKAGE_luci-app-passwall=y
         CONFIG_PACKAGE_luci-app-passwall2=y
@@ -389,7 +391,7 @@ jobs:
       uses: ophub/flippy-openwrt-actions@main
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/armvirt/64/openwrt-armvirt-64-default-rootfs.tar.gz
-        PACKAGE_SOC: all
+        PACKAGE_SOC: s905X3
         WHOAMI: Wing
         KERNEL_AUTO_LATEST: true
         OPENWRT_VER: ${{ env.VER }}
