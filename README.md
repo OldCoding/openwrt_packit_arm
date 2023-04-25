@@ -19,4 +19,4 @@
         DISTRIB_DESCRIPTION: Wing build $(TZ=UTC-8 date "+%Y.%m.%d")
         DISTRIB_REVISION: \@ OpenWrt ${{ env.VER }}
         GZIP_IMGS: .gz
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}```
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
