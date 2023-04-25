@@ -390,7 +390,7 @@ jobs:
       if: steps.organize.outputs.status == 'success' && !cancelled()
       uses: ophub/flippy-openwrt-actions@main
       env:
-        OPENWRT_ARMVIRT: openwrt/bin/targets/armvirt/64/openwrt-armvirt-64-default-rootfs.tar.gz
+        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: s905X3
         WHOAMI: Wing
         KERNEL_AUTO_LATEST: true
