@@ -28,7 +28,7 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: openwrt_armvirt
-  PRODUCT_NAME: ARMv8
+  PRODUCT_NAME: ARMv8-le
 
 
 jobs:
@@ -115,13 +115,13 @@ jobs:
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
         svn export https://github.com/immortalwrt/packages/trunk/net/qBittorrent-Enhanced-Edition
 
-    - name: File Patch
+    - name: File Patch Before
       run: |
         cd openwrt
         sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
-        #sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
+        sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" package/luci-app-amlogic/root/etc/config/amlogic
         mkdir -p package/luci-app-openclash/files/etc/openclash/core && cd package/luci-app-openclash/files/etc/openclash/core
         curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz -o /tmp/clash.tar.gz
         tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
@@ -133,7 +133,7 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
       
-    - name: File Patch2
+    - name: File Patch After
       run: |
         cd openwrt && ls
         rm -rf feeds/packages/lang/golang
