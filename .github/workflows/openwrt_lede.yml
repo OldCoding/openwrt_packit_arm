@@ -291,7 +291,6 @@ jobs:
 
         # 常用软件包:
         cat >> .config <<EOF
-
         CONFIG_DEFAULT_coremark=y
         CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_block-mount=y
@@ -301,6 +300,7 @@ jobs:
 
         # 必备软件包:
         cat >> .config <<EOF
+        CONFIG_PACKAGE_perl=y
         CONFIG_PACKAGE_perl-http-date=y
         CONFIG_PACKAGE_perlbase-file=y
         CONFIG_PACKAGE_perlbase-getopt=y
