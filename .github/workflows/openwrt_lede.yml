@@ -113,7 +113,6 @@ jobs:
         svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
         svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
-        svn export https://github.com/immortalwrt/packages/trunk/net/qBittorrent-Enhanced-Edition
 
     - name: File Patch Before
       run: |
@@ -139,8 +138,6 @@ jobs:
         rm -rf feeds/packages/lang/golang
         svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
         sed -i 's/[b|B]ootstrap/design/g' ./feeds/luci/collections/luci/Makefile
-        rm -rf feeds/luci/applications/luci-app-qbittorrent
-        svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-qbittorrent ./feeds/luci/applications/luci-app-qbittorrent
         cd feeds/luci/applications/luci-app-wrtbwmon
         sed -i 's/ selected=\"selected\"//g' ./luasrc/view/wrtbwmon/wrtbwmon.htm && sed -i 's/\"1\"/\"1\" selected=\"selected\"/g' ./luasrc/view/wrtbwmon/wrtbwmon.htm
         sed -i 's/interval: 5/interval: 1/g' ./htdocs/luci-static/wrtbwmon/wrtbwmon.js
