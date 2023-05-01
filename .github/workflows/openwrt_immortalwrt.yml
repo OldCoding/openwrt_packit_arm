@@ -299,8 +299,7 @@ jobs:
         CONFIG_PACKAGE_autocore=y
         CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_autosamba=y
-        CONFIG_LUCI_LANG_zh_Hans=y
-        CONFIG_PACKAGE_default-settings=y
+        CONFIG_PACKAGE_default-settings-chn=y
         CONFIG_PACKAGE_acpid=y
         CONFIG_PACKAGE_kmod-brcmfmac=y
         CONFIG_PACKAGE_kmod-brcmutil=y
