@@ -298,6 +298,7 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_autocore=y
         CONFIG_LUCI_LANG_zh_Hans=y
+        CONFIG_PACKAGE_default-settings=y
         CONFIG_PACKAGE_acpid=y
         CONFIG_PACKAGE_kmod-brcmfmac=y
         CONFIG_PACKAGE_kmod-brcmutil=y
