@@ -231,25 +231,19 @@ jobs:
         CONFIG_PACKAGE_luci-app-hd-idle=y
         CONFIG_PACKAGE_luci-app-ttyd=y
         CONFIG_PACKAGE_luci-app-wol=y
-        CONFIG_PACKAGE_luci-app-wrtbwmon=y
         CONFIG_PACKAGE_luci-app-ramfree=y
         CONFIG_PACKAGE_luci-app-frpc=y
         CONFIG_PACKAGE_luci-app-webadmin=y
-        CONFIG_PACKAGE_luci-app-usb-printer=y
         CONFIG_PACKAGE_luci-app-upnp=y
-        CONFIG_PACKAGE_luci-app-vsftpd=y
         CONFIG_PACKAGE_luci-app-vlmcsd=y
         CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-zerotier=y
-        CONFIG_PACKAGE_luci-app-passwall=y
-        CONFIG_PACKAGE_luci-app-passwall2=y
         CONFIG_PACKAGE_luci-app-adguardhome=y
         CONFIG_PACKAGE_luci-app-ipsec-server=y
         CONFIG_PACKAGE_luci-app-pptp-server=y
         CONFIG_PACKAGE_luci-app-sqm=y
         CONFIG_PACKAGE_luci-app-qbittorrent=y
         CONFIG_PACKAGE_luci-app-aria2=y
-        CONFIG_PACKAGE_luci-app-transmission=y
         CONFIG_PACKAGE_luci-app-filebrowser=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
         CONFIG_PACKAGE_luci-app-openclash=y
@@ -300,14 +294,14 @@ jobs:
         CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_autosamba=y
         CONFIG_PACKAGE_default-settings-chn=y
-        CONFIG_PACKAGE_acpid=y
-        CONFIG_PACKAGE_kmod-brcmfmac=y
-        CONFIG_PACKAGE_kmod-brcmutil=y
-        CONFIG_PACKAGE_kmod-cfg80211=y
-        CONFIG_PACKAGE_kmod-mac80211=y
-        CONFIG_PACKAGE_hostapd-common=y
-        CONFIG_PACKAGE_wpa-cli=y
-        CONFIG_PACKAGE_wpad-basic=y
+        # CONFIG_PACKAGE_acpid is not set
+        # CONFIG_PACKAGE_kmod-brcmfmac is not set
+        # CONFIG_PACKAGE_kmod-brcmutil is not set
+        # CONFIG_PACKAGE_kmod-cfg80211 is not set
+        # CONFIG_PACKAGE_kmod-mac80211 is not set
+        # CONFIG_PACKAGE_hostapd-common is not set
+        # CONFIG_PACKAGE_wpa-cli is not set
+        # CONFIG_PACKAGE_wpad-basic is not set
         EOF
 
         # 
