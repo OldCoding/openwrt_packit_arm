@@ -181,28 +181,28 @@ jobs:
         EOF
         
         # USB2.0支持:
-        cat >> .config <<EOF
-        CONFIG_PACKAGE_kmod-usb-core=y
-        CONFIG_PACKAGE_kmod-usb-dwc2=y
-        CONFIG_PACKAGE_kmod-usb-dwc3=y
-        CONFIG_PACKAGE_kmod-usb-ehci=y
-        CONFIG_PACKAGE_kmod-usb-storage=y
-        CONFIG_PACKAGE_kmod-usb-storage-extras=y
-        CONFIG_PACKAGE_kmod-usb-storage-uas=y
-        CONFIG_PACKAGE_kmod-usb-xhci-hcd=y
-        CONFIG_PACKAGE_kmod-usb-ohci=y
-        CONFIG_PACKAGE_kmod-usb2=y
-        CONFIG_PACKAGE_kmod-usb3=y
-        EOF
+        #cat >> .config <<EOF
+        #CONFIG_PACKAGE_kmod-usb-core=y
+        #CONFIG_PACKAGE_kmod-usb-dwc2=y
+        #CONFIG_PACKAGE_kmod-usb-dwc3=y
+        #CONFIG_PACKAGE_kmod-usb-ehci=y
+        #CONFIG_PACKAGE_kmod-usb-storage=y
+        #CONFIG_PACKAGE_kmod-usb-storage-extras=y
+        #CONFIG_PACKAGE_kmod-usb-storage-uas=y
+        #CONFIG_PACKAGE_kmod-usb-xhci-hcd=y
+        #CONFIG_PACKAGE_kmod-usb-ohci=y
+        #CONFIG_PACKAGE_kmod-usb2=y
+        #CONFIG_PACKAGE_kmod-usb3=y
+        #EOF
 
         # IPv6支持:
-        cat >> .config <<EOF
-        CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-        CONFIG_PACKAGE_ip6tables=y
-        CONFIG_PACKAGE_ip6tables-extra=y
-        CONFIG_PACKAGE_ip6tables-mod-nat=y
-        CONFIG_PACKAGE_ipv6helper=y
-        EOF
+        #cat >> .config <<EOF
+        #CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+        #CONFIG_PACKAGE_ip6tables=y
+        #CONFIG_PACKAGE_ip6tables-extra=y
+        #CONFIG_PACKAGE_ip6tables-mod-nat=y
+        #CONFIG_PACKAGE_ipv6helper=y
+        #EOF
 
         # 镜像设置
         cat >> .config <<EOF
@@ -215,47 +215,47 @@ jobs:
         EOF
 
         # LuCI插件选择:
-        cat >> .config <<EOF
-        CONFIG_PACKAGE_luci-app-autoreboot=y
-        CONFIG_PACKAGE_luci-app-diskman=y
-        CONFIG_PACKAGE_luci-app-dockerman=y
-        CONFIG_PACKAGE_luci-app-amlogic=y
-        CONFIG_PACKAGE_luci-app-alist=y
-        CONFIG_PACKAGE_luci-app-ddns=y
-        # CONFIG_PACKAGE_luci-app-filetransfer is not set
-        # CONFIG_PACKAGE_luci-app-nlbwmon is not set
-        # CONFIG_PACKAGE_luci-app-firewall is not set
-        CONFIG_PACKAGE_luci-app-ssr-plus=y
-        CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
-        # CONFIG_PACKAGE_luci-app-pushbot is not set
-        CONFIG_PACKAGE_luci-app-smartdns=y
-        CONFIG_PACKAGE_luci-app-samba4=y
-        CONFIG_PACKAGE_luci-app-hd-idle=y
-        CONFIG_PACKAGE_luci-app-ttyd=y
-        # CONFIG_PACKAGE_luci-app-wol is not set
-        # CONFIG_PACKAGE_luci-app-wrtbwmon is not set
-        CONFIG_PACKAGE_luci-app-ramfree=y
-        # CONFIG_PACKAGE_luci-app-frpc is not set
-        CONFIG_PACKAGE_luci-app-webadmin=y
-        # CONFIG_PACKAGE_luci-app-usb-printer is not set
-        CONFIG_PACKAGE_luci-app-upnp=y
-        # CONFIG_PACKAGE_luci-app-vsftpd is not set
-        # CONFIG_PACKAGE_luci-app-vlmcsd is not set
-        # CONFIG_PACKAGE_luci-app-netspeedtest is not set
-        CONFIG_PACKAGE_luci-app-zerotier=y
-        # CONFIG_PACKAGE_luci-app-passwall is not set
-        # CONFIG_PACKAGE_luci-app-passwall2 is not set
-        # CONFIG_PACKAGE_luci-app-adguardhome is not set
-        # CONFIG_PACKAGE_luci-app-ipsec-server is not set
-        # CONFIG_PACKAGE_luci-app-pptp-server is not set
-        CONFIG_PACKAGE_luci-app-sqm=y
-        # CONFIG_PACKAGE_luci-app-qbittorrent is not set
-        # CONFIG_PACKAGE_luci-app-aria2 is not set
-        # CONFIG_PACKAGE_luci-app-transmission is not set
-        # CONFIG_PACKAGE_luci-app-filebrowser is not set
-        # CONFIG_PACKAGE_luci-app-kodexplorer is not set
-        CONFIG_PACKAGE_luci-app-openclash=y
-        EOF
+        #cat >> .config <<EOF
+        #CONFIG_PACKAGE_luci-app-autoreboot=y
+        #CONFIG_PACKAGE_luci-app-diskman=y
+        #CONFIG_PACKAGE_luci-app-dockerman=y
+        #CONFIG_PACKAGE_luci-app-amlogic=y
+        #CONFIG_PACKAGE_luci-app-alist=y
+        #CONFIG_PACKAGE_luci-app-ddns=y
+        ## CONFIG_PACKAGE_luci-app-filetransfer is not set
+        ## CONFIG_PACKAGE_luci-app-nlbwmon is not set
+        ## CONFIG_PACKAGE_luci-app-firewall is not set
+        #CONFIG_PACKAGE_luci-app-ssr-plus=y
+        #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
+        ## CONFIG_PACKAGE_luci-app-pushbot is not set
+        #CONFIG_PACKAGE_luci-app-smartdns=y
+        #CONFIG_PACKAGE_luci-app-samba4=y
+        #CONFIG_PACKAGE_luci-app-hd-idle=y
+        #CONFIG_PACKAGE_luci-app-ttyd=y
+        ## CONFIG_PACKAGE_luci-app-wol is not set
+        ## CONFIG_PACKAGE_luci-app-wrtbwmon is not set
+        #CONFIG_PACKAGE_luci-app-ramfree=y
+        ## CONFIG_PACKAGE_luci-app-frpc is not set
+        #CONFIG_PACKAGE_luci-app-webadmin=y
+        ## CONFIG_PACKAGE_luci-app-usb-printer is not set
+        #CONFIG_PACKAGE_luci-app-upnp=y
+        ## CONFIG_PACKAGE_luci-app-vsftpd is not set
+        ## CONFIG_PACKAGE_luci-app-vlmcsd is not set
+        ## CONFIG_PACKAGE_luci-app-netspeedtest is not set
+        #CONFIG_PACKAGE_luci-app-zerotier=y
+        ## CONFIG_PACKAGE_luci-app-passwall is not set
+        ## CONFIG_PACKAGE_luci-app-passwall2 is not set
+        ## CONFIG_PACKAGE_luci-app-adguardhome is not set
+        ## CONFIG_PACKAGE_luci-app-ipsec-server is not set
+        ## CONFIG_PACKAGE_luci-app-pptp-server is not set
+        #CONFIG_PACKAGE_luci-app-sqm=y
+        ## CONFIG_PACKAGE_luci-app-qbittorrent is not set
+        ## CONFIG_PACKAGE_luci-app-aria2 is not set
+        ## CONFIG_PACKAGE_luci-app-transmission is not set
+        ## CONFIG_PACKAGE_luci-app-filebrowser is not set
+        ## CONFIG_PACKAGE_luci-app-kodexplorer is not set
+        #CONFIG_PACKAGE_luci-app-openclash=y
+        #EOF
 
         # LuCI主题:
         cat >> .config <<EOF
@@ -296,11 +296,11 @@ jobs:
         CONFIG_PACKAGE_uuidgen=y
         EOF
         # 可选软件包
-        cat >> .config <<EOF
-        CONFIG_PACKAGE_autocore=y
-        CONFIG_PACKAGE_automount=y
-        CONFIG_PACKAGE_autosamba=y
-        CONFIG_PACKAGE_default-settings-chn=y
+        #cat >> .config <<EOF
+        #CONFIG_PACKAGE_autocore=y
+        #CONFIG_PACKAGE_automount=y
+        #CONFIG_PACKAGE_autosamba=y
+        #CONFIG_PACKAGE_default-settings-chn=y
         # CONFIG_PACKAGE_acpid is not set
         # CONFIG_PACKAGE_kmod-brcmfmac is not set
         # CONFIG_PACKAGE_kmod-brcmutil is not set
@@ -309,7 +309,7 @@ jobs:
         # CONFIG_PACKAGE_hostapd-common is not set
         # CONFIG_PACKAGE_wpa-cli is not set
         # CONFIG_PACKAGE_wpad-basic is not set
-        EOF
+        #EOF
 
         # 
         # ========================固件定制部分结束========================
