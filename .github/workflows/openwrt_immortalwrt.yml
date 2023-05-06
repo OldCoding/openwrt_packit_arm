@@ -91,7 +91,7 @@ jobs:
         echo "VER=R$(date +%Y.%m.%d)" >> $GITHUB_ENV
 
     - name: Cache
-      uses: klever1988/cachewrtbuild@main
+      uses: klever1988/cachewrtbuild@test
       with:
         ccache: 'true'
         prefix: ${{ github.workspace }}/openwrt
