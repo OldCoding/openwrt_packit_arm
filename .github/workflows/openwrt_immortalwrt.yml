@@ -181,28 +181,28 @@ jobs:
         EOF
         
         # USB2.0支持:
-        #cat >> .config <<EOF
-        #CONFIG_PACKAGE_kmod-usb-core=y
-        #CONFIG_PACKAGE_kmod-usb-dwc2=y
-        #CONFIG_PACKAGE_kmod-usb-dwc3=y
-        #CONFIG_PACKAGE_kmod-usb-ehci=y
-        #CONFIG_PACKAGE_kmod-usb-storage=y
-        #CONFIG_PACKAGE_kmod-usb-storage-extras=y
-        #CONFIG_PACKAGE_kmod-usb-storage-uas=y
-        #CONFIG_PACKAGE_kmod-usb-xhci-hcd=y
-        #CONFIG_PACKAGE_kmod-usb-ohci=y
-        #CONFIG_PACKAGE_kmod-usb2=y
-        #CONFIG_PACKAGE_kmod-usb3=y
-        #EOF
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_kmod-usb-core=y
+        CONFIG_PACKAGE_kmod-usb-dwc2=y
+        CONFIG_PACKAGE_kmod-usb-dwc3=y
+        CONFIG_PACKAGE_kmod-usb-ehci=y
+        CONFIG_PACKAGE_kmod-usb-storage=y
+        CONFIG_PACKAGE_kmod-usb-storage-extras=y
+        CONFIG_PACKAGE_kmod-usb-storage-uas=y
+        CONFIG_PACKAGE_kmod-usb-xhci-hcd=y
+        CONFIG_PACKAGE_kmod-usb-ohci=y
+        CONFIG_PACKAGE_kmod-usb2=y
+        CONFIG_PACKAGE_kmod-usb3=y
+        EOF
 
         # IPv6支持:
-        #cat >> .config <<EOF
-        #CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-        #CONFIG_PACKAGE_ip6tables=y
-        #CONFIG_PACKAGE_ip6tables-extra=y
-        #CONFIG_PACKAGE_ip6tables-mod-nat=y
-        #CONFIG_PACKAGE_ipv6helper=y
-        #EOF
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+        CONFIG_PACKAGE_ip6tables=y
+        CONFIG_PACKAGE_ip6tables-extra=y
+        CONFIG_PACKAGE_ip6tables-mod-nat=y
+        CONFIG_PACKAGE_ipv6helper=y
+        EOF
 
 
         # 镜像设置
