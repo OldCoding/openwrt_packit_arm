@@ -120,6 +120,7 @@ jobs:
         svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
         svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
+        svn export https://github.com/gngpp/nas-xunlei/trunk/openwrt
 
     - name: File Patch Before
       run: |
@@ -285,6 +286,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-filebrowser=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
         CONFIG_PACKAGE_luci-app-openclash=y
+        CONFIG_PACKAGE_luci-app-xunlei=y
         EOF
 
         # LuCI主题:
