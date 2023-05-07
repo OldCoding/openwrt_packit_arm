@@ -208,7 +208,7 @@ jobs:
         # CONFIG_TARGET_IMAGES_GZIP is not set
         EOF
 
-         LuCI插件选择:
+        # LuCI插件选择:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
         CONFIG_PACKAGE_luci-app-diskman=y
