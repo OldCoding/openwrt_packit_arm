@@ -294,7 +294,7 @@ jobs:
         # CONFIG_PACKAGE_autocore is not set
         # CONFIG_PACKAGE_automount is not set
         # CONFIG_PACKAGE_autosamba is not set
-        CONFIG_PACKAGE_default-settings-chn=y
+        # CONFIG_PACKAGE_default-settings-chn is not set
         # CONFIG_PACKAGE_acpid is not set
         # CONFIG_PACKAGE_kmod-brcmfmac is not set
         # CONFIG_PACKAGE_kmod-brcmutil is not set
