@@ -299,6 +299,7 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_autocore-arm=y
         CONFIG_PACKAGE_autosamba=y
+        CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_block-mount=y
         CONFIG_PACKAGE_libarchive=y
         # CONFIG_PACKAGE_luci-app-unblockmusic is not set
