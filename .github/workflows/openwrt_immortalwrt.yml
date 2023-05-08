@@ -23,7 +23,7 @@ on:
     
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-21.02
+  REPO_BRANCH: master
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -33,7 +33,7 @@ env:
 
 jobs:
   build:
-    runs-on: Ubuntu-22.04
+    runs-on: Ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
     
     steps:
@@ -63,16 +63,11 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        docker rmi `docker images -q`
-        sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
-        sudo -E apt -y purge azure-cli* docker* ghc* zulu* llvm* firefox google* dotnet* powershell* openjdk* mysql* php* mongodb* dotnet* moby* snap* aspnetcore*
-        [ -n "$AGENT_TOOLSDIRECTORY" ] && sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-        sudo -E apt update
-        sudo -E apt -y install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
         sudo -E apt-get -qq install libfuse-dev
-        sudo -E apt -y autoremove --purge
-        sudo -E systemctl daemon-reload
-        sudo -E apt clean
+        sudo -E apt-get -qq autoremove --purge
+        sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
@@ -237,18 +232,18 @@ jobs:
         # LuCI插件选择:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
+        CONFIG_PACKAGE_luci-app-amlogic=y
         CONFIG_PACKAGE_luci-app-diskman=y
         CONFIG_PACKAGE_luci-app-dockerman=y
-        CONFIG_PACKAGE_luci-app-amlogic=y
         # CONFIG_PACKAGE_luci-app-alist is not set
         # CONFIG_PACKAGE_luci-app-ddns is not set
         # CONFIG_PACKAGE_luci-app-filetransfer is not set
         # CONFIG_PACKAGE_luci-app-nlbwmon is not set
         # CONFIG_PACKAGE_luci-app-firewall is not set
-        CONFIG_PACKAGE_luci-app-ssr-plus=y
+        # CONFIG_PACKAGE_luci-app-ssr-plus is not set
         # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
         # CONFIG_PACKAGE_luci-app-pushbot is not set
-        CONFIG_PACKAGE_luci-app-smartdns=y
+        # CONFIG_PACKAGE_luci-app-smartdns is not set
         # CONFIG_PACKAGE_luci-app-samba4 is not set
         # CONFIG_PACKAGE_luci-app-hd-idle is not set
         # CONFIG_PACKAGE_luci-app-ttyd is not set
@@ -256,25 +251,25 @@ jobs:
         # CONFIG_PACKAGE_luci-app-wrtbwmon is not set
         # CONFIG_PACKAGE_luci-app-ramfree is not set
         # CONFIG_PACKAGE_luci-app-frpc is not set
-        CONFIG_PACKAGE_luci-app-webadmin=y
+        # CONFIG_PACKAGE_luci-app-webadmin is not set
         # CONFIG_PACKAGE_luci-app-usb-printer is not set
-        CONFIG_PACKAGE_luci-app-upnp=y
+        # CONFIG_PACKAGE_luci-app-upnp is not set
         # CONFIG_PACKAGE_luci-app-vsftpd is not set
         # CONFIG_PACKAGE_luci-app-vlmcsd is not set
         # CONFIG_PACKAGE_luci-app-netspeedtest is not set
-        CONFIG_PACKAGE_luci-app-zerotier=y
+        # CONFIG_PACKAGE_luci-app-zerotier is not set
         # CONFIG_PACKAGE_luci-app-passwall is not set
         # CONFIG_PACKAGE_luci-app-passwall2 is not set
         # CONFIG_PACKAGE_luci-app-adguardhome is not set
         # CONFIG_PACKAGE_luci-app-ipsec-server is not set
         # CONFIG_PACKAGE_luci-app-pptp-server is not set
-        CONFIG_PACKAGE_luci-app-sqm=y
+        # CONFIG_PACKAGE_luci-app-sqm is not set
         # CONFIG_PACKAGE_luci-app-qbittorrent is not set
         # CONFIG_PACKAGE_luci-app-aria2 is not set
         # CONFIG_PACKAGE_luci-app-transmission is not set
         # CONFIG_PACKAGE_luci-app-filebrowser is not set
         # CONFIG_PACKAGE_luci-app-kodexplorer is not set
-        CONFIG_PACKAGE_luci-app-openclash=y
+        # CONFIG_PACKAGE_luci-app-openclash is not set
         EOF
 
         # LuCI主题:
