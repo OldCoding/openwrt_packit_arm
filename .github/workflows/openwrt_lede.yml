@@ -106,7 +106,6 @@ jobs:
         git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns
         git clone --depth 1 https://github.com/lisaac/luci-app-dockerman
         git clone --depth 1 https://github.com/gngpp/luci-theme-design
-        git clone --depth 1 https://github.com/gngpp/luci-app-design-config
         git clone --depth 1 https://github.com/sbwml/luci-app-alist
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall
         git clone --depth 1 https://github.com/fw876/helloworld
@@ -292,8 +291,8 @@ jobs:
 
         # LuCI主题:
         cat >> .config <<EOF
+        CONFIG_PACKAGE_luci-theme-argon=y
         CONFIG_PACKAGE_luci-theme-design=y
-        CONFIG_PACKAGE_luci-app-design-config=y
         EOF
 
         # 常用软件包:
