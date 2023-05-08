@@ -101,6 +101,7 @@ jobs:
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
+        svn export https://github.com/gngpp/nas-xunlei/trunk/openwrt
 
     - name: File Patch Before
       run: |
@@ -269,6 +270,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-filebrowser=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
         CONFIG_PACKAGE_luci-app-openclash=y
+        CONFIG_PACKAGE_luci-app-xunlei=y
         EOF
 
         # LuCI主题:
