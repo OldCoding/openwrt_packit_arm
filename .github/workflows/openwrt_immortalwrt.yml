@@ -62,7 +62,11 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        docker rmi `docker images -q`
+        sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
+        sudo -E apt -y purge azure-cli* docker* ghc* zulu* llvm* firefox google* dotnet* powershell* openjdk* mysql* php* mongodb* dotnet* moby* snap* aspnetcore*
+        [ -n "$AGENT_TOOLSDIRECTORY" ] && sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+        sudo -E apt update
         sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
         sudo -E apt-get -qq install libfuse-dev
         sudo -E apt-get -qq autoremove --purge
@@ -193,7 +197,6 @@ jobs:
         # IPv6支持:
         cat >> .config <<EOF
         CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
-        CONFIG_PACKAGE_ip6tables=y
         CONFIG_PACKAGE_ip6tables-extra=y
         CONFIG_PACKAGE_ip6tables-mod-nat=y
         CONFIG_PACKAGE_ipv6helper=y
