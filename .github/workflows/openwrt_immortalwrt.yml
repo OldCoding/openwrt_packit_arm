@@ -269,8 +269,8 @@ jobs:
         CONFIG_PACKAGE_luci-app-xunlei=y
         # CONFIG_PACKAGE_luci-app-hd-idle is not set
         # CONFIG_PACKAGE_luci-app-frpc is not set
-        # CONFIG_PACKAGE_luci-app-passwall is not set
-        # CONFIG_PACKAGE_luci-app-ipsec-server is not set
+        CONFIG_PACKAGE_luci-app-passwall=y
+        CONFIG_PACKAGE_luci-app-ipsec-server=y
         CONFIG_PACKAGE_luci-app-pptp-server=y
         CONFIG_PACKAGE_luci-app-transmission=y
         EOF
