@@ -277,13 +277,13 @@ jobs:
 
         # 必备软件包:
         cat >> .config <<EOF
-        # CONFIG_PACKAGE_perl is not set
-        # CONFIG_PACKAGE_perl-http-date is not set
-        # CONFIG_PACKAGE_perlbase-file is not set
-        # CONFIG_PACKAGE_perlbase-getopt is not set
-        # CONFIG_PACKAGE_perlbase-time is not set
-        # CONFIG_PACKAGE_perlbase-unicode is not set
-        # CONFIG_PACKAGE_perlbase-utf8 is not set
+        CONFIG_PACKAGE_perl=y
+        CONFIG_PACKAGE_perl-http-date=y
+        CONFIG_PACKAGE_perlbase-file=y
+        CONFIG_PACKAGE_perlbase-getopt=y
+        CONFIG_PACKAGE_perlbase-time=y
+        CONFIG_PACKAGE_perlbase-unicode=y
+        CONFIG_PACKAGE_perlbase-utf8=y
         CONFIG_PACKAGE_blkid=y
         CONFIG_PACKAGE_fdisk=y
         CONFIG_PACKAGE_lsblk=y
