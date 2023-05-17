@@ -102,7 +102,7 @@ jobs:
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
-        svn export https://github.com/gngpp/nas-xunlei/trunk/openwrt
+        svn co https://github.com/gngpp/xunlei/trunk/openwrt luci-app-xunlei
 
     - name: File Patch Before
       run: |
