@@ -128,7 +128,6 @@ jobs:
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
         sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" package/luci-app-amlogic/root/etc/config/amlogic
-        mkdir -p package/luci-app-openclash/files/etc/openclash/core && cd package/luci-app-openclash/files/etc/openclash/core
         curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz -o /tmp/clash.tar.gz
         tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
         chmod +x /tmp/clash >/dev/null 2>&1
