@@ -128,12 +128,20 @@ jobs:
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
         sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" package/luci-app-amlogic/root/etc/config/amlogic
-        curl -sL -m 30 --retry 2 https://raw.githubusercontent.com/vernesong/OpenClash/core/master/dev/clash-linux-amd64.tar.gz -o /tmp/clash.tar.gz
-        tar zxvf /tmp/clash.tar.gz -C /tmp >/dev/null 2>&1
-        chmod +x /tmp/clash >/dev/null 2>&1
-        mkdir -p ./package/luci-app-openclash/root/usr/share/openclash/core
-        mv /tmp/clash ./package/luci-app-openclash/root/usr/share/openclash/core/clash >/dev/null 2>&1
-        rm -rf /tmp/clash.tar.gz >/dev/null 2>&1
+        cd ./package/luci-app-openclash/root/usr/share/openclash
+        CORE_VER=https://github.com/vernesong/OpenClash/raw/core/master/core_version
+        CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/master/premium/clash-linux-arm64
+        CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/master/dev/clash-linux-arm64.tar.gz
+        CORE_MATE=https://github.com/vernesong/OpenClash/raw/core/master/meta/clash-linux-arm64.tar.gz
+        TUN_VER=$(curl -sfL $CORE_VER | sed -n "2{s/\r$//;p;q}")
+        curl -sfL -o ./Country.mmdb https://github.com/alecthw/mmdb_china_ip_list/raw/release/lite/Country.mmdb
+        curl -sfL -o ./GeoSite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geosite.dat
+        curl -sfL -o ./GeoIP.dat https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geoip.dat
+        mkdir ./core && cd ./core
+        curl -sfL -o ./tun.gz "$CORE_TUN"-"$TUN_VER".gz && gzip -d ./tun.gz && mv ./tun ./clash_tun
+        curl -sfL -o ./meta.tar.gz "$CORE_MATE" && tar -zxf ./meta.tar.gz && mv ./clash ./clash_meta
+        curl -sfL -o ./dev.tar.gz "$CORE_DEV" && tar -zxf ./dev.tar.gz
+        chmod +x ./clash* ; rm -rf ./*.gz
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
