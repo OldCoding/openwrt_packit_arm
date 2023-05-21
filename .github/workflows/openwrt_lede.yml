@@ -104,6 +104,7 @@ jobs:
         cd openwrt/package
         git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
         git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns
+        git clone --depth 1 https://github.com/pymumu/openwrt-smartdns
         git clone --depth 1 https://github.com/lisaac/luci-app-dockerman
         git clone --depth 1 https://github.com/gngpp/luci-theme-design
         git clone --depth 1 https://github.com/sbwml/luci-app-alist
@@ -115,7 +116,6 @@ jobs:
         git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall && mv -n passwall/luci-app-passwall ./;rm -rf passwall
         svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-diskman
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
-        svn export https://github.com/immortalwrt/packages/trunk/net/smartdns
         svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
         svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
