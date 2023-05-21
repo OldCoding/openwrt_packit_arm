@@ -128,7 +128,8 @@ jobs:
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
         sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" package/luci-app-amlogic/root/etc/config/amlogic
-        cd ./package/luci-app-openclash/root/etc/openclash
+        cd ./package
+        DIR=$PWD && cd ./luci-app-openclash/root/etc/openclash
         CORE_VER=https://github.com/vernesong/OpenClash/raw/core/master/core_version
         CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/master/premium/clash-linux-arm64
         CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/master/dev/clash-linux-arm64.tar.gz
@@ -142,6 +143,11 @@ jobs:
         curl -sfL -o ./meta.tar.gz "$CORE_MATE" && tar -zxf ./meta.tar.gz && mv ./clash ./clash_meta
         curl -sfL -o ./dev.tar.gz "$CORE_DEV" && tar -zxf ./dev.tar.gz
         chmod +x ./clash* ; rm -rf ./*.gz
+        cd $DIR/luci-app-adguardhome/root/usr && mkdir -p ./bin/AdGuardHome && cd ./bin/AdGuardHome && pwd
+        ADG_VER=$(curl -sfL https://api.github.com/repos/AdguardTeam/AdGuardHome/releases 2>/dev/null | grep 'tag_name' | egrep -o "v[0-9].+[0-9.]" | awk 'NR==1')
+        curl -sfL -o /tmp/AdGuardHome_linux_armv7.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/download/${ADG_VER}/AdGuardHome_linux_armv7.tar.gz
+        tar -zxf /tmp/*.tar.gz -C /tmp/ && chmod +x /tmp/AdGuardHome/AdGuardHome
+        mv /tmp/AdGuardHome/AdGuardHome ./ && rm -rf /tmp/AdGuardHome
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
