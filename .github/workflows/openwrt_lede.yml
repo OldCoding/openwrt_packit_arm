@@ -111,6 +111,7 @@ jobs:
         git clone --depth 1 https://github.com/fw876/helloworld
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced
+        git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2 passwall2 && mv -n passwall2/luci-app-passwall2 ./;rm -rf passwall2
         git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall && mv -n passwall/luci-app-passwall ./;rm -rf passwall
         svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-diskman
@@ -301,6 +302,7 @@ jobs:
         # LuCI主题:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-theme-argon=y
+        CONFIG_PACKAGE_luci-app-argon-config=y
         CONFIG_PACKAGE_luci-theme-design=y
         EOF
 
