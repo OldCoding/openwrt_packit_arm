@@ -109,8 +109,16 @@ jobs:
         cd openwrt
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
         sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" package/luci-app-amlogic/root/etc/config/amlogic
-        cd ./feeds/luci/applications && ls
-        cd ./luci-app-openclash/root/etc/openclash
+
+    - name: Update feeds
+      run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
+      
+    - name: File Patch After
+      run: |
+        cd openwrt && ls
+        rm -rf ./feeds/packages/lang/golang
+        svn export https://github.com/sbwml/packages_lang_golang/branches/19.x ./feeds/packages/lang/golang
+        cd ./feeds/luci/applications/luci-app-openclash/root/etc/openclash
         CORE_VER=https://github.com/vernesong/OpenClash/raw/core/master/core_version
         CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/master/premium/clash-linux-arm64
         CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/master/dev/clash-linux-arm64.tar.gz
@@ -124,15 +132,6 @@ jobs:
         curl -sfL -o ./meta.tar.gz "$CORE_MATE" && tar -zxf ./meta.tar.gz && mv ./clash ./clash_meta
         curl -sfL -o ./dev.tar.gz "$CORE_DEV" && tar -zxf ./dev.tar.gz
         chmod +x ./clash* ; rm -rf ./*.gz
-
-    - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
-      
-    - name: File Patch After
-      run: |
-        cd openwrt && ls
-        rm -rf feeds/packages/lang/golang
-        svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 
     - name: Generate configuration file
       run: |
