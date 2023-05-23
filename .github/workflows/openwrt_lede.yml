@@ -124,6 +124,7 @@ jobs:
     - name: File Patch Before
       run: |
         cd openwrt
+        sed -i "s/900/891/g" ./target/linux/generic/pending-6.1/790-bus-mhi-core-add-SBL-state-callback.patch
         sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
         sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
