@@ -100,6 +100,7 @@ jobs:
         git clone --depth 1 https://github.com/sbwml/luci-app-alist
         git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
+        git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
         svn co https://github.com/gngpp/xunlei/trunk/openwrt luci-app-xunlei
@@ -282,6 +283,7 @@ jobs:
         # LuCI主题:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-theme-argon=y
+        CONFIG_PACKAGE_luci-app-argon-config=y
         EOF
 
         # 必备软件包:
