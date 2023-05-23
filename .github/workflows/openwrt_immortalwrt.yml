@@ -109,7 +109,8 @@ jobs:
         cd openwrt
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
         sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" package/luci-app-amlogic/root/etc/config/amlogic
-        cd ./feeds/luci/applications/luci-app-openclash/root/etc/openclash
+        cd ./feeds/luci/applications && ls
+        cd ./luci-app-openclash/root/etc/openclash
         CORE_VER=https://github.com/vernesong/OpenClash/raw/core/master/core_version
         CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/master/premium/clash-linux-arm64
         CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/master/dev/clash-linux-arm64.tar.gz
