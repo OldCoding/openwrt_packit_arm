@@ -101,9 +101,10 @@ jobs:
         git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
+        git clone --depth 1 https://github.com/sbwml/luci-app-xunlei
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
-        svn co https://github.com/gngpp/xunlei/trunk/openwrt luci-app-xunlei
+        #svn co https://github.com/gngpp/xunlei/trunk/openwrt luci-app-xunlei
 
     - name: File Patch Before
       run: |
