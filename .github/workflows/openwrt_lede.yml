@@ -112,7 +112,7 @@ jobs:
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced
         git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
-        git clone --depth 1 https://github.com/sbwml/luci-app-xunlei
+        #git clone --depth 1 https://github.com/sbwml/luci-app-xunlei
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2 passwall2 && mv -n passwall2/luci-app-passwall2 ./;rm -rf passwall2
         git clone --depth 1 -b luci https://github.com/xiaorouji/openwrt-passwall passwall && mv -n passwall/luci-app-passwall ./;rm -rf passwall
         svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-diskman
@@ -121,7 +121,7 @@ jobs:
         svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
         svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
-        #svn export https://github.com/gngpp/nas-xunlei/trunk/openwrt
+        svn export https://github.com/gngpp/nas-xunlei/trunk/openwrt
 
     - name: File Patch Before
       run: |
