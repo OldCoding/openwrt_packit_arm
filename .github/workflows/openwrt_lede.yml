@@ -104,7 +104,7 @@ jobs:
         cd openwrt/package
         git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
         git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns
-        git clone --depth 1 https://github.com/lisaac/luci-app-dockerman
+        #git clone --depth 1 https://github.com/lisaac/luci-app-dockerman
         git clone --depth 1 https://github.com/gngpp/luci-theme-design
         git clone --depth 1 https://github.com/sbwml/luci-app-alist
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall
@@ -122,6 +122,7 @@ jobs:
         svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
         svn export https://github.com/gngpp/nas-xunlei/trunk/openwrt
+        svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-dockerman
 
     - name: File Patch Before
       run: |
