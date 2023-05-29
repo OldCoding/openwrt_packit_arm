@@ -351,16 +351,16 @@ jobs:
         EOF
 
         # 可选软件包
-        #cat >> .config <<EOF
-        #CONFIG_PACKAGE_acpid=y
-        #CONFIG_PACKAGE_kmod-brcmfmac=y
-        #CONFIG_PACKAGE_kmod-brcmutil=y
-        #CONFIG_PACKAGE_kmod-cfg80211=y
-        #CONFIG_PACKAGE_kmod-mac80211=y
-        #CONFIG_PACKAGE_hostapd-common=y
-        #CONFIG_PACKAGE_wpa-cli=y
-        #CONFIG_PACKAGE_wpad-basic=y
-        #EOF
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_acpid=y
+        CONFIG_PACKAGE_kmod-brcmfmac=y
+        CONFIG_PACKAGE_kmod-brcmutil=y
+        CONFIG_PACKAGE_kmod-cfg80211=y
+        CONFIG_PACKAGE_kmod-mac80211=y
+        CONFIG_PACKAGE_hostapd-common=y
+        CONFIG_PACKAGE_wpa-cli=y
+        CONFIG_PACKAGE_wpad-basic=y
+        EOF
 
         # 
         # ========================固件定制部分结束========================
