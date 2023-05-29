@@ -327,14 +327,14 @@ jobs:
         CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_autosamba=y
         CONFIG_PACKAGE_default-settings-chn=y
-        # CONFIG_PACKAGE_acpid is not set
-        # CONFIG_PACKAGE_kmod-brcmfmac is not set
-        # CONFIG_PACKAGE_kmod-brcmutil is not set
-        # CONFIG_PACKAGE_kmod-cfg80211 is not set
-        # CONFIG_PACKAGE_kmod-mac80211 is not set
-        # CONFIG_PACKAGE_hostapd-common is not set
-        # CONFIG_PACKAGE_wpa-cli is not set
-        # CONFIG_PACKAGE_wpad-basic is not set
+        CONFIG_PACKAGE_acpid=y
+        CONFIG_PACKAGE_kmod-brcmfmac=y
+        CONFIG_PACKAGE_kmod-brcmutil=y
+        CONFIG_PACKAGE_kmod-cfg80211=y
+        CONFIG_PACKAGE_kmod-mac80211=y
+        CONFIG_PACKAGE_hostapd-common=y
+        CONFIG_PACKAGE_wpa-cli=y
+        CONFIG_PACKAGE_wpad-basic=y
         EOF
 
         # 
