@@ -208,7 +208,6 @@ jobs:
         CONFIG_PACKAGE_ipv6helper=y
         EOF
 
-
         # 镜像设置
         cat >> .config <<EOF
         #
@@ -327,6 +326,7 @@ jobs:
         CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_autosamba=y
         CONFIG_PACKAGE_default-settings-chn=y
+        CONFIG_PACKAGE_ca-certificates=y
         CONFIG_PACKAGE_acpid=y
         CONFIG_PACKAGE_kmod-brcmfmac=y
         CONFIG_PACKAGE_kmod-brcmutil=y
