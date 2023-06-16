@@ -358,6 +358,8 @@ jobs:
         CONFIG_PACKAGE_kmod-cfg80211=y
         CONFIG_PACKAGE_kmod-mac80211=y
         CONFIG_PACKAGE_hostapd-common=y
+        CONFIG_PACKAGE_rtl8822be-firmware=y
+        CONFIG_PACKAGE_rtl8822ce-firmware=y
         CONFIG_PACKAGE_wpa-cli=y
         CONFIG_PACKAGE_wpad-basic=y
         EOF
