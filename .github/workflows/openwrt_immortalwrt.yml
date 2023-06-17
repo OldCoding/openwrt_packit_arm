@@ -108,9 +108,10 @@ jobs:
 
     - name: File Patch Before
       run: |
-        cd openwrt
-        sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" package/luci-app-amlogic/root/etc/config/amlogic
-        sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" package/luci-app-amlogic/root/etc/config/amlogic
+        cd openwrt/package
+        sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
+        sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" luci-app-amlogic/root/etc/config/amlogic
+        sed -i "s|amlogic_kernel_path.*|amlogic_kernel_path 'https://github.com/ophub/kernel'|g" luci-app-amlogic/root/etc/config/amlogic
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
