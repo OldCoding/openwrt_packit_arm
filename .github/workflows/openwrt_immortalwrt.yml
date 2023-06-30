@@ -390,7 +390,7 @@ jobs:
       uses: ophub/amlogic-s9xxx-openwrt@main
       with:
         openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
-        openwrt_board: s905x3
+        openwrt_board: s905x3_s905d
         openwrt_kernel: 5.4.1_5.10.1_5.15.95_6.1.15
         auto_kernel: true
         kernel_repo: ophub/kernel
