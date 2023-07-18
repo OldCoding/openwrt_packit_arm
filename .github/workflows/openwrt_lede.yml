@@ -104,7 +104,7 @@ jobs:
         cd openwrt/package
         git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
         git clone --depth 1 -b lede https://github.com/pymumu/luci-app-smartdns
-        git clone --depth 1 https://github.com/lisaac/luci-app-dockerman
+        #git clone --depth 1 https://github.com/lisaac/luci-app-dockerman
         git clone --depth 1 https://github.com/gngpp/luci-theme-design
         git clone --depth 1 https://github.com/sbwml/luci-app-alist
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall
