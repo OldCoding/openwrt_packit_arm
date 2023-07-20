@@ -135,7 +135,7 @@ jobs:
       run: |
         cd openwrt && ls
         rm -rf ./feeds/packages/lang/golang
-        svn export https://github.com/sbwml/packages_lang_golang/branches/19.x ./feeds/packages/lang/golang
+        git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
         rm -rf ./feeds/luci/applications/luci-app-openclash
         #cd ./feeds/luci/applications/luci-app-openclash/root/etc/openclash
         #CORE_VER=https://github.com/vernesong/OpenClash/raw/core/dev/core_version
