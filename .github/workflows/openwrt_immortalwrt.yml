@@ -194,12 +194,12 @@ jobs:
 
         # 编译ARM固件:
         cat >> .config <<EOF
-        CONFIG_TARGET_armvirt=y
-        CONFIG_TARGET_armvirt_64=y
-        CONFIG_TARGET_armvirt_64_Default=y
-        CONFIG_TARGET_ARCH_PACKAGES="aarch64_cortex-a53"
-        CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53"
-        CONFIG_CPU_TYPE="cortex-a53"
+        CONFIG_TARGET_armsr=y
+        CONFIG_TARGET_armsr_armv8=y
+        CONFIG_TARGET_armsr_armv8_DEVICE_generic=y
+        CONFIG_TARGET_ARCH_PACKAGES="aarch64_generic"
+        CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=generic"
+        CONFIG_CPU_TYPE="generic"
         EOF
         
         # USB2.0支持:
@@ -269,6 +269,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
         CONFIG_PACKAGE_luci-app-pushbot=y
         CONFIG_PACKAGE_luci-app-smartdns=y
+        CONFIG_PACKAGE_luci-app-socat=y
         CONFIG_PACKAGE_luci-app-samba4=y
         CONFIG_PACKAGE_luci-app-hd-idle=y
         CONFIG_PACKAGE_luci-app-ttyd=y
