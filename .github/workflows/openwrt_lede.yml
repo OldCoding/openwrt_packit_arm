@@ -203,10 +203,10 @@ jobs:
         cat >> .config <<EOF
         CONFIG_TARGET_armvirt=y
         CONFIG_TARGET_armvirt_64=y
-        CONFIG_TARGET_armvirt_64_Default=y
-        CONFIG_TARGET_ARCH_PACKAGES="aarch64_cortex-a53"
-        CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53"
-        CONFIG_CPU_TYPE="cortex-a53"
+        CONFIG_TARGET_armvirt_64_DEVICE_generic=y
+        CONFIG_TARGET_ARCH_PACKAGES="aarch64_generic"
+        CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=generic"
+        CONFIG_CPU_TYPE="generic"
         EOF
         
         # USB2.0支持:
