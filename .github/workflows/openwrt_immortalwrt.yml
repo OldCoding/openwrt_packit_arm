@@ -343,6 +343,7 @@ jobs:
         CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_autosamba=y
         CONFIG_PACKAGE_default-settings-chn=y
+        CONFIG_PACKAGE_kmod-ipt-fullconenat=y
         CONFIG_PACKAGE_ca-certificates=y
         CONFIG_PACKAGE_lsof=y
         CONFIG_PACKAGE_acpid=y
