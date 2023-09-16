@@ -108,6 +108,7 @@ jobs:
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall
         git clone --depth 1 https://github.com/fw876/helloworld
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
+        git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic
         git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced
         git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config
         #git clone --depth 1 https://github.com/sbwml/luci-app-xunlei
@@ -292,6 +293,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-ipsec-server=y
         CONFIG_PACKAGE_luci-app-pptp-server=y
         CONFIG_PACKAGE_luci-app-sqm=y
+        CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
         CONFIG_PACKAGE_luci-app-qbittorrent-ee=y
         CONFIG_PACKAGE_luci-app-aria2=y
         CONFIG_PACKAGE_luci-app-transmission=y
