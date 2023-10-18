@@ -99,7 +99,7 @@ jobs:
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
         git clone --depth 1 https://github.com/sbwml/luci-app-xunlei
-        git clone --depth 1 -b dev https://github.com/vernesong/OpenClash && mv -n OpenClash/luci-app-openclash ./; rm -rf OpenClash
+        svn export https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
         #svn co https://github.com/gngpp/xunlei/trunk/openwrt luci-app-xunlei
