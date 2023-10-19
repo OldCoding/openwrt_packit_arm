@@ -279,6 +279,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-vsftpd=y
         CONFIG_PACKAGE_luci-app-vlmcsd=y
         CONFIG_PACKAGE_luci-app-netspeedtest=y
+        CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
         CONFIG_PACKAGE_luci-app-zerotier=y
         CONFIG_PACKAGE_luci-app-passwall=y
         CONFIG_PACKAGE_luci-app-passwall2=y
@@ -405,15 +406,17 @@ jobs:
 
     - name: Package Armvirt as OpenWrt
       if: steps.organize.outputs.status == 'success' && !cancelled()
-      uses: ophub/amlogic-s9xxx-openwrt@main
-      with:
-        openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
-        openwrt_board: s905x3_s905d
-        openwrt_kernel: 5.4.1_5.10.1_5.15.95_6.1.15
-        auto_kernel: true
-        kernel_repo: ophub/kernel
-        kernel_usage: flippy
-        gh_token: ${{ secrets.GITHUB_TOKEN }}
+      uses: ophub/flippy-openwrt-actions@main
+      env:
+        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
+        PACKAGE_SOC: s905x3
+        WHOAMI: Wing
+        KERNEL_AUTO_LATEST: true
+        OPENWRT_VER: ${{ env.VER }}
+        DISTRIB_DESCRIPTION: Wing build $(TZ=UTC-8 date "+%Y.%m.%d")
+        DISTRIB_REVISION: \@ OpenWrt ${{ env.VER }}
+        GZIP_IMGS: .gz
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Calculate MD5
       run: |
