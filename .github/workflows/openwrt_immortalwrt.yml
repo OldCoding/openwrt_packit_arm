@@ -411,6 +411,7 @@ jobs:
         PACKAGE_SOC: s905x3
         WHOAMI: Wing
         KERNEL_AUTO_LATEST: true
+        KERNEL_REPO_URL: ophub/kernel
         OPENWRT_VER: ${{ env.VER }}
         DISTRIB_DESCRIPTION: Wing build $(TZ=UTC-8 date "+%Y.%m.%d")
         DISTRIB_REVISION: \@ OpenWrt ${{ env.VER }}
