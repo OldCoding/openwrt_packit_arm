@@ -122,8 +122,8 @@ jobs:
         cd openwrt/package
         sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" lean/default-settings/files/zzz-default-settings
         sed -i "/firewall\.user/d" lean/default-settings/files/zzz-default-settings
-        sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
-        sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" luci-app-amlogic/root/etc/config/amlogic
+        sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_packit_arm|g" package/luci-app-amlogic/root/etc/config/amlogic
+        sed -i "s|s9xxx_lede|${{ env.PRODUCT_NAME }}|g" luci-app-amlogic/root/etc/config/amlogic
         sed -i "s|amlogic_kernel_path.*|amlogic_kernel_path 'https://github.com/ophub/kernel'|g" luci-app-amlogic/root/etc/config/amlogic
         chmod 755 ./luci-app-adguardhome/root/etc/init.d/AdGuardHome
         DIR=$PWD && cd ./luci-app-openclash/root/etc/openclash
