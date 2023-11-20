@@ -147,14 +147,11 @@ jobs:
       run: |
         cd openwrt
         rm -rf feeds/packages/net/mosdns
+        rm -rf feeds/packages/net/v2ray-geodata
         rm -rf feeds/luci/applications/luci-app-mosdns
+        git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
         svn co https://github.com/sbwml/luci-app-mosdns/trunk/mosdns feeds/packages/net/mosdns
         svn co https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns feeds/luci/applications/luci-app-mosdns
-        sed -i 's/PYTHON3_VERSION_MICRO:=.*/PYTHON3_VERSION_MICRO:=9/g' feeds/packages/lang/python/python3-version.mk
-        sed -i 's/PYTHON3_SETUPTOOLS_VERSION:=.*/PYTHON3_SETUPTOOLS_VERSION:=65.5.0/g' feeds/packages/lang/python/python3-version.mk
-        sed -i 's/PYTHON3_PIP_VERSION:=.*/PYTHON3_PIP_VERSION:=22.3.1/g' feeds/packages/lang/python/python3-version.mk
-        sed -i 's/PKG_HASH:=.*/PKG_HASH:=5ae03e308260164baba39921fdb4dbf8e6d03d8235a939d4582b33f0b5e46a83/g' feeds/packages/lang/python/python3/Makefile
-        rm -rf feeds/packages/lang/python/python3/patches-pip
         rm -rf feeds/packages/lang/golang
         git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
         rm -rf feeds/luci/themes/luci-theme-argon
