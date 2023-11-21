@@ -44,7 +44,7 @@ jobs:
       run: |
         echo "警告⚠"
         echo "若分配的服务器性能不足，务必及时取消，重新运行！"
-        echo "CPU性能：8370C > 8171M > 8272CL > E5系列"
+        echo "CPU性能：7763 > 8370C > 8171M > 8272CL > E5系列"
         echo -e "-------------- ------------CPU信息------------------------------------------\n"
         echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
         echo "-------------------------------内存信息-------------------------------------------"
@@ -106,10 +106,10 @@ jobs:
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced
         git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config
-        git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages
+        #git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages
         svn export https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash
-        svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall
-        svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
+        #svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall
+        #svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
         svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-diskman
         svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
         svn export https://github.com/Lienol/openwrt-package/trunk/luci-app-filebrowser
@@ -146,12 +146,10 @@ jobs:
     - name: File Patch After
       run: |
         cd openwrt
-        rm -rf feeds/packages/net/mosdns
-        rm -rf feeds/packages/net/v2ray-geodata
-        rm -rf feeds/luci/applications/luci-app-mosdns
+        find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+        find ./ | grep Makefile | grep mosdns | xargs rm -f
+        git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
         git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-        svn co https://github.com/sbwml/luci-app-mosdns/trunk/mosdns feeds/packages/net/mosdns
-        svn co https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns feeds/luci/applications/luci-app-mosdns
         rm -rf feeds/packages/lang/golang
         git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
         rm -rf feeds/luci/themes/luci-theme-argon
