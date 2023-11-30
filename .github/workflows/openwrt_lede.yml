@@ -129,7 +129,6 @@ jobs:
         sed -i "/firewall\.user/d" lean/default-settings/files/zzz-default-settings
         sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
         sed -i "s|s9xxx_lede|${{ env.PRODUCT_NAME }}|g" luci-app-amlogic/root/etc/config/amlogic
-        sed -i "s|amlogic_kernel_path.*|amlogic_kernel_path 'https://github.com/ophub/kernel'|g" luci-app-amlogic/root/etc/config/amlogic
         chmod 755 ./luci-app-adguardhome/root/etc/init.d/AdGuardHome
         cd ./luci-app-openclash/root/etc/openclash
         CORE_VER=https://github.com/vernesong/OpenClash/raw/core/dev/core_version
