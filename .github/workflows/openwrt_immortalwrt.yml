@@ -100,7 +100,6 @@ jobs:
         SCKEY: ${{ secrets.ACTIONS_TRIGGER_PAT }}
       run: |
         cd openwrt/package
-        git clone --depth 1 https://github.com/sbwml/luci-app-alist
         git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
         git clone --depth 1 https://github.com/sirpdboy/netspeedtest
         git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
