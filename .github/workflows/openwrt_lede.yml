@@ -466,9 +466,9 @@ jobs:
           > ${{ env.MD5 }}
 
     - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
+      uses: Mattraks/delete-workflow-runs@main
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ github.token }}
         repository: ${{ github.repository }}
         retain_days: 60
         keep_minimum_runs: 60
