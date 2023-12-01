@@ -110,19 +110,19 @@ jobs:
         svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
         #svn co https://github.com/gngpp/xunlei/trunk/openwrt luci-app-xunlei
         git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-        git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+        #git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
       
     - name: File Patch After
       run: |
         cd openwrt
         rm -rf ./feeds/packages/lang/golang
-        git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
+        git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
         rm -rf ./feeds/luci/applications/luci-app-openclash
         cd package
         sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
         sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" luci-app-amlogic/root/etc/config/amlogic
         chmod 755 ./luci-app-adguardhome/root/etc/init.d/AdGuardHome
-        DIR=$PWD && cd ./luci-app-openclash/root/etc/openclash
+        cd ./luci-app-openclash/root/etc/openclash
         CORE_VER=https://github.com/vernesong/OpenClash/raw/core/dev/core_version
         CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/dev/premium/clash-linux-arm64
         CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/dev/dev/clash-linux-arm64.tar.gz
