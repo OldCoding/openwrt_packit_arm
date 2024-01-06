@@ -107,6 +107,7 @@ jobs:
         git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced
         git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config
         git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages
+        git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush
         svn export https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall
         svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
         svn export https://github.com/kiddin9/openwrt-packages/trunk/luci-app-diskman
@@ -262,6 +263,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-hd-idle=y
         CONFIG_PACKAGE_luci-app-mosdns=y
         CONFIG_PACKAGE_luci-app-nlbwmon=y
+        CONFIG_PACKAGE_luci-app-serverchan=y
         CONFIG_PACKAGE_luci-app-ssr-plus=y
         CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
         CONFIG_PACKAGE_luci-app-pushbot=y
