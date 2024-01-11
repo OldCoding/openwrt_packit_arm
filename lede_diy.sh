@@ -31,7 +31,7 @@ svn_export "main" "openwrt/luci-app-thunder" "package/luci-app-thunder" "https:/
 svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/nas-xunlei"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 
-ls
+echo $(pwd) && ls
 
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
