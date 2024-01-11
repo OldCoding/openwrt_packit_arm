@@ -21,6 +21,7 @@ svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://gith
 svn_export "main" "luci-app-adguardhome" "package/luci-app-adguardhome" "https://github.com/sirpdboy/sirpdboy-package"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 
+ls $PWD
 cd $GITHUB_WORKSPACE/openwrt
 
 #rm -rf ./feeds/packages/lang/golang
