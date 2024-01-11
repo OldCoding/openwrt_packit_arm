@@ -12,26 +12,25 @@ svn_export() {
 	cd "$2" && cp -a . "$TGT_DIR/"
 }
 
-git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
-git clone --depth 1 https://github.com/gngpp/luci-theme-design
-git clone --depth 1 https://github.com/sbwml/luci-app-alist
-git clone --depth 1 https://github.com/sirpdboy/netspeedtest
-git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced
-git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages
-git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush
-git clone --depth 1 https://github.com/fw876/helloworld
-svn_export "main" "luci-app-passwall" "openwrt/package" "https://github.com/xiaorouji/openwrt-passwall"
-svn_export "main" "luci-app-passwall2" "openwrt/package" "https://github.com/xiaorouji/openwrt-passwall2"
-svn_export "master" "luci-app-diskman" "openwrt/package" "https://github.com/kiddin9/openwrt-packages"
-svn_export "main" "luci-app-adguardhome" "openwrt/package" "https://github.com/sirpdboy/sirpdboy-package"
-svn_export "main" "luci-app-filebrowser" "openwrt/package" "https://github.com/Lienol/openwrt-package"
-svn_export "main" "luci-app-amlogic" "openwrt/package" "https://github.com/ophub/luci-app-amlogic"
-svn_export "main" "openwrt/luci-app-thunder" "openwrt/package" "https://github.com/gngpp/nas-xunlei"
-svn_export "main" "openwrt/thunder" "openwrt/package" "https://github.com/gngpp/nas-xunlei"
-svn_export "dev" "luci-app-openclash" "openwrt/package" "https://github.com/vernesong/OpenClash"
+git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+git clone --depth 1 https://github.com/gngpp/luci-theme-design package/luci-theme-design
+git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
+git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
+git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced package/openwrt-qbittorrent-enhanced
+git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
+git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
+svn_export "main" "luci-app-passwall" "package" "https://github.com/xiaorouji/openwrt-passwall"
+svn_export "main" "luci-app-passwall2" "package" "https://github.com/xiaorouji/openwrt-passwall2"
+svn_export "master" "luci-app-diskman" "package" "https://github.com/kiddin9/openwrt-packages"
+svn_export "main" "luci-app-adguardhome" "package" "https://github.com/sirpdboy/sirpdboy-package"
+svn_export "main" "luci-app-filebrowser" "package" "https://github.com/Lienol/openwrt-package"
+svn_export "main" "luci-app-amlogic" "package" "https://github.com/ophub/luci-app-amlogic"
+svn_export "main" "openwrt/luci-app-thunder" "package" "https://github.com/gngpp/nas-xunlei"
+svn_export "main" "openwrt/thunder" "package" "https://github.com/gngpp/nas-xunlei"
+svn_export "dev" "luci-app-openclash" "package" "https://github.com/vernesong/OpenClash"
 
-cd openwrt
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 rm -rf feeds/luci/themes/luci-theme-argon
