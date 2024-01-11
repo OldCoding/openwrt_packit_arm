@@ -93,7 +93,7 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
 
-    - name: File Patch After
+    - name: File Diy Patch
       run: |
         chmod +x $DIY_SH
         cd openwrt
