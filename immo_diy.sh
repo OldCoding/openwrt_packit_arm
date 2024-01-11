@@ -1,6 +1,7 @@
 #!/bin/bash
 svn_export() {
 	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
+ 	cd $GITHUB_WORKSPACE/openwrt
 	trap 'rm -rf "$TMP_DIR"' 0 1 2 3
 	TMP_DIR="$(mktemp -d)" || exit 1
 	[ -d "$3" ] || mkdir -p "$3"
@@ -21,7 +22,7 @@ svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://gith
 svn_export "main" "luci-app-adguardhome" "package/luci-app-adguardhome" "https://github.com/sirpdboy/sirpdboy-package"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 
-echo $PWD
+echo $GITHUB_WORKSPACE/openwrt
 cd $GITHUB_WORKSPACE/openwrt
 
 #rm -rf ./feeds/packages/lang/golang
