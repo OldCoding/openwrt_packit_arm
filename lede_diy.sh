@@ -31,7 +31,7 @@ svn_export "main" "openwrt/luci-app-thunder" "package" "https://github.com/gngpp
 svn_export "main" "openwrt/thunder" "package" "https://github.com/gngpp/nas-xunlei"
 svn_export "dev" "luci-app-openclash" "package" "https://github.com/vernesong/OpenClash"
 
-ls
+cd $GITHUB_WORKSPACE/openwrt
 
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
@@ -63,4 +63,3 @@ chmod +x ./clash* ; rm -rf ./*.gz
 cd $GITHUB_WORKSPACE/openwrt && cd feeds/luci/applications/luci-app-wrtbwmon
 sed -i 's/ selected=\"selected\"//g' ./luasrc/view/wrtbwmon/wrtbwmon.htm && sed -i 's/\"1\"/\"1\" selected=\"selected\"/g' ./luasrc/view/wrtbwmon/wrtbwmon.htm
 sed -i 's/interval: 5/interval: 1/g' ./htdocs/luci-static/wrtbwmon/wrtbwmon.js
-ls
