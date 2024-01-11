@@ -23,15 +23,15 @@ git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config 
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
-svn_export "main" "luci-app-passwall" "package" "https://github.com/xiaorouji/openwrt-passwall"
-svn_export "main" "luci-app-passwall2" "package" "https://github.com/xiaorouji/openwrt-passwall2"
-svn_export "master" "luci-app-diskman" "package" "https://github.com/kiddin9/openwrt-packages"
-svn_export "main" "luci-app-adguardhome" "package" "https://github.com/sirpdboy/sirpdboy-package"
-svn_export "main" "luci-app-filebrowser" "package" "https://github.com/Lienol/openwrt-package"
-svn_export "main" "luci-app-amlogic" "package" "https://github.com/ophub/luci-app-amlogic"
-svn_export "main" "openwrt/luci-app-thunder" "package" "https://github.com/gngpp/nas-xunlei"
-svn_export "main" "openwrt/thunder" "package" "https://github.com/gngpp/nas-xunlei"
-svn_export "dev" "luci-app-openclash" "package" "https://github.com/vernesong/OpenClash"
+svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
+svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
+svn_export "master" "luci-app-diskman" "package/luci-app-diskman" "https://github.com/kiddin9/openwrt-packages"
+svn_export "main" "luci-app-adguardhome" "package/luci-app-adguardhome" "https://github.com/sirpdboy/sirpdboy-package"
+svn_export "main" "luci-app-filebrowser" "package/luci-app-filebrowser" "https://github.com/Lienol/openwrt-package"
+svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
+svn_export "main" "openwrt/luci-app-thunder" "package/luci-app-thunder" "https://github.com/gngpp/nas-xunlei"
+svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/nas-xunlei"
+svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 
 cd $CURRENT_PATH
 
