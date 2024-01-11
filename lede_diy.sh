@@ -31,6 +31,7 @@ svn_export "main" "openwrt/luci-app-thunder" "package/luci-app-thunder" "https:/
 svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/nas-xunlei"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 
+ls $PWD
 cd $GITHUB_WORKSPACE/openwrt
 
 rm -rf feeds/packages/lang/golang
