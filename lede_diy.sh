@@ -1,5 +1,4 @@
 #!/bin/bash
-CURRENT_PATH=$(pwd)
 svn_export() {
 	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
 	trap 'rm -rf "$TMP_DIR"' 0 1 2 3
@@ -11,7 +10,6 @@ svn_export() {
 	git remote add -f origin "$4" >/dev/null 2>&1 && \
 	git checkout "remotes/origin/$1" -- "$2" && \
 	cd "$2" && cp -a . "$TGT_DIR/"
-	cd $CURRENT_PATH
 }
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
