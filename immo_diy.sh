@@ -20,7 +20,7 @@ git clone -b v5 --depth 1 https://github.com/sbwml/luci-app-mosdns package/luci-
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "main" "luci-app-adguardhome" "package/luci-app-adguardhome" "https://github.com/sirpdboy/sirpdboy-package"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
-
+ls
 #rm -rf ./feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-openclash
