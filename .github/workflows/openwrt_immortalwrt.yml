@@ -26,6 +26,7 @@ env:
   REPO_BRANCH: master
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
+  DIY_SH: immo_diy.sh
   TZ: Asia/Shanghai
   FILE_NAME: openwrt_armvirt
   PRODUCT_NAME: ARMv8-im
@@ -89,52 +90,14 @@ jobs:
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
         echo "VER=R$(date +%Y.%m.%d)" >> $GITHUB_ENV
 
-    - name: File Patch Before
-      run: |
-
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
 
-    - name: Update packages
-      env:
-        SCKEY: ${{ secrets.ACTIONS_TRIGGER_PAT }}
+    - name: File Diy Patch
       run: |
-        cd openwrt/package
-        git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot
-        git clone --depth 1 https://github.com/sirpdboy/netspeedtest
-        git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config
-        git clone --depth 1 https://github.com/sbwml/luci-app-xunlei
-        svn export https://github.com/vernesong/OpenClash/branches/dev/luci-app-openclash
-        svn export https://github.com/sirpdboy/sirpdboy-package/trunk/luci-app-adguardhome
-        svn export https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic
-        #svn co https://github.com/gngpp/xunlei/trunk/openwrt luci-app-xunlei
-        git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-        #git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-      
-    - name: File Patch After
-      run: |
+        chmod +x $DIY_SH
         cd openwrt
-        #rm -rf ./feeds/packages/lang/golang
-        #git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
-        rm -rf ./feeds/luci/applications/luci-app-openclash
-        cd package
-        sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
-        sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" luci-app-amlogic/root/etc/config/amlogic
-        chmod 755 ./luci-app-adguardhome/root/etc/init.d/AdGuardHome
-        cd ./luci-app-openclash/root/etc/openclash
-        CORE_VER=https://github.com/vernesong/OpenClash/raw/core/dev/core_version
-        CORE_TUN=https://github.com/vernesong/OpenClash/raw/core/dev/premium/clash-linux-arm64
-        CORE_DEV=https://github.com/vernesong/OpenClash/raw/core/dev/dev/clash-linux-arm64.tar.gz
-        CORE_MATE=https://github.com/vernesong/OpenClash/raw/core/dev/meta/clash-linux-arm64.tar.gz
-        TUN_VER=$(curl -sfL $CORE_VER | sed -n "2{s/\r$//;p;q}")
-        curl -sfL -o ./Country.mmdb https://github.com/alecthw/mmdb_china_ip_list/raw/release/Country.mmdb
-        curl -sfL -o ./GeoSite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geosite.dat
-        curl -sfL -o ./GeoIP.dat https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geoip.dat
-        mkdir ./core && cd ./core
-        curl -sfL -o ./tun.gz "$CORE_TUN"-"$TUN_VER".gz && gzip -d ./tun.gz && mv ./tun ./clash_tun
-        curl -sfL -o ./meta.tar.gz "$CORE_MATE" && tar -zxf ./meta.tar.gz && mv ./clash ./clash_meta
-        curl -sfL -o ./dev.tar.gz "$CORE_DEV" && tar -zxf ./dev.tar.gz
-        chmod +x ./clash* ; rm -rf ./*.gz
+        $GITHUB_WORKSPACE/$DIY_SH
 
     - name: Generate configuration file
       run: |
