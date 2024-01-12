@@ -45,7 +45,7 @@ cd package
 sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" lean/default-settings/files/zzz-default-settings
 sed -i "/firewall\.user/d" lean/default-settings/files/zzz-default-settings
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|s9xxx_lede|${{ env.PRODUCT_NAME }}|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
 chmod 755 ./luci-app-adguardhome/root/etc/init.d/AdGuardHome
 cd ./luci-app-openclash/root/etc/openclash
