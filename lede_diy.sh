@@ -31,7 +31,7 @@ svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 
 rm -rf feeds/packages/lang/golang 
-rm -rf feeds/luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-pushbot
+rm -rf feeds/luci/applications/luci-app-dockerman feeds/luci/applications/luci-app-pushbot feeds/luci/applications/luci-app-serverchan
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
