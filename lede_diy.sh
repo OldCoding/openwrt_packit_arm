@@ -1,7 +1,6 @@
 #!/bin/bash
 svn_export() {
 	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
- 	cd $GITHUB_WORKSPACE/openwrt
 	trap 'rm -rf "$TMP_DIR"' 0 1 2 3
 	TMP_DIR="$(mktemp -d)" || exit 1
 	[ -d "$3" ] || mkdir -p "$3"
@@ -11,6 +10,7 @@ svn_export() {
 	git remote add -f origin "$4" >/dev/null 2>&1 && \
 	git checkout "remotes/origin/$1" -- "$2" && \
 	cd "$2" && cp -a . "$TGT_DIR/"
+  	cd $GITHUB_WORKSPACE/openwrt
 }
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
@@ -31,9 +31,6 @@ svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.
 svn_export "main" "openwrt/luci-app-thunder" "package/luci-app-thunder" "https://github.com/gngpp/nas-xunlei"
 svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/nas-xunlei"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
-
-echo $GITHUB_WORKSPACE/openwrt
-cd $GITHUB_WORKSPACE/openwrt
 
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
