@@ -1,7 +1,6 @@
 #!/bin/bash
 svn_export() {
 	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
- 	cd $GITHUB_WORKSPACE/openwrt
 	trap 'rm -rf "$TMP_DIR"' 0 1 2 3
 	TMP_DIR="$(mktemp -d)" || exit 1
 	[ -d "$3" ] || mkdir -p "$3"
@@ -11,6 +10,7 @@ svn_export() {
 	git remote add -f origin "$4" >/dev/null 2>&1 && \
 	git checkout "remotes/origin/$1" -- "$2" && \
 	cd "$2" && cp -a . "$TGT_DIR/"
+ 	cd $GITHUB_WORKSPACE/openwrt
 }
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
@@ -22,15 +22,12 @@ svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://gith
 svn_export "main" "luci-app-adguardhome" "package/luci-app-adguardhome" "https://github.com/sirpdboy/sirpdboy-package"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 
-echo $GITHUB_WORKSPACE/openwrt
-cd $GITHUB_WORKSPACE/openwrt
-
 #rm -rf ./feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-openclash
 cd package
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|ARMv8|${{ env.PRODUCT_NAME }}|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|ARMv8|ARMv8-im|g" luci-app-amlogic/root/etc/config/amlogic
 chmod 755 ./luci-app-adguardhome/root/etc/init.d/AdGuardHome
 cd ./luci-app-openclash/root/etc/openclash
 CORE_VER=https://github.com/vernesong/OpenClash/raw/core/dev/core_version
