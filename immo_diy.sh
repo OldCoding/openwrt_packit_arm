@@ -1,16 +1,14 @@
 #!/bin/bash
 svn_export() {
 	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
-	trap 'rm -rf "$TMP_DIR"' 0 1 2 3
 	TMP_DIR="$(mktemp -d)" || exit 1
+ 	ORI_DIR="$PWD"
 	[ -d "$3" ] || mkdir -p "$3"
 	TGT_DIR="$(cd "$3"; pwd)"
-	cd "$TMP_DIR" && \
-	git init >/dev/null 2>&1 && \
-	git remote add -f origin "$4" >/dev/null 2>&1 && \
-	git checkout "remotes/origin/$1" -- "$2" && \
-	cd "$2" && cp -a . "$TGT_DIR/"
- 	cd $GITHUB_WORKSPACE/openwrt
+	git clone --depth 1 -b "$1" "$4" "$TMP_DIR" >/dev/null 2>&1 && \
+	cd "$TMP_DIR/$2" && rm -rf .git >/dev/null 2>&1 && \
+	cp -a . "$TGT_DIR/" && cd "$ORI_DIR"
+	rm -rf "$TMP_DIR"
 }
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
