@@ -10,10 +10,8 @@ svn_export() {
 	cp -af . "$TGT_DIR/" && cd "$ORI_DIR"
 	rm -rf "$TMP_DIR"
 }
-# 删除冲突软件和依赖
-rm -rf feeds/packages/lang/golang 
-rm -rf feeds/luci/applications/luci-app-pushbot feeds/luci/applications/luci-app-serverchan
-git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
+
+
 # 下载插件
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
 git clone --depth 1 https://github.com/gngpp/luci-theme-design package/luci-theme-design
@@ -38,6 +36,10 @@ svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://gith
 pushd package/luci-app-openclash/tools/po2lmo
 make && sudo make install
 popd
+# 删除冲突软件和依赖
+rm -rf feeds/packages/lang/golang 
+#rm -rf feeds/luci/applications/luci-app-pushbot feeds/luci/applications/luci-app-serverchan
+git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 # 替换argon主题
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
