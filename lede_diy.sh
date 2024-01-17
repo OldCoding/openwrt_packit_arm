@@ -12,15 +12,19 @@ svn_export() {
 }
 
 
+# 删除冲突软件和依赖
+rm -rf feeds/packages/lang/golang 
+rm -rf feeds/luci/applications/luci-app-pushbot feeds/luci/applications/luci-app-serverchan
+git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 # 下载插件
-git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
 git clone --depth 1 https://github.com/gngpp/luci-theme-design package/luci-theme-design
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
 git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced package/openwrt-qbittorrent-enhanced
 git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
-git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush package/luci-app-serverchan
+git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush feeds/luci/applications/luci-app-serverchan
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
@@ -36,10 +40,6 @@ svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://gith
 #pushd package/luci-app-openclash/tools/po2lmo
 #make && sudo make install
 #popd
-# 删除冲突软件和依赖
-rm -rf feeds/packages/lang/golang 
-#rm -rf feeds/luci/applications/luci-app-pushbot feeds/luci/applications/luci-app-serverchan
-git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 # 替换argon主题
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
