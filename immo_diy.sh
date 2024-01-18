@@ -16,6 +16,7 @@ git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtes
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei packageluci-app-xunlei
 git clone -b v5 --depth 1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "main" "luci-app-adguardhome" "package/luci-app-adguardhome" "https://github.com/sirpdboy/sirpdboy-package"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
