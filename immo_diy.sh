@@ -7,7 +7,7 @@ svn_export() {
 	TGT_DIR="$(cd "$3"; pwd)"
 	git clone --depth 1 -b "$1" "$4" "$TMP_DIR" >/dev/null 2>&1 && \
 	cd "$TMP_DIR/$2" && rm -rf .git >/dev/null 2>&1 && \
-	cp -a . "$TGT_DIR/" && cd "$ORI_DIR"
+	cp -af . "$TGT_DIR/" && cd "$ORI_DIR"
 	rm -rf "$TMP_DIR"
 }
 
