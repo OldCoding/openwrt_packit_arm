@@ -304,28 +304,12 @@ jobs:
         CONFIG_PACKAGE_kmod-mac80211=y
         CONFIG_PACKAGE_hostapd-common=y
         CONFIG_PACKAGE_wpa-cli=y
-        CONFIG_PACKAGE_wpad-basic=y
         CONFIG_PACKAGE_p54-usb-firmware=y
         CONFIG_PACKAGE_r8152-firmware=y
-        CONFIG_PACKAGE_r8169-firmware=y
         CONFIG_PACKAGE_rs9113-firmware=y
-        CONFIG_PACKAGE_rt2800-pci-firmware=y
         CONFIG_PACKAGE_rt2800-usb-firmware=y
         CONFIG_PACKAGE_rt73-usb-firmware=y
-        CONFIG_PACKAGE_rtl8188eu-firmware=y
-        CONFIG_PACKAGE_rtl8192ce-firmware=y
         CONFIG_PACKAGE_rtl8192cu-firmware=y
-        CONFIG_PACKAGE_rtl8192de-firmware=y
-        CONFIG_PACKAGE_rtl8192eu-firmware=y
-        CONFIG_PACKAGE_rtl8192se-firmware=y
-        CONFIG_PACKAGE_rtl8723au-firmware=y
-        CONFIG_PACKAGE_rtl8723bu-firmware=y
-        CONFIG_PACKAGE_rtl8761a-firmware=y
-        CONFIG_PACKAGE_rtl8761b-firmware=y
-        CONFIG_PACKAGE_rtl8761bu-firmware=y
-        CONFIG_PACKAGE_rtl8821ae-firmware=y
-        CONFIG_PACKAGE_rtl8822be-firmware=y
-        CONFIG_PACKAGE_rtl8822ce-firmware=y
         CONFIG_PACKAGE_wireless-regdb=y
         EOF
 
