@@ -10,12 +10,15 @@ svn_export() {
 	cp -af . "$TGT_DIR/" && cd "$ORI_DIR"
 	rm -rf "$TMP_DIR"
 }
+find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+find ./ | grep Makefile | grep mosdns | xargs rm -f
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei packageluci-app-xunlei
 git clone -b v5 --depth 1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/kenzok78/luci-app-adguardhome package/luci-app-adguardhome
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
