@@ -42,6 +42,11 @@ svn_export "main" "general/xfsprogs" "feeds/packages/utils/xfsprogs" "https://gi
 #pushd package/luci-app-openclash/tools/po2lmo
 #make && sudo make install
 #popd
+# 微信推送&全能推送
+sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-pushbot/root/usr/bin/pushbot/pushbot
+sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-serverchan/root/usr/share/serverchan/serverchan
+# xfsprogs修复
+sed -i 's/-DHAVE_MAP_SYNC/-DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/' feeds/packages/utils/xfsprogs/Makefile
 # 替换argon主题
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
