@@ -59,8 +59,6 @@ sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_pac
 sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
 # 更新passwall规则
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
-# 修复AdGuardHome权限
-chmod 755 ./luci-app-adguardhome/root/etc/init.d/AdGuardHome
 # OpenClash
 cd ./luci-app-openclash/root/etc/openclash
 CORE_VER=https://github.com/vernesong/OpenClash/raw/core/dev/core_version
