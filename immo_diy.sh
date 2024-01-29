@@ -16,6 +16,7 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone --depth 1 -b js https://github.com/gngpp/luci-theme-design package/luci-theme-design
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei packageluci-app-xunlei
 git clone -b v5 --depth 1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
@@ -42,8 +43,6 @@ cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|ARMv8|ARMv8-im|g" luci-app-amlogic/root/etc/config/amlogic
-# 修复AdGuardHome权限
-chmod 755 ./luci-app-adguardhome/root/etc/init.d/AdGuardHome
 # OpenClash
 cd ./luci-app-openclash/root/etc/openclash
 CORE_VER=https://github.com/vernesong/OpenClash/raw/core/dev/core_version
