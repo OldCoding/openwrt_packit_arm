@@ -17,7 +17,6 @@ rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 # 下载插件
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
-git clone --depth 1 -b js https://github.com/gngpp/luci-theme-design package/luci-theme-design
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
 git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced package/openwrt-qbittorrent-enhanced
