@@ -31,15 +31,15 @@ svn_export "main" "openwrt/luci-app-thunder" "package/luci-app-thunder" "https:/
 svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/nas-xunlei"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
-svn_export "master" "applications/luci-app-autoreboot" "package/luci-app-autoreboot" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-autoreboot" "package/luci-app-autoreboot" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-socat" "package/luci-app-socat" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-ramfree" "package/luci-app-ramfree" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-webadmin" "package/luci-app-webadmin" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-usb-printer" "package/luci-app-usb-printer" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-vsftpd" "package/luci-app-vsftpd" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-vlmcsd" "package/luci-app-vlmcsd" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-zerotier" "package/luci-app-zerotier" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-ramfree" "package/luci-app-ramfree" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-webadmin" "package/luci-app-webadmin" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-usb-printer" "package/luci-app-usb-printer" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-vsftpd" "package/luci-app-vsftpd" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-vlmcsd" "package/luci-app-vlmcsd" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-zerotier" "package/luci-app-zerotier" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-filebrowser" "package/luci-app-filebrowser" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-qbittorrent" "package/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "package/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
@@ -68,6 +68,8 @@ sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushb
 sed -i "s|qidian|bilibili|g" package/luci-app-wechatpush/root/usr/share/serverchan/serverchan
 # xfsprogs修复
 sed -i 's/-DHAVE_MAP_SYNC/-DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/' feeds/packages/utils/xfsprogs/Makefile
+# 汉化
+curl -sfL https://github.com/immortalwrt/build-scripts/raw/master/convert_translation.sh | bash
 # 个性化设置
 cd package
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
