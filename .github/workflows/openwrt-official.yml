@@ -1,0 +1,434 @@
+#
+# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
+#
+# This is free software, licensed under the MIT License.
+# See /LICENSE for more information.
+#
+# https://github.com/P3TERX/Actions-OpenWrt
+# Description: Build OpenWrt using GitHub Actions
+#
+
+name: Build ARMv8 openwrt official
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+  watch:
+    types: [started]
+    
+env:
+  REPO_URL: https://github.com/openwrt/openwrt
+  REPO_BRANCH: main
+  UPLOAD_FIRMWARE: false
+  UPLOAD_RELEASE: true
+  DIY_SH: op_diy.sh
+  TZ: Asia/Shanghai
+  FILE_NAME: openwrt_armvirt
+  PRODUCT_NAME: ARMv8-op
+
+
+jobs:
+  build:
+    runs-on: Ubuntu-22.04
+    if: github.event.repository.owner.id == github.event.sender.id
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+
+    - name: Check server configuration
+      run: |
+        echo "警告⚠"
+        echo "若分配的服务器性能不足，务必及时取消，重新运行！"
+        echo "CPU性能：7760 > 8370C > 8171M > 8272CL > E5系列"
+        echo -e "-------------- ------------CPU信息------------------------------------------\n"
+        echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
+        echo "-------------------------------内存信息-------------------------------------------"
+        echo "已安装内存详细信息："
+        sudo lshw -short -C memory | grep GiB
+        echo -e "\n"
+        echo "-----------------------------硬盘信息---------------------------------------------"
+        echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
+        echo "硬盘详情："
+        df -Th
+
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        docker rmi `docker images -q`
+        sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
+        sudo -E apt -y purge azure-cli* docker* ghc* zulu* llvm* firefox google* dotnet* powershell* openjdk* mysql* php* mongodb* dotnet* snap* aspnetcore*
+        [ -n "$AGENT_TOOLSDIRECTORY" ] && sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+        sudo -E apt update
+        sudo -E apt -y install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
+        sudo -E apt-get -qq install libfuse-dev
+        sudo -E apt -y autoremove --purge
+        sudo -E systemctl daemon-reload
+        sudo -E apt clean
+        sudo timedatectl set-timezone "$TZ"
+        sudo mkdir -p /workdir
+        sudo chown $USER:$GROUPS /workdir
+        df -Th
+
+    - name: Clone source code
+      working-directory: /workdir
+      if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
+      run: |
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H<br/>")
+        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+        echo "VER=R$(date +%Y.%m.%d)" >> $GITHUB_ENV
+
+    - name: Update feeds
+      run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
+
+    - name: File Diy Patch
+      run: |
+        chmod +x $DIY_SH
+        cd openwrt
+        $GITHUB_WORKSPACE/$DIY_SH
+
+    - name: Generate configuration file
+      run: |
+        cd openwrt
+        rm -f ./.config*
+        touch ./.config
+
+        #
+        # ========================固件定制部分========================
+        # 
+
+        # 
+        # 如果不对本区块做出任何编辑, 则生成默认配置固件. 
+        # 
+
+        # 以下为定制化固件选项和说明:
+        #
+
+        #
+        # 有些插件/选项是默认开启的, 如果想要关闭, 请参照以下示例进行编写:
+        # 
+        #          =========================================
+        #         |  # 取消编译VMware镜像:                   |
+        #         |  cat >> .config <<EOF                   |
+        #         |  # CONFIG_VMDK_IMAGES is not set        |
+        #         |  EOF                                    |
+        #          =========================================
+        #
+
+        # 
+        # 以下是一些提前准备好的一些插件选项.
+        # 直接取消注释相应代码块即可应用. 不要取消注释代码块上的汉字说明.
+        # 如果不需要代码块里的某一项配置, 只需要删除相应行.
+        #
+        # 如果需要其他插件, 请按照示例自行添加.
+        # 注意, 只需添加依赖链顶端的包. 如果你需要插件 A, 同时 A 依赖 B, 即只需要添加 A.
+        # 
+        # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
+        # 
+
+
+        # 编译ARM固件:
+        cat >> .config <<EOF
+        CONFIG_TARGET_armsr=y
+        CONFIG_TARGET_armsr_armv8=y
+        CONFIG_TARGET_armsr_armv8_DEVICE_generic=y
+        CONFIG_TARGET_ARCH_PACKAGES="aarch64_generic"
+        CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=generic"
+        CONFIG_CPU_TYPE="generic"
+        EOF
+        
+        # USB2.0支持:
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_kmod-usb-core=y
+        CONFIG_PACKAGE_kmod-usb-dwc2=y
+        CONFIG_PACKAGE_kmod-usb-dwc3=y
+        CONFIG_PACKAGE_kmod-usb-ehci=y
+        CONFIG_PACKAGE_kmod-usb-storage=y
+        CONFIG_PACKAGE_kmod-usb-storage-extras=y
+        CONFIG_PACKAGE_kmod-usb-storage-uas=y
+        CONFIG_PACKAGE_kmod-usb-xhci-hcd=y
+        CONFIG_PACKAGE_kmod-usb-ohci=y
+        CONFIG_PACKAGE_kmod-usb2=y
+        CONFIG_PACKAGE_kmod-usb3=y
+        EOF
+
+        # IPv6支持:
+        cat >> .config <<EOF
+        # CONFIG_PACKAGE_dnsmasq is not set
+        # CONFIG_PACKAGE_dnsmasq-dhcpv6 is not set
+        CONFIG_PACKAGE_dnsmasq-full=y
+        CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
+        CONFIG_PACKAGE_ip6tables-extra=y
+        CONFIG_PACKAGE_ip6tables-mod-nat=y
+        CONFIG_PACKAGE_ipv6helper=y
+        EOF
+
+        # 镜像设置
+        cat >> .config <<EOF
+        #
+        # Target Images
+        #
+        # CONFIG_TARGET_ROOTFS_INITRAMFS is not set
+        CONFIG_EXTERNAL_CPIO=""
+
+        #
+        # Root filesystem archives
+        #
+        # CONFIG_TARGET_ROOTFS_CPIOGZ is not set
+        CONFIG_TARGET_ROOTFS_TARGZ=y
+        #
+        # Root filesystem images
+        #
+        # CONFIG_TARGET_ROOTFS_EXT4FS is not set
+        # CONFIG_TARGET_ROOTFS_SQUASHFS is not set
+        CONFIG_TARGET_UBIFS_FREE_SPACE_FIXUP=y
+        CONFIG_TARGET_UBIFS_JOURNAL_SIZE=""
+        # CONFIG_TARGET_IMAGES_GZIP is not set
+        #
+        # Image Options
+        #
+        # CONFIG_TARGET_ROOTFS_PERSIST_VAR is not set
+        # end of Target Images
+        # CONFIG_EXPERIMENTAL is not set
+        EOF
+
+        # LuCI插件选择:
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_luci-app-autoreboot=y
+        CONFIG_PACKAGE_luci-app-diskman=y
+        CONFIG_PACKAGE_luci-app-dockerman=y
+        CONFIG_PACKAGE_luci-app-amlogic=y
+        CONFIG_PACKAGE_luci-app-alist=y
+        CONFIG_PACKAGE_luci-app-ddns=y
+        CONFIG_PACKAGE_luci-app-nlbwmon=y
+        CONFIG_PACKAGE_luci-app-firewall=y
+        CONFIG_PACKAGE_luci-app-ssr-plus=y
+        CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
+        CONFIG_PACKAGE_luci-app-pushbot=y
+        CONFIG_PACKAGE_luci-app-smartdns=y
+        CONFIG_PACKAGE_luci-app-socat=y
+        CONFIG_PACKAGE_luci-app-samba4=y
+        CONFIG_PACKAGE_luci-app-hd-idle=y
+        CONFIG_PACKAGE_luci-app-mosdns=y
+        CONFIG_PACKAGE_luci-app-ttyd=y
+        CONFIG_PACKAGE_luci-app-wol=y
+        CONFIG_PACKAGE_luci-app-ramfree=y
+        CONFIG_PACKAGE_luci-app-frpc=y
+        CONFIG_PACKAGE_luci-app-webadmin=y
+        CONFIG_PACKAGE_luci-app-wechatpush=y
+        CONFIG_PACKAGE_luci-app-usb-printer=y
+        CONFIG_PACKAGE_luci-app-upnp=y
+        CONFIG_PACKAGE_luci-app-vsftpd=y
+        CONFIG_PACKAGE_luci-app-vlmcsd=y
+        CONFIG_PACKAGE_luci-app-netspeedtest=y
+        CONFIG_PACKAGE_luci-app-zerotier=y
+        CONFIG_PACKAGE_luci-app-passwall=y
+        CONFIG_PACKAGE_luci-app-passwall2=y
+        CONFIG_PACKAGE_luci-app-adguardhome=y
+        CONFIG_PACKAGE_luci-app-ipsec-server=y
+        CONFIG_PACKAGE_luci-app-pptp-server=y
+        CONFIG_PACKAGE_luci-app-sqm=y
+        CONFIG_PACKAGE_luci-app-qos-gargoyle=y
+        CONFIG_PACKAGE_luci-app-qbittorrent=y
+        CONFIG_PACKAGE_luci-app-aria2=y
+        CONFIG_PACKAGE_luci-app-transmission=y
+        CONFIG_PACKAGE_luci-app-filebrowser=y
+        CONFIG_PACKAGE_luci-app-kodexplorer=y
+        CONFIG_PACKAGE_luci-app-openclash=y
+        CONFIG_PACKAGE_luci-app-xunlei=y
+        EOF
+
+        # LuCI主题:
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_luci-theme-argon=y
+        CONFIG_PACKAGE_luci-app-argon-config=y
+        CONFIG_PACKAGE_luci-theme-design=y
+        EOF
+
+        # 必备软件包:
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_perl=y
+        CONFIG_PACKAGE_perl-http-date=y
+        CONFIG_PACKAGE_perlbase-file=y
+        CONFIG_PACKAGE_perlbase-getopt=y
+        CONFIG_PACKAGE_perlbase-time=y
+        CONFIG_PACKAGE_perlbase-unicode=y
+        CONFIG_PACKAGE_perlbase-utf8=y
+        CONFIG_PACKAGE_blkid=y
+        CONFIG_PACKAGE_fdisk=y
+        CONFIG_PACKAGE_lsblk=y
+        CONFIG_PACKAGE_parted=y
+        CONFIG_PACKAGE_attr=y
+        CONFIG_PACKAGE_btrfs-progs=y
+        CONFIG_BTRFS_PROGS_ZSTD=y
+        CONFIG_PACKAGE_chattr=y
+        CONFIG_PACKAGE_dosfstools=y
+        CONFIG_PACKAGE_e2fsprogs=y
+        CONFIG_PACKAGE_f2fs-tools=y
+        CONFIG_PACKAGE_f2fsck=y
+        CONFIG_PACKAGE_lsattr=y
+        CONFIG_PACKAGE_mkf2fs=y
+        CONFIG_PACKAGE_xfs-fsck=y
+        CONFIG_PACKAGE_xfs-mkfs=y
+        CONFIG_PACKAGE_bsdtar=y
+        CONFIG_PACKAGE_bash=y
+        CONFIG_PACKAGE_gawk=y
+        CONFIG_PACKAGE_getopt=y
+        CONFIG_PACKAGE_losetup=y
+        CONFIG_PACKAGE_tar=y
+        CONFIG_PACKAGE_uuidgen=y
+        EOF
+
+        # 可选软件包
+        cat >> .config <<EOF
+        CONFIG_PACKAGE_autocore=y
+        CONFIG_PACKAGE_automount=y
+        CONFIG_PACKAGE_autosamba=y
+        CONFIG_PACKAGE_default-settings-chn=y
+        CONFIG_PACKAGE_kmod-ipt-fullconenat=y
+        CONFIG_PACKAGE_iptables-mod-fullconenat=y
+        CONFIG_PACKAGE_ip6tables-mod-fullconenat=y
+        CONFIG_PACKAGE_ca-certificates=y
+        CONFIG_PACKAGE_lsof=y
+        CONFIG_PACKAGE_acpid=y
+        CONFIG_PACKAGE_kmod-brcmfmac=y
+        CONFIG_PACKAGE_kmod-brcmutil=y
+        CONFIG_PACKAGE_kmod-cfg80211=y
+        CONFIG_PACKAGE_kmod-mac80211=y
+        CONFIG_PACKAGE_hostapd-common=y
+        CONFIG_PACKAGE_wpa-cli=y
+        EOF
+
+        # 
+        # ========================固件定制部分结束========================
+        # 
+
+        sed -i 's/^[ \t]*//g' ./.config
+        make defconfig
+        cp ./.config ./im-config.bak
+
+    - name: Download package
+      id: package
+      run: |
+        cd openwrt 
+        make download -j8
+        find dl -size -1024c -exec ls -l {} \;
+        find dl -size -1024c -exec rm -f {} \;
+        rm -rf $GITHUB_WORKSPACE/.git
+        rm -rf $GITHUB_WORKSPACE/opt
+        df -Th
+
+    - name: Compile the firmware
+      id: compile
+      run: |
+        cd openwrt
+        echo -e "$(nproc) thread compile"
+        make -j$(nproc)
+        echo "status=success" >> ${GITHUB_OUTPUT}
+        grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
+        [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
+        echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+
+    - name: Compile debug
+      if: ${{ failure() && steps.compile.conclusion == 'failure' }}
+      run: |
+        cd openwrt
+        echo -e "1 thread compile debug"
+        make -j1 V=s
+
+    - name: Clean up server space
+      if: steps.compile.outputs.status == 'success' && !cancelled()
+      run: |
+        cd openwrt/
+        sudo rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
+        df -hT ${PWD}
+
+    - name: Organize files
+      id: organize
+      if: steps.compile.outputs.status == 'success' && !cancelled()
+      run: |
+        cd $GITHUB_WORKSPACE/openwrt/bin/packages
+        tar -zcvf Packages.tar.gz ./*
+        cp Packages.tar.gz $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
+        cd $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
+        rm -rf packages
+        echo "status=success" >> ${GITHUB_OUTPUT}
+
+    - name: Package Armvirt as OpenWrt
+      if: steps.organize.outputs.status == 'success' && !cancelled()
+      uses: ophub/flippy-openwrt-actions@main
+      env:
+        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
+        PACKAGE_SOC: s905d_s905x3
+        WHOAMI: Wing
+        KERNEL_AUTO_LATEST: true
+        OPENWRT_VER: ${{ env.VER }}
+        DISTRIB_DESCRIPTION: Wing build $(TZ=UTC-8 date "+%Y.%m.%d")
+        DISTRIB_REVISION: \@ OpenWrt ${{ env.VER }}
+        GZIP_IMGS: .gz
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Calculate MD5
+      run: |
+        cp $GITHUB_WORKSPACE/openwrt/bin/targets/*/*/Packages.tar.gz ${{ env.PACKAGED_OUTPUTPATH }}
+        cd ${{ env.PACKAGED_OUTPUTPATH }} && rm -rf sha256sums
+        MD5=$(md5sum * | sed ':a;N;$!ba;s/\n/<br>/g')
+        echo "MD5=$MD5" >> $GITHUB_ENV
+
+    - name: Upload artifact to Actions
+      uses: kittaakos/upload-artifact-as-is@master
+      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_FIRMWARE == 'true' && !cancelled()
+      with:
+        path: ${{ env.PACKAGED_OUTPUTPATH }}/
+
+    - name: Upload OpenWrt Firmware to Release
+      id: release
+      uses: ncipollo/release-action@main
+      if: env.PACKAGED_STATUS == 'success' && env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
+        allowUpdates: true
+        removeArtifacts: true
+        tag: ${{ env.PRODUCT_NAME }}
+        commit: main
+        token: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        body: |
+          - 版本号：${{ env.VER }}
+          - 默认IP：192.168.1.1
+          - 默认密码：password
+          - 当前使用版本:【编译前的最后一次[➦主源码](${{ env.REPO_URL }})更新记录】
+          - 固件请使用晶晨宝盒刷入
+          ${{ env.useVersionInfo }}
+          - 下载后请仔细校验MD5，如不正确请重新下载
+          `md5sum`
+          > ${{ env.MD5 }}
+
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        token: ${{ github.token }}
+        repository: ${{ github.repository }}
+        retain_days: 60
+        keep_minimum_runs: 60
+
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@master
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        repo: OldCoding/ArmRootfs
+        keep_latest: 30
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
