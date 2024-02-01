@@ -16,7 +16,6 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-git clone --depth 1 -b js https://github.com/gngpp/luci-theme-design package/luci-theme-design
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei packageluci-app-xunlei
 git clone -b v5 --depth 1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
