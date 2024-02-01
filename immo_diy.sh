@@ -38,6 +38,8 @@ sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/us
 #rm -rf ./feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-openclash
+# 汉化
+curl -sfL https://github.com/immortalwrt/build-scripts/raw/master/convert_translation.sh | bash
 cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
