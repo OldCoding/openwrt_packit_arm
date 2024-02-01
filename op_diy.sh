@@ -53,6 +53,7 @@ rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-alist
+curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 # 调整菜单位置
 sed -i "s|services|nas|g" package/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
