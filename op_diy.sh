@@ -40,8 +40,9 @@ svn_export "master" "applications/luci-app-vsftpd" "package/luci-app-vsftpd" "ht
 svn_export "master" "applications/luci-app-vlmcsd" "package/luci-app-vlmcsd" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-zerotier" "package/luci-app-zerotier" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
-svn_export "master" "applications/luci-app-filebrowser" "package/luci-app-filebrowser" "https://github.com/immortalwrt/luci"
+svn_export "main" "luci-app-filebrowser" "package/luci-app-filebrowser" "https://github.com/Lienol/openwrt-package"
 svn_export "master" "applications/luci-app-qbittorrent" "package/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-dockerman" "package/luci-app-dockerman" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "package/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
 
 # 编译 po2lmo (如果有po2lmo可跳过)
@@ -50,7 +51,6 @@ svn_export "master" "net/qBittorrent-Enhanced-Edition" "package/qBittorrent-Enha
 #popd
 # 删除冲突软件和依赖
 rm -rf feeds/packages/lang/golang 
-rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-alist
 curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
