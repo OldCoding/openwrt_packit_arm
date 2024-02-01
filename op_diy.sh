@@ -66,8 +66,6 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 sed -i "s|qidian|bilibili|g" package/luci-app-wechatpush/root/usr/share/serverchan/serverchan
-# xfsprogs修复
-sed -i 's/-DHAVE_MAP_SYNC/-DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/' feeds/packages/utils/xfsprogs/Makefile
 # 汉化
 curl -sfL https://github.com/immortalwrt/build-scripts/raw/master/convert_translation.sh | bash
 # 个性化设置
