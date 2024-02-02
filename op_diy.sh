@@ -74,7 +74,8 @@ sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
 # 汉化
 cd custom
 curl -sfL -o ./convert_translation.sh https://github.com/immortalwrt/build-scripts/raw/master/convert_translation.sh 
-chmod +x ./convert_translation.sh && sh ./convert_translation.sh && cd ..
+chmod +x ./convert_translation.sh && sh ./convert_translation.sh
+cd ..
 ls
 # 更新passwall规则
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
