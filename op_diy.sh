@@ -58,7 +58,6 @@ curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
 # 调整菜单位置
-sed -i "s|services|nas|g" package/custom/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
@@ -67,7 +66,7 @@ sed -i "s|services|system|g" feeds/luci/applications/luci-app-ttyd/root/usr/shar
 sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
-sed -i "s|qidian|bilibili|g" package/luci-app-wechatpush/root/usr/share/serverchan/serverchan
+sed -i "s|qidian|bilibili|g" package/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
 # 个性化设置
 cd package
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
@@ -76,6 +75,7 @@ sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
 cd custom
 curl -sfL -o ./convert_translation.sh https://github.com/immortalwrt/build-scripts/raw/master/convert_translation.sh 
 chmod +x ./convert_translation.sh && sh ./convert_translation.sh && cd ..
+ls
 # 更新passwall规则
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
 # OpenClash
