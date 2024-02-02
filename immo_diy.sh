@@ -48,7 +48,7 @@ sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldC
 sed -i "s|ARMv8|ARMv8-im|g" luci-app-amlogic/root/etc/config/amlogic
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
-chmod +x ./convert_translation.sh && sh ./convert_translation.sh
+chmod +x ./convert_translation.sh && bash ./convert_translation.sh
 # OpenClash
 cd ./luci-app-openclash/root/etc/openclash
 CORE_VER=https://github.com/vernesong/OpenClash/raw/core/dev/core_version
