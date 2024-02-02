@@ -33,6 +33,7 @@ svn_export "master" "applications/luci-app-socat" "package/luci-app-socat" "http
 svn_export "master" "applications/luci-app-qbittorrent" "package/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-dockerman" "package/luci-app-dockerman" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "package/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
+svn_export "master" "libs/qt6base" "package/qt6base" "https://github.com/immortalwrt/packages"
 svn_export "master" "applications/luci-app-ramfree" "package/luci-app-ramfree" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-webadmin" "package/luci-app-webadmin" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-usb-printer" "package/luci-app-usb-printer" "https://github.com/coolsnowwolf/luci"
