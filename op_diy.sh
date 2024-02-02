@@ -18,7 +18,6 @@ git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-ali
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
-git clone --depth 1 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/kenzok78/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
@@ -32,6 +31,7 @@ svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://gith
 svn_export "master" "applications/luci-app-socat" "package/luci-app-socat" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-qbittorrent" "package/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-dockerman" "package/luci-app-dockerman" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-wechatpush" "package/luci-app-wechatpush" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "package/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/qt6base" "package/qt6base" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdouble-conversion" "package/libdouble-conversion" "https://github.com/immortalwrt/packages"
@@ -80,7 +80,7 @@ sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_pac
 sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
-chmod +x ./convert_translation.sh && sh -x ./convert_translation.sh
+chmod +x ./convert_translation.sh && bash ./convert_translation.sh
 # 更新passwall规则
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
 # OpenClash
