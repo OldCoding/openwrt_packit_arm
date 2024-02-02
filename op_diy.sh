@@ -15,7 +15,7 @@ svn_export() {
 # 下载插件
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
-git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
+git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/custom/netspeedtest
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
@@ -35,18 +35,17 @@ svn_export "master" "applications/luci-app-socat" "package/luci-app-socat" "http
 svn_export "master" "applications/luci-app-qbittorrent" "package/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-dockerman" "package/luci-app-dockerman" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "package/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
-svn_export "master" "applications/luci-app-ramfree" "package/luci-app-ramfree" "https://github.com/coolsnowwolf/luci"
-svn_export "master" "applications/luci-app-webadmin" "package/luci-app-webadmin" "https://github.com/coolsnowwolf/luci"
-svn_export "master" "applications/luci-app-usb-printer" "package/luci-app-usb-printer" "https://github.com/coolsnowwolf/luci"
-svn_export "master" "applications/luci-app-vsftpd" "package/luci-app-vsftpd" "https://github.com/coolsnowwolf/luci"
-svn_export "master" "applications/luci-app-vlmcsd" "package/luci-app-vlmcsd" "https://github.com/coolsnowwolf/luci"
-svn_export "master" "applications/luci-app-zerotier" "package/luci-app-zerotier" "https://github.com/coolsnowwolf/luci"
-svn_export "master" "applications/luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
-svn_export "main" "luci-app-filebrowser" "package/luci-app-filebrowser" "https://github.com/Lienol/openwrt-package"
-svn_export "master" "applications/luci-app-autoreboot" "package/luci-app-autoreboot" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-ramfree" "package/custom/luci-app-ramfree" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-webadmin" "package/custom/luci-app-webadmin" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-usb-printer" "package/custom/luci-app-usb-printer" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-vsftpd" "package/custom/luci-app-vsftpd" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-vlmcsd" "package/custom/luci-app-vlmcsd" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-zerotier" "package/custom/luci-app-zerotier" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "applications/luci-app-kodexplorer" "package/custom/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
+svn_export "main" "luci-app-filebrowser" "package/custom/luci-app-filebrowser" "https://github.com/Lienol/openwrt-package"
+svn_export "master" "applications/luci-app-autoreboot" "package/custom/luci-app-autoreboot" "https://github.com/coolsnowwolf/luci"
 
-# 汉化
-curl -sfL -o https://github.com/immortalwrt/build-scripts/raw/master/convert_translation.sh | bash
+
 # 编译 po2lmo (如果有po2lmo可跳过)
 #pushd package/luci-app-openclash/tools/po2lmo
 #make && sudo make install
@@ -59,7 +58,7 @@ curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
 # 调整菜单位置
-sed -i "s|services|nas|g" package/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
+sed -i "s|services|nas|g" package/custom/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
@@ -73,6 +72,10 @@ sed -i "s|qidian|bilibili|g" package/luci-app-wechatpush/root/usr/share/serverch
 cd package
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
+# 汉化
+cd custom
+curl -sfL -o ./convert_translation.sh https://github.com/immortalwrt/build-scripts/raw/master/convert_translation.sh 
+chmod +x ./convert_translation.sh && sh ./convert_translation.sh && cd ..
 # 更新passwall规则
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
 # OpenClash
