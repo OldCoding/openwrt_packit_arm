@@ -34,6 +34,7 @@ svn_export "master" "applications/luci-app-qbittorrent" "package/luci-app-qbitto
 svn_export "master" "applications/luci-app-dockerman" "package/luci-app-dockerman" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "package/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/qt6base" "package/qt6base" "https://github.com/immortalwrt/packages"
+svn_export "master" "libs/libdouble-conversion" "package/libdouble-conversion" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/qt6tools" "package/qt6tools" "https://github.com/immortalwrt/packages"
 svn_export "master" "applications/luci-app-ramfree" "package/luci-app-ramfree" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-webadmin" "package/luci-app-webadmin" "https://github.com/coolsnowwolf/luci"
