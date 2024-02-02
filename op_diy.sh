@@ -34,6 +34,7 @@ svn_export "master" "applications/luci-app-qbittorrent" "package/luci-app-qbitto
 svn_export "master" "applications/luci-app-dockerman" "package/luci-app-dockerman" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "package/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/qt6base" "package/qt6base" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/qt6tools" "package/qt6tools" "https://github.com/immortalwrt/packages"
 svn_export "master" "applications/luci-app-ramfree" "package/luci-app-ramfree" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-webadmin" "package/luci-app-webadmin" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-usb-printer" "package/luci-app-usb-printer" "https://github.com/coolsnowwolf/luci"
@@ -78,7 +79,7 @@ sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_pac
 sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
-chmod +x ./convert_translation.sh && sh ./convert_translation.sh
+chmod +x ./convert_translation.sh && sh -x ./convert_translation.sh
 # 更新passwall规则
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
 # OpenClash
