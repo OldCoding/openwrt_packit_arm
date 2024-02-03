@@ -16,7 +16,6 @@ svn_export() {
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
-git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei  package/luci-app-xunlei
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
@@ -28,6 +27,8 @@ svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
+svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
+svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
 # 调整菜单位置
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-alist/root/usr/share/luci/menu.d/luci-app-alist.json
@@ -46,6 +47,7 @@ cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|ARMv8|ARMv8-im|g" luci-app-amlogic/root/etc/config/amlogic
+rm -rf package/luci-app-netspeedtest/po/zh_Hans
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
 chmod +x ./convert_translation.sh && bash ./convert_translation.sh
