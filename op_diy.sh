@@ -52,6 +52,7 @@ svn_export "master" "applications/luci-app-usb-printer" "feeds/luci/applications
 svn_export "master" "applications/luci-app-vsftpd" "feeds/luci/applications/luci-app-vsftpd" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-vlmcsd" "feeds/luci/applications/luci-app-vlmcsd" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-zerotier" "feeds/luci/applications/luci-app-zerotier" "https://github.com/immortalwrt/luci"
+svn_export "master" "net/vlmcsd" "feeds/packages/net/vlmcsd" "https://github.com/immortalwrt/packages"
 svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luci-app-diskman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-kodexplorer" "feeds/luci/applications/luci-app-kodexplorer" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-filebrowser" "feeds/luci/applications/luci-app-filebrowser" "https://github.com/immortalwrt/luci"
@@ -63,6 +64,21 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
 
+# 安装插件
+./scripts/feeds update -f luci
+./scripts/feeds install -p luci -f luci-app-socat
+./scripts/feeds install -p luci -f luci-app-qbittorrent
+./scripts/feeds install -p luci -f luci-app-wechatpush
+./scripts/feeds install -p luci -f luci-app-ramfree
+./scripts/feeds install -p luci -f luci-app-webadmin
+./scripts/feeds install -p luci -f luci-app-usb-printer
+./scripts/feeds install -p luci -f luci-app-vsftpd
+./scripts/feeds install -p luci -f luci-app-vlmcsd
+./scripts/feeds install -p luci -f luci-app-diskman
+./scripts/feeds install -p luci -f luci-app-kodexplorer
+./scripts/feeds install -p luci -f luci-app-filebrowser
+./scripts/feeds install -p luci -f luci-app-autoreboot
+./scripts/feeds install -p luci -f luci-app-zerotier
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 #pushd package/luci-app-openclash/tools/po2lmo
