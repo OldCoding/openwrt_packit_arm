@@ -83,10 +83,11 @@ jobs:
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         sudo mkdir -p -m 777 /mnt/openwrt
-        sudo mkdir -p -m 777 /mnt/openwrt/dl /mnt/openwrt/feeds /mnt/openwrt/staging_dir
+        sudo mkdir -p -m 777 /mnt/openwrt/dl /mnt/openwrt/feeds /mnt/openwrt/staging_dir /mnt/openwrt/build_dir
         ln -s /mnt/openwrt/dl ./openwrt/dl
         ln -s /mnt/openwrt/feeds ./openwrt/feeds
         ln -s /mnt/openwrt/staging_dir ./openwrt/staging_dir
+        ln -s /mnt/openwrt/build_dir ./openwrt/build_dir
         cd openwrt
         useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H<br/>")
         VER=$(grep -E "='R.+" ./package/lean/default-settings/files/zzz-default-settings | cut -f2 -d"'")
@@ -357,9 +358,11 @@ jobs:
     - name: Clean up server space
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        cd openwrt/
+        df -hT
+        cd openwrt
+        echo "开始清理空间"
         sudo rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
-        df -hT ${PWD}
+        df -hT
 
     - name: Organize files
       id: organize
