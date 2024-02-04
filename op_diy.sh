@@ -89,7 +89,7 @@ sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/us
 cd package
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
-rm -rf package/luci-app-netspeedtest/po/zh_Hans
+rm -rf luci-app-netspeedtest/po/zh_Hans
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
 chmod +x ./convert_translation.sh && bash ./convert_translation.sh
