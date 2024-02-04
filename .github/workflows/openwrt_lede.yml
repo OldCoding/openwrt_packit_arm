@@ -84,9 +84,9 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         sudo mkdir -p -m 777 /mnt/openwrt
         sudo mkdir -p -m 777 /mnt/openwrt/dl /mnt/openwrt/feeds /mnt/openwrt/staging_dir
-        ln -s /mnt/openwrt/dl /workdir/openwrt/dl
-        ln -s /mnt/openwrt/feeds /workdir/openwrt/feeds
-        ls -s /mnt/openwrt/staging_dir /workdir/openwrt/staging_dir
+        ln -s /mnt/openwrt/dl ./openwrt/dl
+        ln -s /mnt/openwrt/feeds ./openwrt/feeds
+        ls -s /mnt/openwrt/staging_dir ./openwrt/staging_dir
         cd openwrt
         useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H<br/>")
         VER=$(grep -E "='R.+" ./package/lean/default-settings/files/zzz-default-settings | cut -f2 -d"'")
