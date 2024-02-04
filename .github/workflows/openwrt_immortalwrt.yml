@@ -87,7 +87,7 @@ jobs:
         sudo mkdir -p -m 777 /mnt/openwrt/dl /mnt/openwrt/feeds /mnt/openwrt/staging_dir
         ln -s /mnt/openwrt/dl ./openwrt/dl
         ln -s /mnt/openwrt/feeds ./openwrt/feeds
-        ls -s /mnt/openwrt/staging_dir ./openwrt/staging_dir
+        ln -s /mnt/openwrt/staging_dir ./openwrt/staging_dir
         cd openwrt
         useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H<br/>")
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
