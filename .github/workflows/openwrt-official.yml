@@ -83,6 +83,7 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ls ./openwrt
         sudo mkdir -p -m 777 /mnt/openwrt
         sudo mkdir -p -m 777 /mnt/openwrt/dl /mnt/openwrt/feeds /mnt/openwrt/staging_dir
         ln -s /mnt/openwrt/dl ./openwrt/dl
