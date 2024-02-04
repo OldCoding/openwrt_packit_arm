@@ -21,6 +21,7 @@ git clone --depth 1 https://github.com/sbwml/luci-app-xunlei  package/luci-app-x
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/kenzok78/luci-app-adguardhome package/luci-app-adguardhome
+git clone --depth 1 https://github.com/wangqn/luci-app-filebrowser package/luci-app-filebrowser
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
@@ -43,6 +44,8 @@ sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/us
 #rm -rf ./feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-openclash
+rm -rf ./feeds/luci/applications/luci-app-filebrowser
+rm -rf ./feeds/packages/utils/filebrowser
 cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
