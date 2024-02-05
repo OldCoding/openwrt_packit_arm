@@ -41,8 +41,8 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
 # 依赖和冲突
-#rm -rf ./feeds/packages/lang/golang
-#git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
+rm -rf ./feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-filebrowser
 rm -rf ./feeds/packages/utils/filebrowser
