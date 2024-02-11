@@ -20,7 +20,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 git clone --depth 1 https://github.com/sbwml/luci-app-xunlei  package/luci-app-xunlei
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
-git clone --depth 1 https://github.com/kenzok78/luci-app-adguardhome package/luci-app-adguardhome
+git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
 #git clone --depth 1 https://github.com/wangqn/luci-app-filebrowser package/luci-app-filebrowser
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
