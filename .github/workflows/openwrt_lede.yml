@@ -297,6 +297,7 @@ jobs:
         # 可选软件包
         cat >> .config <<EOF
         CONFIG_PACKAGE_acpid=y
+        CONFIG_PACKAGE_bind-host=y
         CONFIG_PACKAGE_kmod-brcmfmac=y
         CONFIG_PACKAGE_kmod-brcmutil=y
         CONFIG_PACKAGE_kmod-cfg80211=y
