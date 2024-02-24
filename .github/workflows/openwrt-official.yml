@@ -320,7 +320,6 @@ jobs:
 
         sed -i 's/^[ \t]*//g' ./.config
         make defconfig
-        cp ./.config ./im-config.bak
 
     - name: Download package
       id: package
