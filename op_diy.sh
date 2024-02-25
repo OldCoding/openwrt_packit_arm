@@ -90,7 +90,7 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
 # 迅雷
-sed -i "s|thunder|xunlei-launcher|g" package/thunder/Makefile
+sed -i "s|thunder-|xunlei-launcher-|g" package/thunder/Makefile
 # 个性化设置
 cd package
 sed -i "s|https.*/amlogic-s9xxx-openwrt|https://github.com/OldCoding/openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
