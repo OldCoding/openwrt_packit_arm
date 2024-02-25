@@ -55,6 +55,8 @@ rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-alist
 rm -rf ./feeds/packages/net/alist
+# 迅雷
+sed -i "s|thunder|xunlei-launcher|g" package/thunder/Makefile
 cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
