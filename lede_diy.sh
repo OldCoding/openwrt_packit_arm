@@ -1,6 +1,7 @@
 #!/bin/bash
 svn_export() {
 	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
+ 	echo -e "clone $4/$2 to $3"
 	TMP_DIR="$(mktemp -d)" || exit 1
  	ORI_DIR="$PWD"
 	[ -d "$3" ] || mkdir -p "$3"
@@ -45,7 +46,7 @@ sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-pushbot/root/usr/b
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-serverchan/root/usr/share/serverchan/serverchan
 # xfsprogs修复
 sed -i 's/-DHAVE_MAP_SYNC/-DHAVE_MAP_SYNC -D_LARGEFILE64_SOURCE/' feeds/packages/utils/xfsprogs/Makefile
-cat utils/xfsprogs/Makefile
+cat feeds/packages/utils/xfsprogs/Makefile
 # 替换argon主题
 rm -rf feeds/luci/themes/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luci/themes/luci-theme-argon
