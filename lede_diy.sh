@@ -53,7 +53,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./feeds/luc
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 # 迅雷
-sed -i "s|thunder|xunlei-launcher|g" package/thunder/Makefile
+sed -i "s|thunder-|xunlei-launcher-|g" package/thunder/Makefile
 # 个性化设置
 cd package
 sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" lean/default-settings/files/zzz-default-settings
