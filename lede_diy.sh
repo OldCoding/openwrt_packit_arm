@@ -20,6 +20,7 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/utils/v2dat
+rm -rf feeds/packages/net/v2ray-geodata
 #git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 # 下载插件
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
@@ -33,6 +34,7 @@ git clone -b openwrt-18.06 --depth 1 https://github.com/tty228/luci-app-wechatpu
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 https://github.com/wangqn/luci-app-filebrowser package/luci-app-filebrowser
+git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "master" "luci-app-diskman" "package/luci-app-diskman" "https://github.com/kiddin9/openwrt-packages"
