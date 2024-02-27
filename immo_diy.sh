@@ -12,9 +12,17 @@ svn_export() {
 	rm -rf "$TMP_DIR"
 }
 
+# 依赖和冲突
+rm -rf ./feeds/packages/lang/golang
+rm -rf ./feeds/luci/applications/luci-app-openclash
+#rm -rf ./feeds/luci/applications/luci-app-filebrowser
+#rm -rf ./feeds/packages/utils/filebrowser
+rm -rf ./feeds/luci/applications/luci-app-passwall
+rm -rf ./feeds/luci/applications/luci-app-alist
+rm -rf ./feeds/packages/net/alist
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/mosdns
-git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
@@ -47,14 +55,6 @@ sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushb
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
 # DNS劫持
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
-# 依赖和冲突
-rm -rf ./feeds/packages/lang/golang
-rm -rf ./feeds/luci/applications/luci-app-openclash
-#rm -rf ./feeds/luci/applications/luci-app-filebrowser
-#rm -rf ./feeds/packages/utils/filebrowser
-rm -rf ./feeds/luci/applications/luci-app-passwall
-rm -rf ./feeds/luci/applications/luci-app-alist
-rm -rf ./feeds/packages/net/alist
 cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
