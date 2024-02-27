@@ -14,9 +14,13 @@ svn_export() {
 
 
 # 删除冲突软件和依赖
-rm -rf feeds/packages/lang/golang 
-rm -rf feeds/luci/applications/luci-app-pushbot feeds/luci/applications/luci-app-serverchan
-git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang 
+rm -rf feeds/luci/applications/luci-app-pushbot 
+rm -rf feeds/luci/applications/luci-app-serverchan
+rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/utils/v2dat
+#git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 # 下载插件
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
 git clone --depth 1 https://github.com/gngpp/luci-theme-design package/luci-theme-design
@@ -35,6 +39,9 @@ svn_export "master" "luci-app-diskman" "package/luci-app-diskman" "https://githu
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 #svn_export "main" "openwrt/luci-app-thunder" "package/luci-app-thunder" "https://github.com/gngpp/nas-xunlei"
 #svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/nas-xunlei"
+svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
+svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
+svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 
 # 编译 po2lmo (如果有po2lmo可跳过)
