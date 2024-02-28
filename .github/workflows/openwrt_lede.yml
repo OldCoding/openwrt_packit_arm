@@ -229,6 +229,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-v2ray-server=y
         CONFIG_PACKAGE_luci-app-vlmcsd=y
         CONFIG_PACKAGE_luci-app-webadmin=y
+        CONFIG_PACKAGE_luci-app-watchcat=y
         CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-passwall=y
         CONFIG_PACKAGE_luci-app-passwall2=y
