@@ -57,6 +57,8 @@ svn_export "master" "net/rclone" "feeds/packages/net/rclone" "https://github.com
 svn_export "master" "net/rclone-webui-react" "feeds/packages/net/rclone-webui-react" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/rclone-ng" "feeds/packages/net/rclone-ng" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "feeds/packages/net/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
+svn_export "master" "net/ddns-scripts_aliyun" "feeds/packages/net/ddns-scripts_aliyun" "https://github.com/immortalwrt/packages"
+svn_export "master" "net/ddns-scripts_dnspod" "feeds/packages/net/ddns-scripts_dnspod" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/vlmcsd" "feeds/packages/net/vlmcsd" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/qt6base" "feeds/packages/libs/qt6base" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-conversion" "https://github.com/immortalwrt/packages"
