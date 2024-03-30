@@ -90,7 +90,7 @@ jobs:
         echo "VER=R$(date +%Y.%m.%d)" >> $GITHUB_ENV
 
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
+      run: cd openwrt && ./scripts/feeds update -a
 
     - name: File Diy Patch
       run: |
@@ -273,6 +273,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-filebrowser=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
         CONFIG_PACKAGE_luci-app-openclash=y
+        CONFIG_PACKAGE_luci-app-turboacc=y
         CONFIG_PACKAGE_luci-app-thunder=y
         CONFIG_PACKAGE_luci-app-wrtbwmon=y
         EOF
