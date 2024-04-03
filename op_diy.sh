@@ -71,10 +71,6 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
 
-rm -rf package/helloworld/shadowsocksr-libev
-rm -rf package/openwrt-passwall-packages/shadowsocksr-libev
-svn_export "v5" "shadowsocksr-libev" "package/shadowsocksr-libev" "https://github.com/sbwml/openwrt_helloworld"
-
 # turboacc 补丁
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
