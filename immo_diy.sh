@@ -20,8 +20,9 @@ rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-alist
 rm -rf ./feeds/packages/net/alist
-rm -rf feeds/packages/net/v2ray-geodata
-rm -rf feeds/packages/net/mosdns
+rm -rf ./feeds/packages/net/v2ray-geodata
+rm -rf ./feeds/packages/net/mosdns
+rm -rf ./package/network/utils/fullconenat-nft
 git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
