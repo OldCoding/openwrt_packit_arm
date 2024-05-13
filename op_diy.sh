@@ -12,6 +12,8 @@ svn_export() {
 	rm -rf "$TMP_DIR"
 }
 
+cp -f patches/101-fix-mbedtls3.6-build.patch package/libs/mbedtls/patches
+
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 
