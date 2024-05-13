@@ -12,6 +12,8 @@ svn_export() {
 	rm -rf "$TMP_DIR"
 }
 
+cp -f patches/101-fix-mbedtls3.6-build.patch package/libs/mbedtls/patches
+
 # 依赖和冲突
 rm -rf ./feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-openclash
