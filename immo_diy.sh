@@ -12,7 +12,9 @@ svn_export() {
 	rm -rf "$TMP_DIR"
 }
 
-cp -f patches/101-fix-mbedtls3.6-build.patch package/libs/mbedtls/patches/101-fix-mbedtls3.6-build.patch
+rm -rf package/libs/mbedtls
+rm -rf package/libs/ustream-ssl
+rm -rf package/libs/uclient
 
 # 依赖和冲突
 rm -rf ./feeds/packages/lang/golang
@@ -46,6 +48,10 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 #svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/nas-xunlei"
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
+
+svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
+svn_export "master" "package/libs/ustream-ssl" "package/libs/ustream-ssl" "https://github.com/coolsnowwolf/lede"
+svn_export "master" "package/libs/uclient" "package/libs/uclient" "https://github.com/coolsnowwolf/lede"
 
 # 调整菜单位置
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-alist/root/usr/share/luci/menu.d/luci-app-alist.json
