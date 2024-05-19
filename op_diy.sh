@@ -88,10 +88,6 @@ git clone --depth=1 --single-branch --branch "package" https://github.com/chenmo
 cp -r "$TMPDIR/turboacc/turboacc/luci-app-turboacc" "$TMPDIR/turboacc/luci-app-turboacc"
 rm -rf "$TMPDIR/turboacc/turboacc"
 cp -r "$TMPDIR/package/shortcut-fe" "$TMPDIR/turboacc/shortcut-fe"
-patch_953_path="./target/linux/generic/hack-$kernel_version/953-net-patch-linux-kernel-to-support-shortcut-fe.patch"
-patch_613_path="./target/linux/generic/pending-$kernel_version/613-netfilter_optional_tcp_window_check.patch"
-patch_952_path="./target/linux/generic/hack-$kernel_version/952-add-net-conntrack-events-support-multiple-registrant.patch"
-patch_952="952-add-net-conntrack-events-support-multiple-registrant.patch"
 #5.15
 cp -f "$TMPDIR/package/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch" "./target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch"
 cp -f "$TMPDIR/package/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch" "./target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch"
