@@ -55,7 +55,6 @@ svn_export "master" "package/libs/uclient" "package/libs/uclient" "https://githu
 
 # turboacc 补丁
 curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
-ls ./package/turboacc
 #TMPDIR=$(mktemp -d) || exit 1
 #git clone --depth=1 --single-branch https://github.com/fullcone-nat-nftables/nft-fullcone "$TMPDIR/turboacc/nft-fullcone" || exit 1
 #git clone --depth=1 --single-branch https://github.com/chenmozhijin/turboacc "$TMPDIR/turboacc/turboacc" || exit 1
