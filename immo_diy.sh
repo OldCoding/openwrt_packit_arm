@@ -15,7 +15,7 @@ svn_export() {
 #rm -rf package/libs/mbedtls
 #rm -rf package/libs/ustream-ssl
 #rm -rf package/libs/uclient
-cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch package/libs/mbedtls/patches/101-fix-mbedtls3.6-build.patch
+cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch ./feeds/packages/net/shadowsocks-libevpatches/101-fix-mbedtls3.6-build.patch
 
 # 依赖和冲突
 rm -rf ./feeds/packages/lang/golang
