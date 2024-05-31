@@ -15,7 +15,7 @@ svn_export() {
 #rm -rf package/libs/mbedtls
 #rm -rf package/libs/ustream-ssl
 #rm -rf package/libs/uclient
-cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch ./feeds/packages/net/shadowsocks-libevpatches/101-fix-mbedtls3.6-build.patch
+cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch ./feeds/packages/net/shadowsocks-libev/patches/101-fix-mbedtls3.6-build.patch
 
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
