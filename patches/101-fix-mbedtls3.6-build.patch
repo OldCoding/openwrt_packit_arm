@@ -38,15 +38,15 @@
  #ifndef MBEDTLS_CAMELLIA_C
 --- a/src/crypto.c
 +++ b/src/crypto.c
-@@ -104,7 +104,7 @@ crypto_md5(const unsigned char *d
+@@ -103,7 +103,7 @@ crypto_md5(const unsigned char *d, size_t n, unsigned char *md)
+     if (md == NULL) {
          md = m;
      }
- #if MBEDTLS_VERSION_NUMBER >= 0x02070000
--    if (mbedtls_md5_ret(d, n, md) != 0)
-+    if (mbedtls_md5(d, n, md) != 0)
+-#if MBEDTLS_VERSION_NUMBER >= 0x02070000
++#if MBEDTLS_VERSION_NUMBER < 0x03000000 && MBEDTLS_VERSION_NUMBER >= 0x02070000
+     if (mbedtls_md5_ret(d, n, md) != 0)
          FATAL("Failed to calculate MD5");
  #else
-     mbedtls_md5(d, n, md);
 --- a/src/aead.c
 +++ b/src/aead.c
 @@ -178,8 +178,8 @@ aead_cipher_encrypt(cipher_ctx_t *cipher_ctx,
