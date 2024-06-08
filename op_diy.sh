@@ -77,40 +77,8 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
 
-#svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
-#svn_export "master" "package/libs/ustream-ssl" "package/libs/ustream-ssl" "https://github.com/coolsnowwolf/lede"
-#svn_export "master" "package/libs/uclient" "package/libs/uclient" "https://github.com/coolsnowwolf/lede"
-
 # turboacc 补丁
-curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
-#TMPDIR=$(mktemp -d) || exit 1
-#git clone --depth=1 --single-branch https://github.com/fullcone-nat-nftables/nft-fullcone "$TMPDIR/turboacc/nft-fullcone" || exit 1
-#git clone --depth=1 --single-branch https://github.com/chenmozhijin/turboacc "$TMPDIR/turboacc/turboacc" || exit 1
-#git clone --depth=1 --single-branch --branch "package" https://github.com/chenmozhijin/turboacc "$TMPDIR/package" || exit 1
-#cp -r "$TMPDIR/turboacc/turboacc/luci-app-turboacc" "$TMPDIR/turboacc/luci-app-turboacc"
-#rm -rf "$TMPDIR/turboacc/turboacc"
-#cp -r "$TMPDIR/package/shortcut-fe" "$TMPDIR/turboacc/shortcut-fe"
-##5.15
-#cp -f "$TMPDIR/package/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch" "./target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch"
-#cp -f "$TMPDIR/package/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch" "./target/linux/generic/hack-5.15/953-net-patch-linux-kernel-to-support-shortcut-fe.patch"
-#cp -f "$TMPDIR/package/pending-5.15/613-netfilter_optional_tcp_window_check.patch" "./target/linux/generic/pending-5.15/613-netfilter_optional_tcp_window_check.patch"
-##6.1
-#cp -f "$TMPDIR/package/hack-6.1/952-add-net-conntrack-events-support-multiple-registrant.patch" "./target/linux/generic/hack-6.1/952-add-net-conntrack-events-support-multiple-registrant.patch"
-#cp -f "$TMPDIR/package/hack-6.1/953-net-patch-linux-kernel-to-support-shortcut-fe.patch" "./target/linux/generic/hack-6.1/953-net-patch-linux-kernel-to-support-shortcut-fe.patch"
-#cp -f "$TMPDIR/package/pending-6.1/613-netfilter_optional_tcp_window_check.patch" "./target/linux/generic/pending-6.1/613-netfilter_optional_tcp_window_check.patch"
-##6.6
-#cp -f "$TMPDIR/package/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch" "./target/linux/generic/hack-6.6/952-add-net-conntrack-events-support-multiple-registrant.patch"
-#cp -f "$TMPDIR/package/hack-6.6/953-net-patch-linux-kernel-to-support-shortcut-fe.patch" "./target/linux/generic/hack-6.6/953-net-patch-linux-kernel-to-support-shortcut-fe.patch"
-#cp -f "$TMPDIR/package/pending-6.6/613-netfilter_optional_tcp_window_check.patch" "./target/linux/generic/pending-6.6/613-netfilter_optional_tcp_window_check.patch"
-#cp -r "$TMPDIR/turboacc" "./package/turboacc"
-#rm -rf ./package/libs/libnftnl ./package/network/config/firewall4 ./package/network/utils/nftables
-#FIREWALL4_VERSION=$(grep -o 'FIREWALL4_VERSION=.*' "$TMPDIR/package/version" | cut -d '=' -f 2)
-#LIBNFTNL_VERSION=$(grep -o 'LIBNFTNL_VERSION=.*' "$TMPDIR/package/version" | cut -d '=' -f 2)
-#NFTABLES_VERSION=$(grep -o 'NFTABLES_VERSION=.*' "$TMPDIR/package/version" | cut -d '=' -f 2)
-#cp -RT "$TMPDIR/package/firewall4-$FIREWALL4_VERSION/firewall4" ./package/network/config/firewall4
-#cp -RT "$TMPDIR/package/libnftnl-$LIBNFTNL_VERSION/libnftnl" ./package/libs/libnftnl
-#cp -RT "$TMPDIR/package/nftables-$NFTABLES_VERSION/nftables" ./package/network/utils/nftables
-
+#curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
 
 # 安装插件
 ./scripts/feeds update -l
