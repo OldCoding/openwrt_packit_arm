@@ -28,6 +28,7 @@ rm -rf ./feeds/packages/net/alist
 rm -rf ./feeds/packages/net/v2ray-geodata
 rm -rf ./feeds/packages/net/mosdns
 rm -rf ./package/network/utils/fullconenat-nft
+rm -rf ./feeds/luci/applications/luci-app-unblockneteasemusic
 git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
@@ -37,6 +38,7 @@ git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 svn_export "master" "applications/luci-app-wrtbwmon" "package/luci-app-wrtbwmon" "https://github.com/coolsnowwolf/luci"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
