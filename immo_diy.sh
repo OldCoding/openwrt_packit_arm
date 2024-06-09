@@ -13,7 +13,7 @@ svn_export() {
 }
 
 #rm -rf package/libs/mbedtls
-cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch ./feeds/packages/net/shadowsocks-libev/patches/101-fix-mbedtls3.6-build.patch
+#cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch ./feeds/packages/net/shadowsocks-libev/patches/101-fix-mbedtls3.6-build.patch
 
 # 依赖和冲突
 rm -rf ./feeds/packages/lang/golang
@@ -49,7 +49,7 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
-svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
+#svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
 
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
