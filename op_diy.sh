@@ -13,7 +13,7 @@ svn_export() {
 }
 
 #rm -rf package/libs/mbedtls
-cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch ./feeds/packages/net/shadowsocks-libev/patches/101-fix-mbedtls3.6-build.patch
+#cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch ./feeds/packages/net/shadowsocks-libev/patches/101-fix-mbedtls3.6-build.patch
 
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
@@ -75,7 +75,7 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
 
-svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
+#svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
 
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
