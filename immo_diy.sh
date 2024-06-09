@@ -25,7 +25,6 @@ rm -rf ./feeds/luci/applications/luci-app-alist
 rm -rf ./feeds/packages/net/alist
 rm -rf ./feeds/packages/net/v2ray-geodata
 rm -rf ./feeds/packages/net/mosdns
-rm -rf ./package/network/utils/fullconenat-nft
 rm -rf ./feeds/luci/applications/luci-app-unblockneteasemusic
 git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
