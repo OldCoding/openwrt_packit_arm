@@ -12,8 +12,7 @@ svn_export() {
 	rm -rf "$TMP_DIR"
 }
 
-#rm -rf package/libs/mbedtls
-#cp -f $GITHUB_WORKSPACE/patches/101-fix-mbedtls3.6-build.patch ./feeds/packages/net/shadowsocks-libev/patches/101-fix-mbedtls3.6-build.patch
+rm -rf package/libs/mbedtls
 
 # 依赖和冲突
 rm -rf ./feeds/packages/lang/golang
@@ -49,7 +48,7 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
-#svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
+svn_export "openwrt-23.05" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/openwrt/openwrt"
 
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
@@ -64,8 +63,6 @@ sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushb
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
 # DNS劫持
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
-# MosDNS
-#sed -i "s|CGO_ENABLED=0|CGO_ENABLED=1|g" feeds/packages/net/mosdns/Makefile
 cd package
 # 个性化设置
 sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
