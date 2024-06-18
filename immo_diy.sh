@@ -12,7 +12,7 @@ svn_export() {
 	rm -rf "$TMP_DIR"
 }
 
-rm -rf package/libs/mbedtls
+#rm -rf package/libs/mbedtls
 
 # 依赖和冲突
 rm -rf ./feeds/packages/lang/golang
@@ -48,7 +48,7 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
-svn_export "openwrt-23.05" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/openwrt/openwrt"
+#svn_export "openwrt-23.05" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/openwrt/openwrt"
 
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
