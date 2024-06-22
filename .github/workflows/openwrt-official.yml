@@ -359,9 +359,11 @@ jobs:
         CONFIG_PACKAGE_autocore=y
         CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_autosamba=y
+        CONFIG_PACKAGE_ariang=y
         CONFIG_PACKAGE_bind-host=y
         CONFIG_PACKAGE_default-settings-chn=y
         CONFIG_PACKAGE_kmod-ipt-fullconenat=y
+        CONFIG_PACKAGE_libopenssl-legacy=y
         CONFIG_PACKAGE_iptables-mod-socket=y
         CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
         CONFIG_PACKAGE_iptables-mod-iprange=y
