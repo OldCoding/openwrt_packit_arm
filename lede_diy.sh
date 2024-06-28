@@ -21,6 +21,8 @@ rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/net/v2ray-geodata
+rm -rf ./feeds/packages/net/aria2
+git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
 #git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 # 下载插件
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
