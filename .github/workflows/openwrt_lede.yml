@@ -475,7 +475,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@master
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        repo: OldCoding/ArmRootfs
+        repo: OldCoding/openwrt_packit_arm
         keep_latest: 30
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
