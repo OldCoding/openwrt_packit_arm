@@ -48,7 +48,7 @@ svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
-svn_export "main" "general/golang" "feeds/packages/lang/golang" "https://github.com/vernesong/OpenClash"
+svn_export "main" "general/golang" "feeds/packages/lang/golang" "https://github.com/breakings/OpenWrt"
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 #pushd package/luci-app-openclash/tools/po2lmo
