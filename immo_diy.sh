@@ -50,7 +50,9 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
-#svn_export "openwrt-23.05" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/openwrt/openwrt"
+rm -rf ./package/emortal/autocore
+
+svn_export "master" "package/lean/autocore" "package/emortal/autocore" "https://github.com/coolsnowwolf/lede"
 
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
