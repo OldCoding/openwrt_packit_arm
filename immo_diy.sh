@@ -52,7 +52,7 @@ svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/net
 
 rm -rf ./package/emortal/autocore
 
-svn_export "master" "package/lean/autocore" "package/emortal/autocore" "https://github.com/coolsnowwolf/lede"
+git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autocore
 
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
