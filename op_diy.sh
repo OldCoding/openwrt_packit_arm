@@ -79,7 +79,7 @@ svn_export "master" "package/emortal" "package/emortal" "https://github.com/immo
 
 rm -rf ./package/emortal/autocore
 
-svn_export "master" "package/lean/autocore" "package/emortal/autocore" "https://github.com/coolsnowwolf/lede"
+git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autocore
 
 #svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
 #svn_export "master" "package/libs/ustream-ssl" "package/libs/ustream-ssl" "https://github.com/coolsnowwolf/lede"
