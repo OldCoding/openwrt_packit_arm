@@ -90,7 +90,10 @@ jobs:
         echo "VER=$VER" >> $GITHUB_ENV
 
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
+      run: |
+       cd openwrt 
+       sed -i ':a;N;$!ba;s/\/luci/\/luci.git;openwrt-23.05/g' feeds.conf.default
+       ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: File Diy Patch
       run: |
@@ -224,7 +227,6 @@ jobs:
         CONFIG_PACKAGE_luci-app-mosdns=y
         CONFIG_PACKAGE_luci-app-minidlna=y
         CONFIG_PACKAGE_luci-app-nlbwmon=y
-        CONFIG_PACKAGE_luci-app-serverchan=y
         CONFIG_PACKAGE_luci-app-ssr-plus=y
         CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
         CONFIG_PACKAGE_luci-app-pushbot=y
@@ -242,6 +244,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-v2ray-server=y
         CONFIG_PACKAGE_luci-app-vlmcsd=y
         CONFIG_PACKAGE_luci-app-webadmin=y
+        CONFIG_PACKAGE_luci-app-wechatpush=y
         CONFIG_PACKAGE_luci-app-watchcat=y
         CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
@@ -250,7 +253,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-ipsec-server=y
         CONFIG_PACKAGE_luci-app-pptp-server=y
         CONFIG_PACKAGE_luci-app-sqm=y
-        CONFIG_PACKAGE_luci-app-qbittorrent-ee=y
+        CONFIG_PACKAGE_luci-app-qbittorrent=y
         CONFIG_PACKAGE_luci-app-aria2=y
         CONFIG_PACKAGE_luci-app-transmission=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
@@ -263,7 +266,6 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-theme-argon=y
         CONFIG_PACKAGE_luci-app-argon-config=y
-        CONFIG_PACKAGE_luci-theme-design=y
         EOF
 
         # 常用软件包:
@@ -337,6 +339,7 @@ jobs:
 
         # 可选软件包
         cat >> .config <<EOF
+        CONFIG_PACKAGE_ariang=y
         CONFIG_PACKAGE_acpid=y
         CONFIG_PACKAGE_bind-host=y
         CONFIG_PACKAGE_kmod-brcmfmac=y
@@ -344,6 +347,7 @@ jobs:
         CONFIG_PACKAGE_kmod-cfg80211=y
         CONFIG_PACKAGE_kmod-mac80211=y
         CONFIG_PACKAGE_hostapd-common=y
+        CONFIG_PACKAGE_libopenssl-legacy=y
         CONFIG_PACKAGE_wpa-cli=y
         CONFIG_PACKAGE_p54-usb-firmware=y
         CONFIG_PACKAGE_r8152-firmware=y
