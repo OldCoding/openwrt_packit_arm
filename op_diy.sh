@@ -56,7 +56,7 @@ svn_export "master" "applications/luci-app-vlmcsd" "feeds/luci/applications/luci
 svn_export "master" "applications/luci-app-zerotier" "feeds/luci/applications/luci-app-zerotier" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luci-app-diskman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-kodexplorer" "feeds/luci/applications/luci-app-kodexplorer" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-filebrowser" "feeds/luci/applications/luci-app-filebrowser" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-filebrowser-go" "feeds/luci/applications/luci-app-filebrowser-go" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-autoreboot" "feeds/luci/applications/luci-app-autoreboot" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-rclone" "feeds/luci/applications/luci-app-rclone" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/rclone" "feeds/packages/net/rclone" "https://github.com/immortalwrt/packages"
@@ -99,7 +99,7 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autoco
 
 # 调整菜单位置
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json
-sed -i "s|services|nas|g" feeds/luci/applications/luci-app-filebrowser/root/usr/share/luci/menu.d/luci-app-filebrowser.json
+sed -i "s|services|nas|g" feeds/luci/applications/luci-app-filebrowser-go/root/usr/share/luci/menu.d/luci-app-filebrowser-go.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
