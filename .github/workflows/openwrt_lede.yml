@@ -186,6 +186,8 @@ jobs:
         CONFIG_PACKAGE_ddns-scripts_no-ip_com=y
         CONFIG_PACKAGE_ddns-scripts_nsupdate=y
         CONFIG_PACKAGE_ddns-scripts_route53-v1=y
+        CONFIG_PACKAGE_ddns-scripts_aliyun=y
+        CONFIG_PACKAGE_ddns-scripts_dnspod=y
         EOF
 
         # 镜像设置
