@@ -17,15 +17,23 @@ rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/applications/luci-app-pushbot 
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/luci/applications/luci-app-smartdns
 rm -rf feeds/luci/applications/luci-app-diskman
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-qbittorrent
 rm -rf feeds/luci/applications/luci-app-ddns
+rm -rf feeds/applications/luci-app-aria2
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/utils/docker-compose
+rm -rf feeds/packages/utils/docker
+rm -rf feeds/packages/utils/dockerd
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/aria2
+rm -rf feeds/packages/lang/php8
+rm -rf feeds/packages/net/wget
+rm -rf feeds/packages/utils/ttyd
 curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
 git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
 #git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
@@ -47,6 +55,8 @@ svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://githu
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "master" "applications/luci-app-filebrowser-go" "feeds/luci/applications/luci-app-filebrowser-go" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luci-app-diskman" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-smartdns" "feeds/luci/applications/luci-app-smartdns" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-aria2" "feeds/luci/applications/luci-app-aria2" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-kodexplorer" "feeds/luci/applications/luci-app-kodexplorer" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-socat" "feeds/luci/applications/luci-app-socat" "https://github.com/immortalwrt/luci"
@@ -57,11 +67,18 @@ svn_export "master" "utils/qt6tools" "feeds/packages/utils/qt6tools" "https://gi
 svn_export "master" "libs/qt6base" "feeds/packages/libs/qt6base" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-conversion" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libtorrent-rasterbar" "feeds/packages/libs/libtorrent-rasterbar" "https://github.com/immortalwrt/packages"
+svn_export "master" "net/smartdns" "feeds/packages/net/smartdns" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/ddns-scripts" "feeds/packages/net/ddns-scripts" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/ddns-scripts_aliyun" "feeds/packages/net/ddns-scripts_aliyun" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/ddns-scripts_dnspod" "feeds/packages/net/ddns-scripts_dnspod" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/socat" "feeds/packages/net/socat" "https://github.com/immortalwrt/packages"
+svn_export "master" "net/wget" "feeds/packages/net/wget" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/filebrowser" "feeds/packages/utils/filebrowser" "https://github.com/immortalwrt/packages"
+svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/ttyd" "feeds/packages/utils/ttyd" "https://github.com/immortalwrt/packages"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 #svn_export "main" "openwrt/luci-app-thunder" "package/luci-app-thunder" "https://github.com/gngpp/nas-xunlei"
 #svn_export "main" "openwrt/thunder" "package/thunder" "https://github.com/gngpp/nas-xunlei"
