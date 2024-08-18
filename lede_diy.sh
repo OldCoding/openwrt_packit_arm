@@ -77,7 +77,7 @@ svn_export "master" "net/wget" "feeds/packages/net/wget" "https://github.com/imm
 svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/containerd" "feeds/packages/utils/ containerd" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/filebrowser" "feeds/packages/utils/filebrowser" "https://github.com/immortalwrt/packages"
 svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/ttyd" "feeds/packages/utils/ttyd" "https://github.com/immortalwrt/packages"
