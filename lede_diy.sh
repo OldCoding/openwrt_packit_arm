@@ -75,8 +75,8 @@ svn_export "master" "net/ddns-scripts_dnspod" "feeds/packages/net/ddns-scripts_d
 svn_export "master" "net/socat" "feeds/packages/net/socat" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/wget" "feeds/packages/net/wget" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/immortalwrt/packages"
+svn_export "master" "general/docker" "feeds/packages/utils/docker" "https://github.com/breakings/OpenWrt"
+svn_export "master" "general/dockerd" "feeds/packages/utils/dockerd" "https://github.com/breakings/OpenWrt"
 svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/filebrowser" "feeds/packages/utils/filebrowser" "https://github.com/immortalwrt/packages"
 svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
@@ -89,8 +89,6 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "main" "general/golang" "feeds/packages/lang/golang" "https://github.com/breakings/OpenWrt"
-
-curl -sfL utils/dockerd/files/dockerd.init https://github.com/breakings/OpenWrt/raw/main/general/dockerd/files/dockerd.init
 
 rm -rf ./package/lean/autocore
 
