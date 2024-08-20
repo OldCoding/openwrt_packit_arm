@@ -90,6 +90,8 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "main" "general/golang" "feeds/packages/lang/golang" "https://github.com/breakings/OpenWrt"
 
+curl -sfL utils/dockerd/files/dockerd.init https://github.com/breakings/OpenWrt/raw/main/general/dockerd/files/dockerd.init
+
 rm -rf ./package/lean/autocore
 
 git clone --depth 1 https://github.com/sbwml/autocore-arm package/lean/autocore
