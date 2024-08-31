@@ -17,7 +17,7 @@ svn_export() {
 # 依赖和冲突
 rm -rf ./feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-openclash
-#rm -rf ./feeds/luci/applications/luci-app-filebrowser
+rm -rf ./feeds/luci/applications/luci-app-filebrowser
 #rm -rf ./feeds/packages/utils/filebrowser
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-alist
@@ -37,6 +37,7 @@ git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
+git clone --depth 1 https://github.com/wangqn/luci-app-filebrowser feeds/luci/applications/luci-app-filebrowser
 svn_export "master" "applications/luci-app-wrtbwmon" "package/luci-app-wrtbwmon" "https://github.com/coolsnowwolf/luci"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
