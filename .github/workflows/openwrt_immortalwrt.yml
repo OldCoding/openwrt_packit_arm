@@ -282,7 +282,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-transmission=y
         CONFIG_PACKAGE_transmission-daemon=y
         CONFIG_PACKAGE_transmission-web-control=y
-        CONFIG_PACKAGE_luci-app-filebrowser=y
+        CONFIG_PACKAGE_luci-app-filebrowser-go=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
         CONFIG_PACKAGE_luci-app-openclash=y
         CONFIG_PACKAGE_luci-app-thunder=y
