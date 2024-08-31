@@ -24,11 +24,14 @@ rm -rf ./feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-dockerman
 rm -rf ./feeds/luci/applications/luci-app-alist
 rm -rf ./feeds/packages/net/aria2
-git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
+git clone --dep
+ 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
 curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
 git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 # 下载插件
+git clone --depth 1 https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
+git clone --depth 1 https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon

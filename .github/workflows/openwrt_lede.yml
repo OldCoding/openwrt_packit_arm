@@ -262,7 +262,6 @@ jobs:
         CONFIG_PACKAGE_transmission-web-control=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
         CONFIG_PACKAGE_luci-app-openclash=y
-        CONFIG_PACKAGE_luci-app-thunder=y
         CONFIG_PACKAGE_luci-app-zerotier=y
         EOF
 
@@ -270,6 +269,8 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-theme-argon=y
         CONFIG_PACKAGE_luci-app-argon-config=y
+        CONFIG_PACKAGE_luci-theme-kucat=y
+        CONFIG_PACKAGE_luci-app-advancedplus=y
         EOF
 
         # 常用软件包:
