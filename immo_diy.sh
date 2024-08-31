@@ -27,8 +27,8 @@ rm -rf ./feeds/packages/net/mosdns
 rm -rf ./feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf ./feeds/packages/net/aria2
 git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
-git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
-git clone --depth 1 https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
+git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+git clone -b js --depth 1 https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
 git clone --depth 1 https://github.com/sirpdboy/luci-app-advancedplus package/luci-app-advancedplus
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
