@@ -38,6 +38,10 @@ rm -rf feeds/packages/lang/php8
 rm -rf feeds/packages/net/wget
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/utils/containerd
+rm -rf feeds/packages/libs/libdeflate
+rm -rf feeds/packages/libs/libdht
+rm -rf feeds/packages/libs/libutp
+rm -rf feeds/packages/libs/libb64
 curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
 git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
 #git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
@@ -78,6 +82,10 @@ svn_export "master" "net/ddns-scripts" "feeds/packages/net/ddns-scripts" "https:
 svn_export "master" "net/ddns-scripts_aliyun" "feeds/packages/net/ddns-scripts_aliyun" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/ddns-scripts_dnspod" "feeds/packages/net/ddns-scripts_dnspod" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/socat" "feeds/packages/net/socat" "https://github.com/immortalwrt/packages"
+svn_export "master" "libs/libdeflate" "feeds/packages/libs/libdeflate" "https://github.com/immortalwrt/packages"
+svn_export "master" "libs/libdht" "feeds/packages/libs/libdht" "https://github.com/immortalwrt/packages"
+svn_export "master" "libs/libutp" "feeds/packages/libs/libutp" "https://github.com/immortalwrt/packages"
+svn_export "master" "libs/libb64" "feeds/packages/libs/libb64" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/wget" "feeds/packages/net/wget" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/immortalwrt/packages"
 svn_export "main" "general/docker" "feeds/packages/utils/docker" "https://github.com/breakings/OpenWrt"
