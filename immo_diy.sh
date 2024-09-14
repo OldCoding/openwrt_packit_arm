@@ -68,7 +68,8 @@ sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/us
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
 cd package
 # 个性化设置
-sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakings|OldCoding|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|OpenWrt|openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|ARMv8|ARMv8-im|g" luci-app-amlogic/root/etc/config/amlogic
 rm -rf luci-app-netspeedtest/po/zh_Hans
 # 汉化

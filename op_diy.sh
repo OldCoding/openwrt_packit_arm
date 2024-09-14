@@ -109,7 +109,8 @@ sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushb
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-wechatpush/root/usr/share/wechatpush/wechatpush
 # 个性化设置
 cd package
-sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakings|OldCoding|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|OpenWrt|openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|ARMv8|ARMv8-op|g" luci-app-amlogic/root/etc/config/amlogic
 rm -rf luci-app-netspeedtest/po/zh_Hans
 # 汉化

@@ -131,11 +131,15 @@ sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-pushbot/root/usr/b
 cd package
 sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" lean/default-settings/files/zzz-default-settings
 sed -i "/firewall\.user/d" lean/default-settings/files/zzz-default-settings
-sed -i "s|amlogic_firmware_repo.*|amlogic_firmware_repo 'https://github.com/OldCoding/openwrt_packit_arm'|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakings|OldCoding|g" luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|OpenWrt|openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i 's/openwrt_luci/openwrt_core/g'  lean/default-settings/files/zzz-default-settings
 sed -i 's/snapshots/armvirt\\\/64/g'  lean/default-settings/files/zzz-default-settings
 sed -i 's/releases\\\/18.06.9/armsr\\\/armv8/g'  lean/default-settings/files/zzz-default-settings
+# 汉化
+curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
+chmod +x ./convert_translation.sh && bash ./convert_translation.sh
 # 更新passwall规则
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
 # OpenClash
