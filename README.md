@@ -1,10 +1,10 @@
 # Openwrt For ARMv8
 
 自动编译ARM盒子固件，点击右上角Star开始编译  
-使用Lede源码构建  
+使用Lede、Openwrt、Immortalwrt等源码构建  
 默认IP：192.168.1.1  
 默认密码：password  
-默认编译S905X3盒子固件  
+默认编译S905X3、N1盒子固件  
 如需其他CPU型号请修改`Package Armvirt as OpenWrt`节点中的`PACKAGE_SOC`变量，详细使用说明：[README.ACTION.md](https://github.com/unifreq/openwrt_packit/blob/master/README.ACTION.md)
 ```  
 - name: Package Armvirt as OpenWrt
