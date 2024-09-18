@@ -37,6 +37,7 @@ git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages packa
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
 git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
@@ -54,7 +55,6 @@ svn_export "master" "applications/luci-app-vlmcsd" "feeds/luci/applications/luci
 svn_export "master" "applications/luci-app-zerotier" "feeds/luci/applications/luci-app-zerotier" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luci-app-diskman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-kodexplorer" "feeds/luci/applications/luci-app-kodexplorer" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-filebrowser-go" "feeds/luci/applications/luci-app-filebrowser-go" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-autoreboot" "feeds/luci/applications/luci-app-autoreboot" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-rclone" "feeds/luci/applications/luci-app-rclone" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/rclone" "feeds/packages/net/rclone" "https://github.com/immortalwrt/packages"
@@ -67,7 +67,6 @@ svn_export "master" "net/vlmcsd" "feeds/packages/net/vlmcsd" "https://github.com
 svn_export "master" "libs/qt6base" "feeds/packages/libs/qt6base" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-conversion" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/qt6tools" "feeds/packages/utils/qt6tools" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/filebrowser" "feeds/packages/utils/filebrowser" "https://github.com/immortalwrt/packages"
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
@@ -97,7 +96,6 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autoco
 
 # 调整菜单位置
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json
-sed -i "s|services|nas|g" feeds/luci/applications/luci-app-filebrowser-go/root/usr/share/luci/menu.d/luci-app-filebrowser.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json

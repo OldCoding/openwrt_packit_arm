@@ -17,7 +17,7 @@ svn_export() {
 # 依赖和冲突
 rm -rf ./feeds/packages/lang/golang
 rm -rf ./feeds/luci/applications/luci-app-openclash
-#rm -rf ./feeds/luci/applications/luci-app-filebrowser
+rm -rf ./feeds/luci/applications/luci-app-filebrowser
 #rm -rf ./feeds/packages/utils/filebrowser
 rm -rf ./feeds/luci/applications/luci-app-passwall
 rm -rf ./feeds/luci/applications/luci-app-alist
@@ -37,6 +37,7 @@ git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
+git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
 git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 svn_export "master" "applications/luci-app-wrtbwmon" "package/luci-app-wrtbwmon" "https://github.com/coolsnowwolf/luci"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
@@ -57,7 +58,6 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autoco
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
 
 # 调整菜单位置
-sed -i "s|services|nas|g" feeds/luci/applications/luci-app-filebrowser-go/root/usr/share/luci/menu.d/luci-app-filebrowser.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
 sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
