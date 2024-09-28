@@ -360,6 +360,7 @@ jobs:
         CONFIG_PACKAGE_autocore-arm=y
         CONFIG_PACKAGE_automount=y
         CONFIG_PACKAGE_autosamba=y
+        CONFIG_PACKAGE_samba4-utils=y
         CONFIG_PACKAGE_ariang=y
         CONFIG_PACKAGE_bind-host=y
         CONFIG_PACKAGE_default-settings-chn=y

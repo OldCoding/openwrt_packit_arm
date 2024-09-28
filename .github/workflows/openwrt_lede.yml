@@ -344,6 +344,7 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_ariang=y
         CONFIG_PACKAGE_acpid=y
+        CONFIG_PACKAGE_samba4-utils=y
         CONFIG_PACKAGE_bind-host=y
         CONFIG_PACKAGE_kmod-brcmfmac=y
         CONFIG_PACKAGE_kmod-brcmutil=y
