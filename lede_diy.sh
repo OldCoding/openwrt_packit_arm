@@ -23,9 +23,11 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-qbittorrent
 rm -rf feeds/luci/applications/luci-app-ddns
 rm -rf feeds/luci/applications/luci-app-transmission
-rm -rf ./feeds/luci/applications/luci-app-filebrowser
+rm -rf feeds/luci/applications/luci-app-zerotier
+rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/packages/net/transmission-web-control
 rm -rf feeds/packages/net/transmission
+rm -rf feeds/packages/net/zerotier
 rm -rf feeds/applications/luci-app-aria2
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
@@ -72,6 +74,8 @@ svn_export "master" "applications/luci-app-socat" "feeds/luci/applications/luci-
 svn_export "master" "applications/luci-app-transmission" "feeds/luci/applications/luci-app-transmission" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-qbittorrent" "feeds/luci/applications/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-ddns" "feeds/luci/applications/luci-app-ddns" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-zerotier" "feeds/luci/applications/luci-app-zerotier" "https://github.com/immortalwrt/luci"
+svn_export "master" "net/zerotier" "feeds/packages/net/zerotier" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/transmission-web-control" "feeds/packages/net/transmission-web-control" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/transmission" "feeds/packages/net/transmission" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "feeds/packages/net/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
