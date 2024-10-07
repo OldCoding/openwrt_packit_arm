@@ -38,6 +38,7 @@ rm -rf feeds/packages/net/aria2
 rm -rf feeds/packages/lang/php8
 rm -rf feeds/packages/net/wget
 rm -rf feeds/packages/utils/ttyd
+rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/utils/containerd
 rm -rf feeds/packages/libs/libdeflate
 rm -rf feeds/packages/libs/libdht
@@ -92,6 +93,7 @@ svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose"
 svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/immortalwrt/packages"
 svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/ttyd" "feeds/packages/utils/ttyd" "https://github.com/immortalwrt/packages"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
