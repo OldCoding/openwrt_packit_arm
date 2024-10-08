@@ -20,10 +20,10 @@ find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 
 # 删除冲突软件和依赖
-rm -rf ./feeds/packages/lang/golang 
-rm -rf ./feeds/luci/applications/luci-app-dockerman
-rm -rf ./feeds/luci/applications/luci-app-alist
-rm -rf ./feeds/packages/net/aria2
+rm -rf feeds/packages/lang/golang 
+rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-alist
+rm -rf feeds/packages/net/aria2
 git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
 curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
 git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
@@ -54,7 +54,6 @@ svn_export "master" "applications/luci-app-vsftpd" "feeds/luci/applications/luci
 svn_export "master" "applications/luci-app-vlmcsd" "feeds/luci/applications/luci-app-vlmcsd" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-zerotier" "feeds/luci/applications/luci-app-zerotier" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luci-app-diskman" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-kodexplorer" "feeds/luci/applications/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-autoreboot" "feeds/luci/applications/luci-app-autoreboot" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-rclone" "feeds/luci/applications/luci-app-rclone" "https://github.com/immortalwrt/luci"
 svn_export "master" "net/rclone" "feeds/packages/net/rclone" "https://github.com/immortalwrt/packages"
@@ -69,6 +68,7 @@ svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-c
 svn_export "master" "utils/qt6tools" "feeds/packages/utils/qt6tools" "https://github.com/immortalwrt/packages"
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
+svn_export "master" "applications/luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"

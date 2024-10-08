@@ -39,7 +39,6 @@ git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-ali
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
 git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-svn_export "master" "applications/luci-app-kodexplorer" "feeds/luci/applications/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-wrtbwmon" "package/luci-app-wrtbwmon" "https://github.com/coolsnowwolf/luci"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
@@ -50,6 +49,7 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
+svn_export "master" "applications/luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
 
 rm -rf ./package/emortal/autocore
 
