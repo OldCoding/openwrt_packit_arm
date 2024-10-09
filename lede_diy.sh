@@ -101,7 +101,7 @@ svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https:
 svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/immortalwrt/packages"
 svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/ttyd" "feeds/packages/utils/ttyd" "https://github.com/immortalwrt/packages"
-svn_export "master" "applications/luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/Lienol/openwrt-package"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
