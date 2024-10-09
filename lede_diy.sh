@@ -135,7 +135,7 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # 个性化设置
-sed -i "s/ech/\#ech/g" feeds/utils/coremark/coremark
+sed -i "s/ech/\#ech/g" feeds/packages/utils/coremark/coremark
 cd package
 sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" lean/default-settings/files/zzz-default-settings
 sed -i "/firewall\.user/d" lean/default-settings/files/zzz-default-settings
