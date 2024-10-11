@@ -13,7 +13,6 @@ svn_export() {
 }
 
 # 删除冲突软件和依赖
-rm -rf tools/libdeflate
 rm -rf feeds/packages/lang/golang 
 rm -rf feeds/luci/applications/luci-app-pushbot 
 rm -rf feeds/luci/applications/luci-app-serverchan
@@ -43,7 +42,7 @@ rm -rf feeds/packages/net/wget
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/utils/containerd
-rm -rf feeds/packages/libs/libdeflate
+rm -rf feeds/packages/libs/tiff
 rm -rf feeds/packages/libs/libdht
 rm -rf feeds/packages/libs/libutp
 rm -rf feeds/packages/libs/libb64
@@ -66,7 +65,6 @@ git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/lu
 git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/xiaorouji/openwrt-passwall2"
-svn_export "master" "tools/libdeflate" "tools/libdeflate" "https://github.com/immortalwrt/immortalwrt"
 svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luci-app-diskman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-smartdns" "feeds/luci/applications/luci-app-smartdns" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-aria2" "feeds/luci/applications/luci-app-aria2" "https://github.com/immortalwrt/luci"
@@ -89,7 +87,7 @@ svn_export "master" "net/ddns-scripts" "feeds/packages/net/ddns-scripts" "https:
 svn_export "master" "net/ddns-scripts_aliyun" "feeds/packages/net/ddns-scripts_aliyun" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/ddns-scripts_dnspod" "feeds/packages/net/ddns-scripts_dnspod" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/socat" "feeds/packages/net/socat" "https://github.com/immortalwrt/packages"
-svn_export "master" "libs/libdeflate" "feeds/packages/libs/libdeflate" "https://github.com/immortalwrt/packages"
+svn_export "master" "libs/tiff" "feeds/packages/libs/tiff" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdht" "feeds/packages/libs/libdht" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libutp" "feeds/packages/libs/libutp" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libb64" "feeds/packages/libs/libb64" "https://github.com/immortalwrt/packages"
@@ -142,9 +140,9 @@ sed -i "/firewall\.user/d" lean/default-settings/files/zzz-default-settings
 sed -i "s|breakings|OldCoding|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|OpenWrt|openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|s9xxx_lede|ARMv8-le|g" luci-app-amlogic/root/etc/config/amlogic
-sed -i "s/openwrt_luci/openwrt_core/g" lean/default-settings/files/zzz-default-settings
-sed -i "s/snapshots/armvirt\\\/64/g"  lean/default-settings/files/zzz-default-settings
-sed -i "s/releases\\\/18.06.9/armsr\\\/armv8/g"  lean/default-settings/files/zzz-default-settings
+sed -i "s|openwrt_luci|openwrt_core|g" lean/default-settings/files/zzz-default-settings
+sed -i "s|snapshots|armvirt\\\/64|g"  lean/default-settings/files/zzz-default-settings
+sed -i "s|releases\\\/18.06.9|armsr\\\/armv8|g"  lean/default-settings/files/zzz-default-settings
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
 chmod +x ./convert_translation.sh && bash ./convert_translation.sh
