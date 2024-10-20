@@ -120,7 +120,7 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/lean/autocore
 #popd
 
 # 安装插件
-./scripts/feeds update -l
+./scripts/feeds update -i
 ./scripts/feeds install -a
 
 # 调整菜单位置

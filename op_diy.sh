@@ -86,7 +86,7 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autoco
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
 
 # 安装插件
-./scripts/feeds update -l
+./scripts/feeds update -i
 ./scripts/feeds install -a
 
 # 编译 po2lmo (如果有po2lmo可跳过)
