@@ -26,9 +26,13 @@ rm -rf feeds/luci/applications/luci-app-ddns
 rm -rf feeds/luci/applications/luci-app-transmission
 rm -rf feeds/luci/applications/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-filebrowser
+rm -rf feeds/luci/applications/luci-app-openclash
+rm -rf feeds/luci/applications/luci-app-alist
+rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/packages/net/transmission-web-control
 rm -rf feeds/packages/net/transmission
 rm -rf feeds/packages/net/zerotier
+rm -rf feeds/packages/net/alist
 rm -rf feeds/applications/luci-app-aria2
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
@@ -43,18 +47,19 @@ rm -rf feeds/packages/net/wget
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/utils/containerd
+rm -rf feeds/packages/utils/coremark
 rm -rf feeds/packages/libs/tiff
 rm -rf feeds/packages/libs/libdht
 rm -rf feeds/packages/libs/libutp
 rm -rf feeds/packages/libs/libb64
 curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
 git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
-#git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+
 # 下载插件
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
+git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
-#git clone --depth 1 https://github.com/lxl6125/openwrt-qbittorrent-enhanced package/openwrt-qbittorrent-enhanced
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
@@ -102,7 +107,6 @@ svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https:
 svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/immortalwrt/packages"
 svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/ttyd" "feeds/packages/utils/ttyd" "https://github.com/immortalwrt/packages"
-svn_export "main" "luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/kenzok8/small-package"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
@@ -136,7 +140,6 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # 个性化设置
-sed -i "s/ech/\#ech/g" feeds/packages/utils/coremark/coremark
 cd package
 sed -i "s/OpenWrt /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" lean/default-settings/files/zzz-default-settings
 sed -i "/firewall\.user/d" lean/default-settings/files/zzz-default-settings

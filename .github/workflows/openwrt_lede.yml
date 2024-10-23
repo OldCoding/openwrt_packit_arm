@@ -90,10 +90,7 @@ jobs:
         echo "VER=$VER" >> $GITHUB_ENV
 
     - name: Update feeds
-      run: |
-       cd openwrt 
-       sed -i ':a;N;$!ba;s/\/luci/\/luci.git;openwrt-23.05/g' feeds.conf.default
-       ./scripts/feeds update -a && ./scripts/feeds install -a
+      run:  cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
 
     - name: File Diy Patch
       run: |
@@ -235,6 +232,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-socat=y
         CONFIG_PACKAGE_luci-app-samba4=y
         CONFIG_PACKAGE_luci-app-ttyd=y
+        CONFIG_PACKAGE_luci-app-turboacc=y
         CONFIG_PACKAGE_luci-app-wol=y
         CONFIG_PACKAGE_luci-app-wrtbwmon=y
         CONFIG_PACKAGE_luci-app-ramfree=y
