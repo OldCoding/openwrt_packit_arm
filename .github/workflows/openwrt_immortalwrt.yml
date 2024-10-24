@@ -328,30 +328,6 @@ jobs:
         CONFIG_PACKAGE_uuidgen=y
         EOF
 
-        # 无线驱动
-        cat >> .config <<EOF
-        CONFIG_PACKAGE_kmod-ath=y
-        CONFIG_ATH_USER_REGD=y
-        CONFIG_PACKAGE_ATH_DFS=y
-        CONFIG_PACKAGE_kmod-ath6kl=y
-        CONFIG_PACKAGE_kmod-ath6kl-usb=y
-        CONFIG_PACKAGE_kmod-brcmfmac=y
-        CONFIG_BRCMFMAC_SDIO=y
-        CONFIG_PACKAGE_kmod-brcmutil=y
-        CONFIG_PACKAGE_kmod-carl9170=y
-        CONFIG_PACKAGE_kmod-cfg80211=y
-        CONFIG_PACKAGE_kmod-mac80211=y
-        CONFIG_PACKAGE_MAC80211_MESH=y
-        CONFIG_PACKAGE_kmod-mt7601u=y
-        CONFIG_PACKAGE_kmod-rsi91x=y
-        CONFIG_PACKAGE_kmod-rsi91x-usb=y
-        CONFIG_PACKAGE_kmod-rtl8192c-common=y
-        CONFIG_PACKAGE_kmod-rtl8192cu=y
-        CONFIG_PACKAGE_kmod-rtl8723bs=y
-        CONFIG_PACKAGE_kmod-rtlwifi=y
-        CONFIG_PACKAGE_kmod-rtlwifi-usb=y
-        EOF
-
         # 可选软件包
         cat >> .config <<EOF
         CONFIG_PACKAGE_autocore-arm=y
