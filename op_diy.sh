@@ -91,6 +91,7 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autoco
 ./scripts/feeds update -i
 ./scripts/feeds install -a
 
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=v0\.0\.0-dev\.2024101306/" package/netspeedtest/homebox/Makefile
 # 编译 po2lmo (如果有po2lmo可跳过)
 #pushd package/luci-app-openclash/tools/po2lmo
 #make && sudo make install
