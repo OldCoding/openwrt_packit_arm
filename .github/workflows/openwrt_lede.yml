@@ -246,7 +246,6 @@ jobs:
         CONFIG_PACKAGE_luci-app-webadmin=y
         CONFIG_PACKAGE_luci-app-wechatpush=y
         CONFIG_PACKAGE_luci-app-watchcat=y
-        CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
         CONFIG_PACKAGE_luci-app-passwall=y
         CONFIG_PACKAGE_luci-app-passwall2=y

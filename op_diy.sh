@@ -30,6 +30,7 @@ git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/gola
 
 # 下载插件
 git clone --depth 1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
 git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
@@ -68,13 +69,12 @@ svn_export "master" "net/vlmcsd" "feeds/packages/net/vlmcsd" "https://github.com
 svn_export "master" "libs/qt6base" "feeds/packages/libs/qt6base" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-conversion" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/qt6tools" "feeds/packages/utils/qt6tools" "https://github.com/immortalwrt/packages"
-svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
-svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
-svn_export "main" "luci-app-kodexplorer" "package/luci-app-kodexplorer" "https://github.com/kenzok8/small-package"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
+#svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
+#svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
 rm -rf ./package/emortal/autocore
 
@@ -97,10 +97,10 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autoco
 #popd
 
 # homebox
-latest_ver=$(curl -sfL https://api.github.com/repos/XGHeaven/homebox/releases/latest |grep -E 'tag_name'|head -n1|cut -d '"' -f4|sed 's/\./\\\./g')
-sed -i "s/\$(PKG_VERSION)/${latest_ver:1}/" package/homebox/Makefile
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=${latest_ver:14}/" package/homebox/Makefile
-sed -i 's/server/homebox/g' package/homebox/Makefile
+#latest_ver=$(curl -sfL https://api.github.com/repos/XGHeaven/homebox/releases/latest |grep -E 'tag_name'|head -n1|cut -d '"' -f4|sed 's/\./\\\./g')
+#sed -i "s/\$(PKG_VERSION)/${latest_ver:1}/" package/homebox/Makefile
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=${latest_ver:14}/" package/homebox/Makefile
+#sed -i 's/server/homebox/g' package/homebox/Makefile
 # adguardhome
 VER=$(grep PKG_VERSION package/luci-app-adguardhome/Makefile | sed 's/-/\./g')
 sed -i "s/PKG_VERSION:=.*/$VER/g" package/luci-app-adguardhome/Makefile
@@ -120,7 +120,6 @@ cd package
 sed -i "s|breakings|OldCoding|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|OpenWrt|openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|ARMv8|ARMv8-op|g" luci-app-amlogic/root/etc/config/amlogic
-rm -rf luci-app-netspeedtest/po/zh_Hans
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
 chmod +x ./convert_translation.sh && bash ./convert_translation.sh
