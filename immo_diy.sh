@@ -50,8 +50,8 @@ svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
-#svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
-#svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
+svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
+svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
 rm -rf ./package/emortal/autocore
 
@@ -61,14 +61,13 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autoco
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
 
 # homebox
-#latest_ver=$(curl -sfL https://api.github.com/repos/XGHeaven/homebox/releases/latest |grep -E 'tag_name'|head -n1|cut -d '"' -f4|sed 's/\./\\\./g')
-#sed -i "s/\$(PKG_VERSION)/${latest_ver:1}/" package/homebox/Makefile
-#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=${latest_ver:14}/" package/homebox/Makefile
-#sed -i 's/server/homebox/g' package/homebox/Makefile
+latest_ver=$(curl -sfL https://api.github.com/repos/XGHeaven/homebox/releases/latest |grep -E 'tag_name'|head -n1|cut -d '"' -f4|sed 's/\./\\\./g')
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$latest_ver/" package/homebox/Makefile
+sed -i 's/server/homebox/g' package/homebox/Makefile
 
 # adguardhome
-VER=$(grep PKG_VERSION package/luci-app-adguardhome/Makefile | sed 's/-/\./g')
-sed -i "s/PKG_VERSION:=.*/$VER/g" package/luci-app-adguardhome/Makefile
+#VER=$(grep PKG_VERSION package/luci-app-adguardhome/Makefile | sed 's/-/\./g')
+#sed -i "s/PKG_VERSION:=.*/$VER/g" package/luci-app-adguardhome/Makefile
 
 # 调整菜单位置
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json

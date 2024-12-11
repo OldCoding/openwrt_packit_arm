@@ -118,8 +118,8 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "main" "general/golang" "feeds/packages/lang/golang" "https://github.com/breakings/OpenWrt"
-#svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
-#svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
+svn_export "master" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
+svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 
 rm -rf ./package/lean/autocore
 
@@ -133,11 +133,11 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/lean/autocore
 # 安装插件
 ./scripts/feeds update -i
 ./scripts/feeds install -a
-
+# homebox
 latest_ver=$(curl -sfL https://api.github.com/repos/XGHeaven/homebox/releases/latest |grep -E 'tag_name'|head -n1|cut -d '"' -f4|sed 's/\./\\\./g')
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=${latest_ver:1}/" package/netspeedtest/homebox/Makefile
+sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$latest_ver/" package/homebox/Makefile
 sed -i 's/server/homebox/g' package/homebox/Makefile
-sed -i "s|coremark ||g" include/target.mk
+
 # 调整菜单位置
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
