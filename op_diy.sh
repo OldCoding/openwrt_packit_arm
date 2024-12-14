@@ -99,9 +99,9 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autoco
 #popd
 
 # homebox
-latest_ver=$(curl -sfL https://api.github.com/repos/XGHeaven/homebox/releases/latest |grep -E 'tag_name'|head -n1|cut -d '"' -f4|sed 's/\./\\\./g')
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$latest_ver/" package/homebox/Makefile
-sed -i 's/server/homebox/g' package/homebox/Makefile
+#latest_ver=$(curl -sfL https://api.github.com/repos/XGHeaven/homebox/releases/latest |grep -E 'tag_name'|head -n1|cut -d '"' -f4|sed 's/\./\\\./g')
+#sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$latest_ver/" package/homebox/Makefile
+sed -i 's/2023102203/2024101306/g' package/homebox/Makefile
 
 # adguardhome
 #VER=$(grep PKG_VERSION package/luci-app-adguardhome/Makefile | sed 's/-/\./g')
