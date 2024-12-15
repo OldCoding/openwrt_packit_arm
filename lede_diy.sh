@@ -151,10 +151,6 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-pushbot/root/usr/bin/pushbot/pushbot
-# homebox
-latest_ver=$(curl -sfL https://api.github.com/repos/XGHeaven/homebox/releases/latest |grep -E 'tag_name'|head -n1|cut -d '"' -f4|sed 's/\./\\\./g')
-sed -i "s/\$(PKG_VERSION)/${latest_ver:1}/" package/homebox/Makefile
-sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=${latest_ver:14}/" package/homebox/Makefile
 # 个性化设置
 cd package
 sed -i "s/LEDE /Wing build $(TZ=UTC-8 date "+%Y.%m.%d") @ LEDE /g" lean/default-settings/files/zzz-default-settings
