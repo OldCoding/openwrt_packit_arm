@@ -234,7 +234,6 @@ jobs:
         CONFIG_PACKAGE_luci-app-ttyd=y
         CONFIG_PACKAGE_luci-app-turboacc=y
         CONFIG_PACKAGE_luci-app-wol=y
-        CONFIG_PACKAGE_luci-app-wrtbwmon=y
         CONFIG_PACKAGE_luci-app-ramfree=y
         CONFIG_PACKAGE_luci-app-usb-printer=y
         CONFIG_PACKAGE_luci-app-upnp=y
@@ -321,6 +320,7 @@ jobs:
         CONFIG_PACKAGE_kmod-sched-red=y
         CONFIG_PACKAGE_hostapd-common=y
         CONFIG_PACKAGE_libopenssl-legacy=y
+        CONFIG_PACKAGE_wrtbwmon=y
         CONFIG_PACKAGE_wpa-cli=y
         CONFIG_PACKAGE_p54-usb-firmware=y
         CONFIG_PACKAGE_r8152-firmware=y

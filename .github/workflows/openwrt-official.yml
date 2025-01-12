@@ -283,7 +283,6 @@ jobs:
         CONFIG_PACKAGE_luci-app-filebrowser=y
         CONFIG_PACKAGE_luci-app-kodexplorer=y
         CONFIG_PACKAGE_luci-app-openclash=y
-        CONFIG_PACKAGE_luci-app-wrtbwmon=y
         EOF
 
         # LuCI主题:
@@ -342,6 +341,7 @@ jobs:
         CONFIG_PACKAGE_iptables-mod-iprange=y
         CONFIG_PACKAGE_iptables-mod-fullconenat=y
         CONFIG_PACKAGE_ip6tables-mod-fullconenat=y
+        CONFIG_PACKAGE_wrtbwmon=y
         CONFIG_PACKAGE_ca-certificates=y
         CONFIG_PACKAGE_lsof=y
         CONFIG_PACKAGE_acpid=y
