@@ -396,6 +396,7 @@ jobs:
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: s905d_s905x3
+        KERNEL_VERSION_NAME: $(cat $GITHUB_WORKSPACE/KernelVersion)
         WHOAMI: Wing
         KERNEL_AUTO_LATEST: true
         KERNEL_REPO_URL: OldCoding/openwrt_packit_arm
