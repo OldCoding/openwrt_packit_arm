@@ -87,6 +87,7 @@ jobs:
         echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
+        echo "KERNEL_VER=$(cat $GITHUB_WORKSPACE/KernelVersion)" >> $GITHUB_ENV
         echo "VER=$VER" >> $GITHUB_ENV
 
     - name: Update feeds
@@ -396,7 +397,7 @@ jobs:
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: s905d_s905x3
-        KERNEL_VERSION_NAME: $(cat $GITHUB_WORKSPACE/KernelVersion)
+        KERNEL_VERSION_NAME: ${{ env.KERNEL_VER }}
         WHOAMI: Wing
         KERNEL_AUTO_LATEST: true
         KERNEL_REPO_URL: OldCoding/openwrt_packit_arm
