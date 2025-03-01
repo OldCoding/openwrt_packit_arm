@@ -14,7 +14,8 @@ svn_export() {
 
 # 删除冲突软件和依赖
 rm -rf tools/libdeflate
-rm -rf feeds/packages/lang/golang 
+rm -rf feeds/packages/lang/golang
+rm -rf feeds/luci/applications/luci-app-aria2
 rm -rf feeds/luci/applications/luci-app-pushbot 
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/applications/luci-app-mosdns
@@ -36,7 +37,6 @@ rm -rf feeds/packages/net/transmission-web-control
 rm -rf feeds/packages/net/transmission
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/net/alist
-rm -rf feeds/applications/luci-app-aria2
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/lucky
@@ -56,6 +56,8 @@ rm -rf feeds/packages/libs/tiff
 rm -rf feeds/packages/libs/libdht
 rm -rf feeds/packages/libs/libutp
 rm -rf feeds/packages/libs/libb64
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
 git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
 
