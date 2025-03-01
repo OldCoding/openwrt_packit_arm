@@ -31,6 +31,7 @@ rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-adguardhome
+rm -rf feeds/luci/applications/luci-app-lucky
 rm -rf feeds/packages/net/transmission-web-control
 rm -rf feeds/packages/net/transmission
 rm -rf feeds/packages/net/smartdns
@@ -38,6 +39,7 @@ rm -rf feeds/packages/net/alist
 rm -rf feeds/applications/luci-app-aria2
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/net/lucky
 rm -rf feeds/packages/utils/docker-compose
 rm -rf feeds/packages/utils/docker
 rm -rf feeds/packages/utils/dockerd
