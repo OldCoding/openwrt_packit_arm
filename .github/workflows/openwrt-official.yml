@@ -334,7 +334,6 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_autocore-arm=y
         CONFIG_PACKAGE_automount=y
-        CONFIG_PACKAGE_autosamba=y
         CONFIG_PACKAGE_samba4-utils=y
         CONFIG_PACKAGE_htop=y
         CONFIG_PACKAGE_libsensors=y
@@ -449,7 +448,7 @@ jobs:
       run: |
         cp $GITHUB_WORKSPACE/openwrt/bin/targets/*/*/Packages.tar.gz ${{ env.PACKAGED_OUTPUTPATH }}
         #cp $GITHUB_WORKSPACE/openwrt/bin/targets/*/*/*rootfs.tar.gz ${{ env.PACKAGED_OUTPUTPATH }}
-        cp $GITHUB_WORKSPACE/openwrt/bin/config ${{ env.PACKAGED_OUTPUTPATH }}/config.txt
+        cp $GITHUB_WORKSPACE/openwrt/bin/config ${{ env.PACKAGED_OUTPUTPATH }}/config-op.txt
         cd ${{ env.PACKAGED_OUTPUTPATH }} && rm -rf sha256sums
         MD5=$(md5sum *.gz | sed ':a;N;$!ba;s/\n/<br>/g')
         echo "MD5=$MD5" >> $GITHUB_ENV
