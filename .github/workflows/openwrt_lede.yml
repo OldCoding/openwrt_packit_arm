@@ -316,6 +316,7 @@ jobs:
         CONFIG_PACKAGE_ariang=y
         CONFIG_PACKAGE_acpid=y
         CONFIG_PACKAGE_samba4-utils=y
+        CONFIG_PACKAGE_wsdd2=y
         CONFIG_PACKAGE_htop=y
         CONFIG_PACKAGE_libsensors=y
         CONFIG_PACKAGE_bind-host=y
