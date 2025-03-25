@@ -40,11 +40,11 @@ rm -rf feeds/packages/net/alist
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/lucky
-rm -rf feeds/packages/utils/docker-compose
-rm -rf feeds/packages/utils/docker
-rm -rf feeds/packages/utils/dockerd
-rm -rf feeds/packages/utils/containerd
-rm -rf feeds/packages/utils/runc
+#rm -rf feeds/packages/utils/docker-compose
+#rm -rf feeds/packages/utils/docker
+#rm -rf feeds/packages/utils/dockerd
+#rm -rf feeds/packages/utils/containerd
+#rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/utils/btrfs-progs
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/net/v2ray-geodata
@@ -109,11 +109,11 @@ svn_export "master" "libs/libdht" "feeds/packages/libs/libdht" "https://github.c
 svn_export "master" "libs/libutp" "feeds/packages/libs/libutp" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libb64" "feeds/packages/libs/libb64" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/wget" "feeds/packages/net/wget" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/immortalwrt/packages"
+#svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/immortalwrt/packages"
+#svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/immortalwrt/packages"
+#svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/immortalwrt/packages"
+#svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/immortalwrt/packages"
+#svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/btrfs-progs" "feeds/packages/utils/btrfs-progs" "https://github.com/immortalwrt/packages"
 svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/ttyd" "feeds/packages/utils/ttyd" "https://github.com/immortalwrt/packages"
