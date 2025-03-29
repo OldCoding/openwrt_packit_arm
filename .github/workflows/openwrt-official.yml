@@ -358,6 +358,7 @@ jobs:
         CONFIG_PACKAGE_kmod-mac80211=y
         CONFIG_PACKAGE_hostapd-common=y
         CONFIG_PACKAGE_kmod-sched-red=y
+        CONFIG_PACKAGE_pigz=y
         CONFIG_PACKAGE_wpa-cli=y
         EOF
 

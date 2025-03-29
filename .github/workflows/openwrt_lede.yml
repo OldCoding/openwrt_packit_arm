@@ -336,6 +336,7 @@ jobs:
         CONFIG_PACKAGE_rt73-usb-firmware=y
         CONFIG_PACKAGE_rtl8192cu-firmware=y
         CONFIG_PACKAGE_wireless-regdb=y
+        CONFIG_PACKAGE_pigz=y
         EOF
 
         # 
