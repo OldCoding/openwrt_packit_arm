@@ -119,10 +119,11 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # 个性化设置
+sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Wing build $(TZ=UTC-8 date "+%Y.%m.%d")')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
+sed -i "s|breakings|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|ARMv8|ARMv8-op|g" package/luci-app-amlogic/root/etc/config/amlogic
 cd package
-sed -i "s|breakings|OldCoding|g" luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|OpenWrt|openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|ARMv8|ARMv8-op|g" luci-app-amlogic/root/etc/config/amlogic
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
 chmod +x ./convert_translation.sh && bash ./convert_translation.sh

@@ -77,12 +77,13 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # DNS劫持
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
-cd package
 # 个性化设置
-sed -i "s|breakings|OldCoding|g" luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|OpenWrt|openwrt_packit_arm|g" luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|ARMv8|ARMv8-im|g" luci-app-amlogic/root/etc/config/amlogic
-rm -rf luci-app-netspeedtest/po/zh_Hans
+sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Wing build $(TZ=UTC-8 date "+%Y.%m.%d")')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
+sed -i "s|breakings|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|ARMv8|ARMv8-im|g" package/luci-app-amlogic/root/etc/config/amlogic
+rm -rf package/luci-app-netspeedtest/po/zh_Hans
+cd package
 # NTP服务器
 sed -i "s|\'time1\.apple\.com\'|\'0\.openwrt\.pool\.ntp\.org\'|g" base-files/files/bin/config_generate
 sed -i "s|\'time1\.google\.com\'|\'1\.openwrt\.pool\.ntp\.org\'|g" base-files/files/bin/config_generate
