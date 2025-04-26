@@ -49,15 +49,15 @@ rm -rf feeds/packages/utils/btrfs-progs
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/aria2
-rm -rf feeds/packages/lang/php8
-rm -rf feeds/packages/lang/php8-pecl-xdebug
-rm -rf feeds/packages/lang/php8-pecl-redis
-rm -rf feeds/packages/lang/php8-pecl-raphf
-rm -rf feeds/packages/lang/php8-pecl-mcrypt
-rm -rf feeds/packages/lang/php8-pecl-krb5
-rm -rf feeds/packages/lang/php8-pecl-imagick
-rm -rf feeds/packages/lang/php8-pecl-http
-rm -rf feeds/packages/lang/php8-pecl-dio
+#rm -rf feeds/packages/lang/php8
+#rm -rf feeds/packages/lang/php8-pecl-xdebug
+#rm -rf feeds/packages/lang/php8-pecl-redis
+#rm -rf feeds/packages/lang/php8-pecl-raphf
+#rm -rf feeds/packages/lang/php8-pecl-mcrypt
+#rm -rf feeds/packages/lang/php8-pecl-krb5
+#rm -rf feeds/packages/lang/php8-pecl-imagick
+#rm -rf feeds/packages/lang/php8-pecl-http
+#rm -rf feeds/packages/lang/php8-pecl-dio
 rm -rf feeds/packages/net/wget
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/utils/coremark
@@ -123,15 +123,15 @@ svn_export "master" "net/wget" "feeds/packages/net/wget" "https://github.com/imm
 #svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/immortalwrt/packages"
 #svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/btrfs-progs" "feeds/packages/utils/btrfs-progs" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8-pecl-xdebug" "feeds/packages/lang/php8-pecl-xdebug" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8-pecl-redis" "feeds/packages/lang/php8-pecl-redis" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8-pecl-raphf" "feeds/packages/lang/php8-pecl-raphf" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8-pecl-mcrypt" "feeds/packages/lang/php8-pecl-mcrypt" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8-pecl-krb5" "feeds/packages/lang/php8-pecl-krb5" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8-pecl-imagick" "feeds/packages/lang/php8-pecl-imagick" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8-pecl-http" "feeds/packages/lang/php8-pecl-http" "https://github.com/immortalwrt/packages"
-svn_export "master" "lang/php8-pecl-dio" "feeds/packages/lang/php8-pecl-dio" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8" "feeds/packages/lang/php8" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8-pecl-xdebug" "feeds/packages/lang/php8-pecl-xdebug" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8-pecl-redis" "feeds/packages/lang/php8-pecl-redis" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8-pecl-raphf" "feeds/packages/lang/php8-pecl-raphf" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8-pecl-mcrypt" "feeds/packages/lang/php8-pecl-mcrypt" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8-pecl-krb5" "feeds/packages/lang/php8-pecl-krb5" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8-pecl-imagick" "feeds/packages/lang/php8-pecl-imagick" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8-pecl-http" "feeds/packages/lang/php8-pecl-http" "https://github.com/immortalwrt/packages"
+#svn_export "master" "lang/php8-pecl-dio" "feeds/packages/lang/php8-pecl-dio" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/ttyd" "feeds/packages/utils/ttyd" "https://github.com/immortalwrt/packages"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
