@@ -141,9 +141,9 @@ jobs:
 
         # 编译ARM固件:
         cat >> .config <<EOF
-        CONFIG_TARGET_armvirt=y
-        CONFIG_TARGET_armvirt_64=y
-        CONFIG_TARGET_armvirt_64_DEVICE_generic=y
+        CONFIG_TARGET_armsr=y
+        CONFIG_TARGET_armsr_armv8=y
+        CONFIG_TARGET_armsr_armv8_DEVICE_generic=y
         CONFIG_TARGET_ARCH_PACKAGES="aarch64_generic"
         CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=generic"
         CONFIG_CPU_TYPE="generic"
