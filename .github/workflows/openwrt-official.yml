@@ -233,6 +233,7 @@ jobs:
         # LuCI插件选择:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
+        CONFIG_PACKAGE_luci-app-cifs-mount=y
         CONFIG_PACKAGE_luci-app-diskman=y
         CONFIG_PACKAGE_luci-app-dockerman=y
         CONFIG_PACKAGE_luci-app-amlogic=y
@@ -423,7 +424,7 @@ jobs:
       if: steps.organize.outputs.status == 'success' && !cancelled()
       uses: ophub/flippy-openwrt-actions@main
       env:
-        OPENWRT_ARMSR: openwrt/bin/targets/*/*/*rootfs.tar.gz
+        OPENWRT_ARMSR: openwrt/bin/targets/*/*/*.tar.gz
         PACKAGE_SOC: s905d_s905x3
         KERNEL_VERSION_NAME: ${{ env.KERNEL_VER }}
         WHOAMI: Wing
@@ -436,7 +437,7 @@ jobs:
 #      if: steps.organize.outputs.status == 'success' && !cancelled()
 #      uses: ophub/amlogic-s9xxx-openwrt@main
 #      with:
-#        openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
+#        openwrt_path: openwrt/bin/targets/*/*/*.tar.gz
 #        kernel_usage: flippy
 #        openwrt_board: s905x3_s905d
 #        openwrt_kernel: 6.1.y_6.6.y
