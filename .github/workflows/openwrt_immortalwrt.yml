@@ -358,6 +358,8 @@ jobs:
         CONFIG_PACKAGE_hostapd-common=y
         CONFIG_PACKAGE_pigz=y
         CONFIG_PACKAGE_wpa-cli=y
+        CONFIG_PACKAGE_wpad-basic=y
+        CONFIG_PACKAGE_iw=y
         EOF
 
         # 

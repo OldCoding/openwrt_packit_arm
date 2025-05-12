@@ -330,6 +330,8 @@ jobs:
         CONFIG_PACKAGE_libopenssl-legacy=y
         CONFIG_PACKAGE_wrtbwmon=y
         CONFIG_PACKAGE_wpa-cli=y
+        CONFIG_PACKAGE_wpad-basic=y
+        CONFIG_PACKAGE_iw=y
         CONFIG_PACKAGE_p54-usb-firmware=y
         CONFIG_PACKAGE_r8152-firmware=y
         CONFIG_PACKAGE_rs9113-firmware=y
