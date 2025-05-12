@@ -412,7 +412,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/openwrt/bin/packages
         tar -zcvf Packages.tar.gz ./*
-        cp Packages.tar.gz $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
+        cp Packages.tar.gz $GITHUB_WORKSPACE/openwrt/bin
         cd $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
         rm -rf packages
         echo "status=success" >> ${GITHUB_OUTPUT}
@@ -443,7 +443,7 @@ jobs:
 
     - name: Calculate MD5
       run: |
-        cp $GITHUB_WORKSPACE/openwrt/bin/targets/*/*/Packages.tar.gz ${{ env.PACKAGED_OUTPUTPATH }}
+        cp $GITHUB_WORKSPACE/openwrt/bin/Packages.tar.gz ${{ env.PACKAGED_OUTPUTPATH }}
         #cp $GITHUB_WORKSPACE/openwrt/bin/targets/*/*/*rootfs.tar.gz ${{ env.PACKAGED_OUTPUTPATH }}
         cp $GITHUB_WORKSPACE/openwrt/bin/config ${{ env.PACKAGED_OUTPUTPATH }}/config-immo.txt
         cd ${{ env.PACKAGED_OUTPUTPATH }} && rm -rf sha256sums
