@@ -410,8 +410,8 @@ jobs:
         KERNEL_AUTO_LATEST: true
         KERNEL_REPO_URL: OldCoding/openwrt_packit_arm
         OPENWRT_VER: ${{ env.VER }}
-        DISTRIB_DESCRIPTION: Wing build $(TZ=UTC-8 date "+%Y.%m.%d") 
-        DISTRIB_REVISION: \@ LEDE ${{ env.VER }}
+        DISTRIB_DESCRIPTION: LEDE 
+        DISTRIB_REVISION: ${{ env.VER }}
         GZIP_IMGS: .gz
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
