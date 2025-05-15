@@ -25,7 +25,6 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-kodexplorer
 rm -rf feeds/luci/applications/luci-app-qbittorrent
 rm -rf feeds/luci/applications/luci-app-ddns
-rm -rf feeds/luci/applications/luci-app-transmission
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-passwall2
 rm -rf feeds/luci/applications/luci-app-filebrowser
@@ -33,8 +32,6 @@ rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/luci/applications/luci-app-lucky
-rm -rf feeds/packages/net/transmission-web-control
-rm -rf feeds/packages/net/transmission
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/net/alist
 rm -rf feeds/packages/libs/libtorrent-rasterbar
@@ -95,13 +92,9 @@ svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luc
 svn_export "master" "applications/luci-app-smartdns" "feeds/luci/applications/luci-app-smartdns" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-aria2" "feeds/luci/applications/luci-app-aria2" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-socat" "feeds/luci/applications/luci-app-socat" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-transmission" "feeds/luci/applications/luci-app-transmission" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-qbittorrent" "feeds/luci/applications/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-ddns" "feeds/luci/applications/luci-app-ddns" "https://github.com/immortalwrt/luci"
 svn_export "master" "wrtbwmon" "package/wrtbwmon" "https://github.com/firker/luci-app-wrtbwmon-zh"
-svn_export "master" "net/transmission-web-control" "feeds/packages/net/transmission-web-control" "https://github.com/immortalwrt/packages"
-svn_export "master" "net/transmission" "feeds/packages/net/transmission" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "feeds/packages/net/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/qt6tools" "feeds/packages/utils/qt6tools" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/qt6base" "feeds/packages/libs/qt6base" "https://github.com/immortalwrt/packages"
@@ -111,7 +104,6 @@ svn_export "master" "net/smartdns" "feeds/packages/net/smartdns" "https://github
 svn_export "master" "net/ddns-scripts" "feeds/packages/net/ddns-scripts" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/ddns-scripts_aliyun" "feeds/packages/net/ddns-scripts_aliyun" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/ddns-scripts_dnspod" "feeds/packages/net/ddns-scripts_dnspod" "https://github.com/immortalwrt/packages"
-svn_export "master" "net/socat" "feeds/packages/net/socat" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/tiff" "feeds/packages/libs/tiff" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdht" "feeds/packages/libs/libdht" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libutp" "feeds/packages/libs/libutp" "https://github.com/immortalwrt/packages"
@@ -155,13 +147,12 @@ git clone --depth 1 https://github.com/sbwml/autocore-arm package/lean/autocore
 #popd
 
 # 安装插件
-./scripts/feeds update -i
-./scripts/feeds install -a
+#./scripts/feeds update -i
+#./scripts/feeds install -a
 
 # 调整菜单位置
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
-sed -i "s|services|nas|g" feeds/luci/applications/luci-app-transmission/root/usr/share/luci/menu.d/luci-app-transmission.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-minidlna/root/usr/share/luci/menu.d/luci-app-minidlna.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
