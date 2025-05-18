@@ -60,10 +60,6 @@ svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lu
 svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "openwrt-23.05" "themes/luci-theme-design" "package/luci-app-lucky" "https://github.com/coolsnowwolf/luci"
 
-rm -rf ./package/emortal/autocore
-
-git clone --depth 1 https://github.com/sbwml/autocore-arm package/emortal/autocore
-
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
 
