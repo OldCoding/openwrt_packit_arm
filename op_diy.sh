@@ -82,7 +82,11 @@ svn_export "master" "speedtest-cli" "package/speedtest-cli" "https://github.com/
 svn_export "master" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
-svn_export "openwrt-23.05" "themes/luci-theme-design" "package/luci-app-lucky" "https://github.com/coolsnowwolf/luci"
+svn_export "openwrt-23.05" "themes/luci-theme-design" "package/luci-theme-design" "https://github.com/coolsnowwolf/luci"
+svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luci-app-easytier"
+svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
+
+rm -rf package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 
 #svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
 #svn_export "master" "package/libs/ustream-ssl" "package/libs/ustream-ssl" "https://github.com/coolsnowwolf/lede"
