@@ -271,6 +271,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-dockerman=y
         CONFIG_PACKAGE_luci-app-ddns=y
         CONFIG_PACKAGE_luci-app-easytier=y
+        CONFIG_PACKAGE_easytier=y
         CONFIG_PACKAGE_luci-app-nlbwmon=y
         CONFIG_PACKAGE_luci-app-firewall=y
         CONFIG_PACKAGE_luci-app-ssr-plus=y
