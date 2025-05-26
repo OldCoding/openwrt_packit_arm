@@ -80,8 +80,8 @@ git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
 #git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-git clone --depth 1 https://github.com/hudra0/luci-app-qosmate package/luci-app-qosmate
-git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
+#git clone --depth 1 https://github.com/hudra0/luci-app-qosmate package/luci-app-qosmate
+#git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
 git clone --depth 1 https://github.com/kenzok78/luci-app-design-config package/luci-app-design-config
 git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 svn_export "master" "tools/libdeflate" "tools/libdeflate" "https://github.com/immortalwrt/immortalwrt"

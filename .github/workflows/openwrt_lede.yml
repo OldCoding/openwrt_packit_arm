@@ -281,10 +281,18 @@ jobs:
         CONFIG_PACKAGE_luci-app-wechatpush=y
         CONFIG_PACKAGE_luci-app-watchcat=y
         CONFIG_PACKAGE_luci-app-passwall=y
+        CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client=y
+        CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Server=y
+        # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client is not set
+        # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server is not set
         CONFIG_PACKAGE_luci-app-passwall2=y
+        CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Client=y
+        CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Rust_Server=y
+        # CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Client is not set
+        # CONFIG_PACKAGE_luci-app-passwall2_INCLUDE_Shadowsocks_Libev_Server is not set
         CONFIG_PACKAGE_luci-app-ipsec-server=y
         CONFIG_PACKAGE_luci-app-pptp-server=y
-        CONFIG_PACKAGE_luci-app-qosmate=y
+        # CONFIG_PACKAGE_luci-app-qosmate is not set
         CONFIG_PACKAGE_luci-app-qbittorrent=y
         CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-aria2=y

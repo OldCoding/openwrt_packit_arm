@@ -310,7 +310,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-adguardhome=y
         CONFIG_PACKAGE_luci-app-ipsec-server=y
         CONFIG_PACKAGE_luci-app-pptp-server=y
-        CONFIG_PACKAGE_luci-app-qosmate=y
+        # CONFIG_PACKAGE_luci-app-qosmate is not set
         CONFIG_PACKAGE_luci-app-qbittorrent=y
         CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-aria2=y
