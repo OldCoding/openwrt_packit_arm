@@ -131,6 +131,7 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 #svn_export "main" "general/golang" "feeds/packages/lang/golang" "https://github.com/breakings/OpenWrt"
 svn_export "js" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
+svn_export "js" "netspeedtest" "package/netspeedtest" "https://github.com/sirpdboy/netspeedtest"
 svn_export "js" "speedtest-cli" "package/speedtest-cli" "https://github.com/sirpdboy/netspeedtest"
 svn_export "js" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lucky"
