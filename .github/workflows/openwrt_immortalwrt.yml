@@ -262,7 +262,7 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
         CONFIG_PACKAGE_luci-app-amlogic=y
-        CONFIG_PACKAGE_luci-app-alist=y
+        CONFIG_PACKAGE_luci-app-openlist=y
         CONFIG_PACKAGE_luci-app-cifs-mount=y
         CONFIG_PACKAGE_luci-app-diskman=y
         CONFIG_PACKAGE_luci-app-dockerman=y

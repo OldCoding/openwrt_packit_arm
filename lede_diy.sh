@@ -29,11 +29,9 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-passwall2
 rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-openclash
-rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/luci/applications/luci-app-lucky
 rm -rf feeds/packages/net/smartdns
-rm -rf feeds/packages/net/alist
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/lucky
@@ -70,7 +68,7 @@ git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/pack
 # 下载插件
 git clone --depth 1 https://github.com/zyqfork/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
 git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
-git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
+git clone --depth 1 https://github.com/sbwml/luci-app-openlist package/luci-app-openlist
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush

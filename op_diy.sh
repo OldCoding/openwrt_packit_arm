@@ -22,7 +22,6 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 # 删除冲突软件和依赖
 rm -rf feeds/packages/lang/golang 
 rm -rf feeds/luci/applications/luci-app-dockerman
-rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/packages/net/aria2
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/luci/themes/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
@@ -33,7 +32,7 @@ git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/gola
 # 下载插件
 git clone --depth 1 https://github.com/zyqfork/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
-git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
+git clone --depth 1 https://github.com/sbwml/luci-app-openlist package/luci-app-openlist
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
