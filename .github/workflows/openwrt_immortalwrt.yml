@@ -26,6 +26,7 @@ env:
   REPO_BRANCH: openwrt-24.10
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
+  SWAP: false
   DIY_SH: immo_diy.sh
   TZ: Asia/Shanghai
   FILE_NAME: openwrt_armvirt
@@ -82,6 +83,7 @@ jobs:
         df -Th
 
     - name: Create Swap
+      if: env.SWAP == 'true'
       run: |
         sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=8192
         sudo chmod 600 /mnt/swapfile
