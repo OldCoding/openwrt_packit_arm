@@ -22,6 +22,8 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 # 删除冲突软件和依赖
 rm -rf feeds/packages/lang/golang 
 rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf ./feeds/luci/applications/luci-app-openlist
+rm -rf ./feeds/packages/net/openlist
 rm -rf feeds/packages/net/aria2
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/luci/themes/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
