@@ -370,6 +370,7 @@ jobs:
         CONFIG_PACKAGE_kmod-cfg80211=y
         CONFIG_PACKAGE_kmod-mac80211=y
         CONFIG_PACKAGE_kmod-sched-red=y
+        CONFIG_PACKAGE_smartmontools-drivedb=y
         CONFIG_PACKAGE_hostapd-common=y
         CONFIG_PACKAGE_libopenssl-legacy=y
         CONFIG_PACKAGE_wpa-cli=y

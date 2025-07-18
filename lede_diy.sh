@@ -56,6 +56,7 @@ rm -rf feeds/packages/net/aria2
 rm -rf feeds/packages/net/wget
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/utils/coremark
+rm -rf feeds/packages/utils/smartmontools
 rm -rf feeds/packages/libs/tiff
 rm -rf feeds/packages/libs/libdht
 rm -rf feeds/packages/libs/libutp
@@ -124,6 +125,7 @@ svn_export "master" "utils/btrfs-progs" "feeds/packages/utils/btrfs-progs" "http
 #svn_export "master" "lang/php8-pecl-http" "feeds/packages/lang/php8-pecl-http" "https://github.com/immortalwrt/packages"
 #svn_export "master" "lang/php8-pecl-dio" "feeds/packages/lang/php8-pecl-dio" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/ttyd" "feeds/packages/utils/ttyd" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/smartmontools" "feeds/packages/utils/smartmontools" "https://github.com/immortalwrt/packages"
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
