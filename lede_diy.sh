@@ -29,11 +29,13 @@ rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-passwall2
 rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-openclash
+rm -rf feeds/luci/applications/luci-app-openlist
 rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/luci/applications/luci-app-lucky
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/net/openlist
 rm -rf feeds/packages/net/lucky
 #rm -rf feeds/packages/utils/docker-compose
 #rm -rf feeds/packages/utils/docker
