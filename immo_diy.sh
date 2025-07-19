@@ -20,10 +20,8 @@ rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-filebrowser
 #rm -rf ./feeds/packages/utils/filebrowser
 rm -rf ./feeds/luci/applications/luci-app-passwall
-rm -rf ./feeds/luci/applications/luci-app-openlist
 rm -rf ./feeds/packages/net/v2ray-geodata
 rm -rf ./feeds/packages/net/mosdns
-rm -rf ./feeds/packages/net/openlist
 rm -rf ./feeds/packages/net/speedtest-cli
 rm -rf ./feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf ./feeds/packages/net/aria2

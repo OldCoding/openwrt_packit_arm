@@ -246,7 +246,7 @@ jobs:
         # LuCI插件选择:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
-        CONFIG_PACKAGE_luci-app-openlist=y
+        CONFIG_PACKAGE_luci-app-openlist2=y
         CONFIG_PACKAGE_luci-app-amlogic=y
         CONFIG_PACKAGE_luci-app-adguardhome=y
         CONFIG_PACKAGE_luci-app-cifs-mount=y
