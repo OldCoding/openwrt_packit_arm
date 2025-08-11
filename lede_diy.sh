@@ -78,6 +78,7 @@ git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
+git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
 #git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
 #git clone --depth 1 https://github.com/hudra0/luci-app-qosmate package/luci-app-qosmate
 #git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
@@ -132,10 +133,6 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 #svn_export "main" "general/golang" "feeds/packages/lang/golang" "https://github.com/breakings/OpenWrt"
-svn_export "js" "luci-app-netspeedtest" "package/luci-app-netspeedtest" "https://github.com/sirpdboy/netspeedtest"
-svn_export "js" "netspeedtest" "package/netspeedtest" "https://github.com/sirpdboy/netspeedtest"
-svn_export "js" "speedtest-cli" "package/speedtest-cli" "https://github.com/sirpdboy/netspeedtest"
-svn_export "js" "homebox" "package/homebox" "https://github.com/sirpdboy/netspeedtest"
 svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luci-app-easytier"
