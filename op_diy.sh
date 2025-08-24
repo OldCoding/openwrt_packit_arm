@@ -19,6 +19,8 @@ svn_export() {
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
 
+# Rust编译错误-download-ci-llvm
+sed -i 's/download-ci-llvm=true/download-ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 # 删除冲突软件和依赖
 rm -rf feeds/packages/lang/golang 
 rm -rf feeds/luci/applications/luci-app-dockerman

@@ -44,6 +44,7 @@ rm -rf feeds/packages/utils/btrfs-progs
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/aria2
+rm -rf feeds/packages/net/sing-box
 #rm -rf feeds/packages/lang/php8
 #rm -rf feeds/packages/lang/php8-pecl-xdebug
 #rm -rf feeds/packages/lang/php8-pecl-redis
