@@ -133,7 +133,7 @@ cd ./luci-app-openclash/root/etc/openclash
 #CORE_VER=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/core_version
 #CORE_TUN=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/premium/clash-linux-arm64
 #CORE_DEV=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/dev/clash-linux-arm64.tar.gz
-CORE_MATE=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/meta/clash-linux-arm64.tar.gz
+CORE_MATE=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/smart/clash-linux-arm64.tar.gz
 #TUN_VER=$(curl -sfL $CORE_VER | sed -n "2{s/\r$//;p;q}")
 curl -sfL -o ./Country.mmdb https://github.com/alecthw/mmdb_china_ip_list/raw/release/Country.mmdb
 curl -sfL -o ./GeoSite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geosite.dat
