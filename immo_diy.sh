@@ -59,6 +59,7 @@ svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luc
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
 
 rm -rf package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
+mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh

@@ -87,6 +87,7 @@ svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luc
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
 
 rm -rf package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
+mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 
 #svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
 #svn_export "master" "package/libs/ustream-ssl" "package/libs/ustream-ssl" "https://github.com/coolsnowwolf/lede"
