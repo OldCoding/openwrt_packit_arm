@@ -31,7 +31,6 @@ rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/luci/applications/luci-app-lucky
-rm -rf feeds/luci/applications/luci-app-commands
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
@@ -96,7 +95,6 @@ svn_export "master" "applications/luci-app-aria2" "feeds/luci/applications/luci-
 svn_export "master" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-qbittorrent" "feeds/luci/applications/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-ddns" "feeds/luci/applications/luci-app-ddns" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-commands" "feeds/luci/applications/luci-app-commands" "https://github.com/immortalwrt/luci"
 svn_export "main" "wrtbwmon" "package/wrtbwmon" "https://github.com/gitbruc/openwrt-wrtbwmon"
 svn_export "main" "luci-app-wrtbwmon" "package/luci-app-wrtbwmon" "https://github.com/gitbruc/openwrt-wrtbwmon"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "feeds/packages/net/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
