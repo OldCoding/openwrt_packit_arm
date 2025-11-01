@@ -287,6 +287,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-lucky=y
         CONFIG_PACKAGE_luci-app-minidlna=y
         CONFIG_PACKAGE_luci-app-smartdns=y
+        CONFIG_PACKAGE_smartdns-ui=y
         CONFIG_PACKAGE_luci-app-socat=y
         CONFIG_PACKAGE_luci-app-samba4=y
         CONFIG_PACKAGE_luci-app-hd-idle=y
