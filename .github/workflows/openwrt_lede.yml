@@ -247,10 +247,10 @@ jobs:
         # LuCI插件选择:
         cat >> .config <<EOF
         CONFIG_PACKAGE_luci-app-autoreboot=y
-        CONFIG_PACKAGE_luci-app-openlist2=y
         CONFIG_PACKAGE_luci-app-amlogic=y
+        CONFIG_PACKAGE_luci-app-cloudflared=y
+        CONFIG_PACKAGE_luci-app-openlist2=y
         CONFIG_PACKAGE_luci-app-adguardhome=y
-        CONFIG_PACKAGE_luci-app-commands=y
         CONFIG_PACKAGE_luci-app-cifs-mount=y
         CONFIG_PACKAGE_luci-app-diskman=y
         CONFIG_PACKAGE_luci-app-dockerman=y
@@ -298,6 +298,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-ipsec-server=y
         CONFIG_PACKAGE_luci-app-pptp-server=y
         CONFIG_PACKAGE_luci-app-sqm=y
+        CONFIG_PACKAGE_luci-app-tailscale=y
         CONFIG_PACKAGE_luci-app-qbittorrent=y
         CONFIG_PACKAGE_luci-app-netspeedtest=y
         CONFIG_PACKAGE_luci-app-aria2=y

@@ -16,6 +16,7 @@ svn_export() {
 rm -rf tools/libdeflate
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/applications/luci-app-aria2
+rm -rf feeds/luci/applications/luci-app-cloudflared
 rm -rf feeds/luci/applications/luci-app-pushbot 
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/applications/luci-app-mosdns
@@ -31,6 +32,7 @@ rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/luci/applications/luci-app-lucky
+rm -rf feeds/luci/applications/luci-app-zerotier
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
@@ -55,6 +57,8 @@ rm -rf feeds/packages/net/sing-box
 #rm -rf feeds/packages/lang/php8-pecl-http
 #rm -rf feeds/packages/lang/php8-pecl-dio
 rm -rf feeds/packages/net/wget
+rm -rf feeds/packages/net/tailscale
+rm -rf feeds/packages/net/zerotier
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/utils/coremark
 rm -rf feeds/packages/utils/smartmontools
@@ -85,6 +89,7 @@ git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtes
 #git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
 git clone --depth 1 https://github.com/kenzok78/luci-app-design-config package/luci-app-design-config
 git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "master" "tools/libdeflate" "tools/libdeflate" "https://github.com/immortalwrt/immortalwrt"
 svn_export "master" "libs/libdeflate" "feeds/packages/libs/libdeflate" "https://github.com/immortalwrt/packages"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/xiaorouji/openwrt-passwall"
@@ -92,9 +97,11 @@ svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://git
 svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luci-app-diskman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-smartdns" "feeds/luci/applications/luci-app-smartdns" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-aria2" "feeds/luci/applications/luci-app-aria2" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-cloudflared" "feeds/luci/applications/luci-app-cloudflared" "https://github.com/openwrt/luci"
 svn_export "master" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-qbittorrent" "feeds/luci/applications/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-ddns" "feeds/luci/applications/luci-app-ddns" "https://github.com/immortalwrt/luci"
+svn_export "master" "applications/luci-app-zerotier" "feeds/luci/applications/luci-app-zerotier" "https://github.com/immortalwrt/luci"
 svn_export "main" "wrtbwmon" "package/wrtbwmon" "https://github.com/gitbruc/openwrt-wrtbwmon"
 svn_export "main" "luci-app-wrtbwmon" "package/luci-app-wrtbwmon" "https://github.com/gitbruc/openwrt-wrtbwmon"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "feeds/packages/net/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
@@ -111,6 +118,9 @@ svn_export "master" "libs/libdht" "feeds/packages/libs/libdht" "https://github.c
 svn_export "master" "libs/libutp" "feeds/packages/libs/libutp" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libb64" "feeds/packages/libs/libb64" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/wget" "feeds/packages/net/wget" "https://github.com/immortalwrt/packages"
+svn_export "master" "net/cloudflared" "feeds/packages/net/cloudflared" "https://github.com/openwrt/packages"
+svn_export "master" "net/tailscale" "feeds/packages/net/tailscale" "https://github.com/immortalwrt/packages"
+svn_export "master" "net/zerotier" "feeds/packages/net/zerotier" "https://github.com/immortalwrt/packages"
 #svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/immortalwrt/packages"
 #svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/immortalwrt/packages"
 #svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/immortalwrt/packages"
@@ -162,6 +172,7 @@ sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/
 sed -i "s|qidian|bilibili|g" feeds/luci/applications/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # 个性化设置
 sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Wing build $(TZ=UTC-8 date "+%Y.%m.%d")')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
+sed -i "s|\/\/||g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "20_memory.js")
 sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
 sed -i "/ntp/d" package/lean/default-settings/files/zzz-default-settings
 sed -i "s|breakings|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
