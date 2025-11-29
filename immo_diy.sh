@@ -36,7 +36,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/l
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
 git clone --depth 1 https://github.com/chenmozhijin/luci-app-adguardhome package/luci-app-adguardhome
-git clone --depth 1 https://github.com/sbwml/luci-app-openlist package/luci-app-openlist
+git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist2
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
@@ -64,6 +64,7 @@ svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://githu
 
 rm -rf package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
+mv ./package/openlist2/* ./package/ && rm -rf ./package/openlist2
 
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
@@ -73,6 +74,7 @@ mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 #sed -i "s/PKG_VERSION:=.*/$VER/g" package/luci-app-adguardhome/Makefile
 
 # 调整菜单位置
+sed -i "s|services|nas|g" package/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
 sed -i "s|services|network|g" feeds/luci/applications/luci-app-nlbwmon/root/usr/share/luci/menu.d/luci-app-nlbwmon.json
 sed -i "s|services|vpn|g" package/luci-app-tailscale/root/usr/share/luci/menu.d/luci-app-tailscale-community.json

@@ -74,7 +74,7 @@ git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/pack
 # 下载插件
 git clone --depth 1 https://github.com/zyqfork/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
 git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
-git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/luci-app-openlist2
+git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist2
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 https://github.com/tty228/luci-app-wechatpush package/luci-app-wechatpush
@@ -150,6 +150,8 @@ svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luc
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
 
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
+mv ./package/openlist2/* ./package/ && rm -rf ./package/openlist2
+
 # 编译 po2lmo (如果有po2lmo可跳过)
 #pushd package/luci-app-openclash/tools/po2lmo
 #make && sudo make install
@@ -160,6 +162,7 @@ mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 ./scripts/feeds install -a
 
 # 调整菜单位置
+sed -i "s|services|nas|g" package/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json

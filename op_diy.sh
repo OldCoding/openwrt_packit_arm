@@ -34,7 +34,7 @@ git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/gola
 # 下载插件
 git clone --depth 1 https://github.com/zyqfork/luci-app-pushbot package/luci-app-pushbot
 git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
-git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/luci-app-openlist2
+git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist2
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
@@ -89,6 +89,7 @@ svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://githu
 
 rm -rf package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
+mv ./package/openlist2/* ./package/ && rm -rf ./package/openlist2
 
 #svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
 #svn_export "master" "package/libs/ustream-ssl" "package/libs/ustream-ssl" "https://github.com/coolsnowwolf/lede"
@@ -111,6 +112,7 @@ mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 #sed -i "s/PKG_VERSION:=.*/$VER/g" package/luci-app-adguardhome/Makefile
 
 # 调整菜单位置
+sed -i "s|services|nas|g" package/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-aria2/root/usr/share/luci/menu.d/luci-app-aria2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-hd-idle/root/usr/share/luci/menu.d/luci-app-hd-idle.json
