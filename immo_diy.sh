@@ -35,7 +35,7 @@ git clone --depth 1 https://github.com/zyqfork/luci-app-pushbot package/luci-app
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/fw876/helloworld package/helloworld
-git clone --depth 1 https://github.com/sirpdboy/luci-app-adguardhome package/luci-app-adguardhome
+git clone --depth 1 https://github.com/sirpdboy/luci-app-adguardhome package/adguardhome
 git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist2
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages package/openwrt-passwall-packages
 git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
@@ -65,7 +65,7 @@ svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://githu
 rm -rf package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 mv ./package/openlist2/* ./package/ && rm -rf ./package/openlist2
-mv ./package/luci-app-adguardhome/luci-app-adguardhome/* ./package/luci-app-adguardhome/ && rm -rf ./package/luci-app-adguardhome/luci-app-adguardhome
+mv ./package/luci-app-adguardhome/* ./package/ && rm -rf ./package/adguardhome
 
 
 # turboacc 补丁
