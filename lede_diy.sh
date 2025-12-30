@@ -39,11 +39,11 @@ rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
 rm -rf feeds/packages/net/lucky
-#rm -rf feeds/packages/utils/docker-compose
-#rm -rf feeds/packages/utils/docker
-#rm -rf feeds/packages/utils/dockerd
-#rm -rf feeds/packages/utils/containerd
-#rm -rf feeds/packages/utils/runc
+rm -rf feeds/packages/utils/docker-compose
+rm -rf feeds/packages/utils/docker
+rm -rf feeds/packages/utils/dockerd
+rm -rf feeds/packages/utils/containerd
+rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/utils/btrfs-progs
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/net/v2ray-geodata
