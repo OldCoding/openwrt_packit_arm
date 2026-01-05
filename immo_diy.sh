@@ -15,18 +15,23 @@ svn_export() {
 #rm -rf package/libs/mbedtls
 
 # 依赖和冲突
-rm -rf ./feeds/packages/lang/golang
-rm -rf ./feeds/luci/applications/luci-app-cloudflared
-rm -rf ./feeds/luci/applications/luci-app-openclash
-rm -rf ./feeds/luci/applications/luci-app-filebrowser
-#rm -rf ./feeds/packages/utils/filebrowser
-rm -rf ./feeds/luci/applications/luci-app-passwall
-rm -rf ./feeds/packages/net/v2ray-geodata
-rm -rf ./feeds/packages/net/mosdns
-rm -rf ./feeds/packages/net/speedtest-cli
-rm -rf ./feeds/luci/applications/luci-app-unblockneteasemusic
-rm -rf ./feeds/packages/net/aria2
-rm -rf ./feeds/luci/themes/luci-theme-argon
+rm -rf feeds/packages/lang/golang
+rm -rf feeds/luci/applications/luci-app-cloudflared
+rm -rf feeds/luci/applications/luci-app-openclash
+rm -rf feeds/luci/applications/luci-app-filebrowser
+#rm -rf feeds/packages/utils/filebrowser
+rm -rf feeds/luci/applications/luci-app-passwall
+rm -rf feeds/packages/net/v2ray-geodata
+rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/net/speedtest-cli
+rm -rf feeds/packages/utils/docker-compose
+rm -rf feeds/packages/utils/docker
+rm -rf feeds/packages/utils/dockerd
+rm -rf feeds/packages/utils/containerd
+rm -rf feeds/packages/utils/runc
+rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
+rm -rf feeds/packages/net/aria2
+rm -rf feeds/luci/themes/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon feeds/luci/themes/luci-theme-argon
 git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
 git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
@@ -58,6 +63,11 @@ svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdn
 svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "openwrt-23.05" "themes/luci-theme-design" "package/luci-theme-design" "https://github.com/coolsnowwolf/luci"
+svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/coolsnowwolf/packages"
+svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/coolsnowwolf/packages"
+svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/coolsnowwolf/packages"
+svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/coolsnowwolf/packages"
+svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "net/cloudflared" "feeds/packages/net/cloudflared" "https://github.com/openwrt/packages"
 svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luci-app-easytier"
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
@@ -85,7 +95,7 @@ sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushb
 # DNS劫持
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
 # 个性化设置
-sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Wing build $(TZ=UTC-8 date "+%Y.%m.%d")')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
+sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Wing build $(TZ=UTC-8 date "+%Y.%m.%d")')/g" $(find feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
 sed -i "s|breakings|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|ARMv8|ARMv8-im|g" package/luci-app-amlogic/root/etc/config/amlogic
