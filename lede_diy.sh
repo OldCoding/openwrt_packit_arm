@@ -153,7 +153,7 @@ svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://githu
 
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 mv ./package/openlist2/* ./package/ && rm -rf ./package/openlist2
-mv ./package/luci-app-adguardhome/* ./package/ && rm -rf ./package/adguardhome
+mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 
 # 编译 po2lmo (如果有po2lmo可跳过)
 #pushd package/luci-app-openclash/tools/po2lmo

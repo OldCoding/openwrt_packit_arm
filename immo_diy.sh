@@ -75,7 +75,7 @@ svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://githu
 rm -rf package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 mv ./package/openlist2/* ./package/ && rm -rf ./package/openlist2
-mv ./package/luci-app-adguardhome/* ./package/ && rm -rf ./package/adguardhome
+mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 
 
 # turboacc 补丁
