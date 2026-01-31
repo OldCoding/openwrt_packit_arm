@@ -23,7 +23,7 @@ on:
     
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: openwrt-24.10
+  REPO_BRANCH: openwrt-25.12
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   SWAP: false
