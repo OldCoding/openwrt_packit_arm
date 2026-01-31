@@ -83,9 +83,6 @@ mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash -x add_turboacc.sh
 
-# adguardhome
-#VER=$(grep PKG_VERSION package/luci-app-adguardhome/Makefile | sed 's/-/\./g')
-#sed -i "s/PKG_VERSION:=.*/$VER/g" package/luci-app-adguardhome/Makefile
 
 # 调整菜单位置
 sed -i "s|services|nas|g" package/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
@@ -98,9 +95,12 @@ sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushb
 sed -i '/dns_redirect/d' package/network/services/dnsmasq/files/dhcp.conf
 # 个性化设置
 sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Wing build $(TZ=UTC-8 date "+%Y.%m.%d")')/g" $(find feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
-sed -i "s|breakings|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakingbadboy|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|ARMv8|ARMv8-im|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakingbadboy|OldCoding|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
+sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
+sed -i "s|ARMv8|ARMv8-im|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
 rm -rf package/luci-app-netspeedtest/po/zh_Hans
 cd package
 # NTP服务器

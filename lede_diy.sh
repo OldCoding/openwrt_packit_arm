@@ -183,9 +183,12 @@ sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Wing build $(TZ=UTC-8 date "+%Y.%
 sed -i "s|\/\/||g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "20_memory.js")
 sed -i "/firewall\.user/d" package/lean/default-settings/files/zzz-default-settings
 sed -i "/ntp/d" package/lean/default-settings/files/zzz-default-settings
-sed -i "s|breakings|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakingbadboy|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/root/etc/config/amlogic
-sed -i "s|s9xxx_lede|ARMv8-le|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|ARMv8|ARMv8-le|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakingbadboy|OldCoding|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
+sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
+sed -i "s|ARMv8|ARMv8-le|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
 sed -i "s|openwrt_luci|openwrt_core|g" package/lean/default-settings/files/zzz-default-settings
 sed -i "s|snapshots|armvirt\\\/64|g"  package/lean/default-settings/files/zzz-default-settings
 sed -i "s|releases\\\/18.06.9|armsr\\\/armv8|g"  package/lean/default-settings/files/zzz-default-settings

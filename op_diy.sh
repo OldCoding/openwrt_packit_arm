@@ -136,9 +136,12 @@ sed -i "s|services|vpn|g" package/luci-app-tailscale/root/usr/share/luci/menu.d/
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # 个性化设置
 sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Wing build $(TZ=UTC-8 date "+%Y.%m.%d")')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
-sed -i "s|breakings|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakingbadboy|OldCoding|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/root/etc/config/amlogic
 sed -i "s|ARMv8|ARMv8-op|g" package/luci-app-amlogic/root/etc/config/amlogic
+sed -i "s|breakingbadboy|OldCoding|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
+sed -i "s|OpenWrt|openwrt_packit_arm|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
+sed -i "s|ARMv8|ARMv8-op|g" package/luci-app-amlogic/luasrc/model/cbi/amlogic/amlogic_config.lua
 cd package
 # 汉化
 curl -sfL -o ./convert_translation.sh https://github.com/kenzok8/small-package/raw/main/.github/diy/convert_translation.sh
