@@ -455,30 +455,31 @@ jobs:
         rm -rf packages
         echo "status=success" >> ${GITHUB_OUTPUT}
 
-    - name: Package Armvirt as OpenWrt
-      if: steps.organize.outputs.status == 'success' && !cancelled()
-      uses: ophub/flippy-openwrt-actions@main
-      env:
-        OPENWRT_ARMSR: openwrt/bin/targets/*/*/*.tar.gz
-        PACKAGE_SOC: s905d_s905x3
-        KERNEL_VERSION_NAME: ${{ env.KERNEL_VER }}
-        WHOAMI: Wing
-        KERNEL_AUTO_LATEST: true
-        KERNEL_REPO_URL: OldCoding/openwrt_packit_arm
-        OPENWRT_VER: ${{ env.VER }}
-        GZIP_IMGS: .gz
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 #    - name: Package Armvirt as OpenWrt
 #      if: steps.organize.outputs.status == 'success' && !cancelled()
-#      uses: ophub/amlogic-s9xxx-openwrt@main
-#      with:
-#        openwrt_path: openwrt/bin/targets/*/*/*.tar.gz
-#        kernel_usage: flippy
-#        openwrt_board: s905x3_s905d
-#        openwrt_kernel: 6.1.y_6.6.y
-#        auto_kernel: true
-#        builder_name: Wing
+#      uses: ophub/flippy-openwrt-actions@main
+#      env:
+#        OPENWRT_ARMSR: openwrt/bin/targets/*/*/*.tar.gz
+#        PACKAGE_SOC: s905d_s905x3
+#        KERNEL_VERSION_NAME: ${{ env.KERNEL_VER }}
+#        WHOAMI: Wing
+#        KERNEL_AUTO_LATEST: true
+#        KERNEL_REPO_URL: OldCoding/openwrt_packit_arm
+#        OPENWRT_VER: ${{ env.VER }}
+#        GZIP_IMGS: .gz
+#        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Package Armvirt as OpenWrt
+      if: steps.organize.outputs.status == 'success' && !cancelled()
+      uses: OldCoding/amlogic-s9xxx-openwrt@main
+      with:
+        openwrt_path: openwrt/bin/targets/*/*/*.tar.gz
+        kernel_usage: stable
+        openwrt_board: s905x3_s905d_wxy-oect
+        kernel_repo: OldCoding/openwrt_packit_arm
+        openwrt_kernel: 6.1.y_6.6.y_6.12.y
+        auto_kernel: true
+        builder_name: Wing
 
     - name: Calculate MD5
       run: |
