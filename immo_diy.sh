@@ -20,6 +20,7 @@ rm -rf feeds/luci/applications/luci-app-cloudflared
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-nlbwmon
+rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 #rm -rf feeds/packages/utils/filebrowser
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/packages/net/v2ray-geodata
@@ -30,7 +31,6 @@ rm -rf feeds/packages/utils/docker
 rm -rf feeds/packages/utils/dockerd
 rm -rf feeds/packages/utils/containerd
 rm -rf feeds/packages/utils/runc
-rm -rf feeds/luci/applications/luci-app-unblockneteasemusic
 rm -rf feeds/packages/net/aria2
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-design
@@ -91,6 +91,7 @@ mv ./package/netdata/luci-app-netdata ./package/ && rm -rf ./package/netdata
 sed -i "s|services|nas|g" package/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
 sed -i "s|services|vpn|g" package/luci-app-tailscale/root/usr/share/luci/menu.d/luci-app-tailscale-community.json
+sed -i "s|system|nas|g" package/luci-app-quickfile/root/usr/share/luci/menu.d/luci-app-quickfile.json
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # DNS劫持
