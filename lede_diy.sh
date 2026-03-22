@@ -92,7 +92,6 @@ git clone --depth 1 https://github.com/sirpdboy/luci-app-netdata package/netdata
 #git clone --depth 1 https://github.com/hudra0/luci-app-qosmate package/luci-app-qosmate
 #git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
-git clone --depth 1 https://github.com/kenzok78/luci-app-design-config package/luci-app-design-config
 git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "master" "tools/libdeflate" "tools/libdeflate" "https://github.com/immortalwrt/immortalwrt"
