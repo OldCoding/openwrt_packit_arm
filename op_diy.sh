@@ -101,7 +101,7 @@ svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://githu
 svn_export "main" "luci-app-quickfile" "package/luci-app-quickfile" "https://github.com/sbwml/luci-app-quickfile"
 svn_export "main" "quickfile" "package/quickfile" "https://github.com/sbwml/luci-app-quickfile"
 
-rm -rf package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
+sed -i "/mediaurlbase/d" package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 mv ./package/openlist2/* ./package/ && rm -rf ./package/openlist2
 mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
