@@ -475,7 +475,7 @@ jobs:
         kernel_usage: stable
         openwrt_board: s905x3_s905d_wxy-oect
         kernel_repo: OldCoding/openwrt_packit_arm
-        openwrt_kernel: 6.1.y_6.6.y_6.12.y
+        openwrt_kernel: 6.6.y_6.12.y_6.18.y
         auto_kernel: true
         builder_name: Wing
 
