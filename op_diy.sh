@@ -111,7 +111,7 @@ mv ./package/netdata/luci-app-netdata ./package/ && rm -rf ./package/netdata
 #svn_export "master" "package/libs/uclient" "package/libs/uclient" "https://github.com/coolsnowwolf/lede"
 
 # turboacc 补丁
-curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh 25.12
+curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh 24.10
 
 # 安装插件
 ./scripts/feeds update -i
