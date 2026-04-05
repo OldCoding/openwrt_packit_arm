@@ -209,24 +209,8 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_ddns-scripts=y
         CONFIG_PACKAGE_ddns-scripts-cloudflare=y
-        CONFIG_PACKAGE_ddns-scripts-cnkuai=y
-        CONFIG_PACKAGE_ddns-scripts-digitalocean=y
         CONFIG_PACKAGE_ddns-scripts-dnspod=y
         CONFIG_PACKAGE_ddns-scripts-dnspod-com=y
-        CONFIG_PACKAGE_ddns-scripts-freedns=y
-        CONFIG_PACKAGE_ddns-scripts-gandi=y
-        CONFIG_PACKAGE_ddns-scripts-gcp=y
-        CONFIG_PACKAGE_ddns-scripts-godaddy=y
-        CONFIG_PACKAGE_ddns-scripts-luadns=y
-        CONFIG_PACKAGE_ddns-scripts-noip=y
-        CONFIG_PACKAGE_ddns-scripts-ns1=y
-        CONFIG_PACKAGE_ddns-scripts-nsupdate=y
-        CONFIG_PACKAGE_ddns-scripts-one=y
-        CONFIG_PACKAGE_ddns-scripts-pdns=y
-        CONFIG_PACKAGE_ddns-scripts-route53=y
-        CONFIG_PACKAGE_ddns-scripts-services=y
-        CONFIG_PACKAGE_ddns-scripts-transip=y
-        CONFIG_PACKAGE_ddns-scripts-utils=y
         CONFIG_PACKAGE_ddns-scripts_aliyun=y
         EOF
 
@@ -371,6 +355,7 @@ jobs:
         cat >> .config <<EOF
         CONFIG_PACKAGE_autocore-arm=y
         CONFIG_PACKAGE_automount=y
+        CONFIG_PACKAGE_block-mount=y
         CONFIG_PACKAGE_samba4-utils=y
         CONFIG_PACKAGE_wsdd2=y
         CONFIG_PACKAGE_htop=y
@@ -378,21 +363,13 @@ jobs:
         CONFIG_PACKAGE_ariang=y
         CONFIG_PACKAGE_bind-host=y
         CONFIG_PACKAGE_default-settings-chn=y
-        CONFIG_PACKAGE_kmod-ipt-fullconenat=y
-        CONFIG_PACKAGE_libopenssl-legacy=y
         CONFIG_PACKAGE_ca-certificates=y
         CONFIG_PACKAGE_lsof=y
         CONFIG_PACKAGE_acpid=y
-        CONFIG_PACKAGE_kmod-brcmfmac=y
-        CONFIG_PACKAGE_kmod-brcmutil=y
-        CONFIG_PACKAGE_kmod-cfg80211=y
-        CONFIG_PACKAGE_kmod-mac80211=y
-        CONFIG_PACKAGE_kmod-sched-red=y
         CONFIG_PACKAGE_hostapd-common=y
+        CONFIG_PACKAGE_kmod-sched-red=y
         CONFIG_PACKAGE_smartmontools-drivedb=y
         CONFIG_PACKAGE_pigz=y
-        CONFIG_PACKAGE_wpa-cli=y
-        CONFIG_PACKAGE_wpad-basic=y
         CONFIG_PACKAGE_iw=y
         EOF
 
