@@ -23,7 +23,7 @@ on:
     
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: openwrt-24.10
+  REPO_BRANCH: openwrt-25.12
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   SWAP: false
@@ -270,7 +270,6 @@ jobs:
         CONFIG_PACKAGE_luci-app-pushbot=y
         CONFIG_PACKAGE_luci-app-lucky=y
         CONFIG_PACKAGE_luci-app-minidlna=y
-        CONFIG_PACKAGE_luci-app-netdata=y
         CONFIG_PACKAGE_luci-app-smartdns=y
         CONFIG_PACKAGE_smartdns-ui=y
         CONFIG_PACKAGE_luci-app-socat=y
