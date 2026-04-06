@@ -65,17 +65,17 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
-svn_export "master" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/coolsnowwolf/luci"
+svn_export "openwrt-25.12" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/coolsnowwolf/luci"
+svn_export "openwrt-25.12" "collections/luci-lib-docker" "feeds/luci/collections/luci-lib-docker" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/coolsnowwolf/packages"
+svn_export "openwrt-24.10" "utils/cgroupfs-mount" "feeds/packages/utils/cgroupfs-mount" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/cloudflared" "feeds/packages/net/cloudflared" "https://github.com/openwrt/packages"
 svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luci-app-easytier"
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
-svn_export "main" "luci-app-quickfile" "package/luci-app-quickfile" "https://github.com/sbwml/luci-app-quickfile"
-svn_export "main" "quickfile" "package/quickfile" "https://github.com/sbwml/luci-app-quickfile"
 
 sed -i "/mediaurlbase/d" package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
@@ -91,7 +91,6 @@ curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.
 sed -i "s|services|nas|g" package/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
 sed -i "s|services|vpn|g" package/luci-app-tailscale/root/usr/share/luci/menu.d/luci-app-tailscale-community.json
-sed -i "s|system|nas|g" package/luci-app-quickfile/root/usr/share/luci/menu.d/luci-app-quickfile.json
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # DNS劫持

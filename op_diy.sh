@@ -59,7 +59,8 @@ svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://git
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "master" "applications/luci-app-qbittorrent" "feeds/luci/applications/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/coolsnowwolf/luci"
+svn_export "openwrt-25.12" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/coolsnowwolf/luci"
+svn_export "openwrt-25.12" "collections/luci-lib-docker" "feeds/luci/collections/luci-lib-docker" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-wechatpush" "feeds/luci/applications/luci-app-wechatpush" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-ramfree" "feeds/luci/applications/luci-app-ramfree" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-webadmin" "feeds/luci/applications/luci-app-webadmin" "https://github.com/immortalwrt/luci"
@@ -88,6 +89,8 @@ svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github
 svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/coolsnowwolf/packages"
+svn_export "openwrt-24.10" "utils/cgroupfs-mount" "feeds/packages/utils/cgroupfs-mount" "https://github.com/openwrt/packages"
+
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
@@ -96,8 +99,6 @@ svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lu
 svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luci-app-easytier"
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
-svn_export "main" "luci-app-quickfile" "package/luci-app-quickfile" "https://github.com/sbwml/luci-app-quickfile"
-svn_export "main" "quickfile" "package/quickfile" "https://github.com/sbwml/luci-app-quickfile"
 
 sed -i "/mediaurlbase/d" package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
@@ -132,7 +133,6 @@ sed -i "s|services|nas|g" feeds/luci/applications/luci-app-hd-idle/root/usr/shar
 sed -i "s|services|nas|g" feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
 sed -i "s|services|system|g" feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
 sed -i "s|services|vpn|g" package/luci-app-tailscale/root/usr/share/luci/menu.d/luci-app-tailscale-community.json
-sed -i "s|system|nas|g" package/luci-app-quickfile/root/usr/share/luci/menu.d/luci-app-quickfile.json
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
 # 个性化设置
