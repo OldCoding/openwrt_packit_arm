@@ -251,7 +251,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-openlist2=y
         CONFIG_PACKAGE_luci-app-diskman=y
         CONFIG_PACKAGE_luci-app-dockerman=y
-        CONFIG_PACKAGE_luci-app-ddns=y
+        CONFIG_PACKAGE_luci-app-ddns-go=y
         CONFIG_PACKAGE_luci-app-easytier=y
         CONFIG_PACKAGE_easytier=y
         CONFIG_PACKAGE_luci-app-bandix=y
@@ -304,6 +304,7 @@ jobs:
         CONFIG_PACKAGE_luci-theme-argon=y
         CONFIG_PACKAGE_luci-app-argon-config=y
         CONFIG_PACKAGE_luci-theme-design=y
+        CONFIG_PACKAGE_luci-theme-glass=y
         EOF
 
         # 必备软件包:

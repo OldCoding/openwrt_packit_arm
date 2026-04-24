@@ -53,6 +53,7 @@ git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtes
 #git clone --depth 1 https://github.com/hudra0/luci-app-qosmate package/luci-app-qosmate
 #git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
+git clone --depth 1 https://github.com/rchen14b/luci-theme-glass package/luci-theme-glass
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/Openwrt-Passwall/openwrt-passwall"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/Openwrt-Passwall/openwrt-passwall2"
@@ -90,6 +91,8 @@ svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://gith
 svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/coolsnowwolf/packages"
 svn_export "openwrt-24.10" "utils/cgroupfs-mount" "feeds/packages/utils/cgroupfs-mount" "https://github.com/openwrt/packages"
+svn_export "main" "luci-app-ddns-go" "package/luci-app-ddns-go" "https://github.com/sirpdboy/luci-app-ddns-go"
+svn_export "main" "ddns-go" "package/ddns-go" "https://github.com/sirpdboy/ddns-go"
 
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"

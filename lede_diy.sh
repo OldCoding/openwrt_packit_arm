@@ -19,6 +19,7 @@ rm -rf package/lean/ddns-scripts_dnspod
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/applications/luci-app-aria2
 rm -rf feeds/luci/applications/luci-app-cloudflared
+rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/luci/applications/luci-app-pushbot 
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/applications/luci-app-mosdns
@@ -46,6 +47,7 @@ rm -rf feeds/packages/utils/btrfs-progs
 rm -rf feeds/packages/utils/v2dat
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/packages/net/aria2
+rm -rf feeds/packages/net/ddns-go
 rm -rf feeds/packages/net/sing-box
 #rm -rf feeds/packages/lang/php8
 #rm -rf feeds/packages/lang/php8-pecl-xdebug
@@ -88,6 +90,7 @@ git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtes
 #git clone --depth 1 https://github.com/hudra0/luci-app-qosmate package/luci-app-qosmate
 #git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
+git clone --depth 1 https://github.com/rchen14b/luci-theme-glass package/luci-theme-glass
 git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "master" "tools/libdeflate" "tools/libdeflate" "https://github.com/immortalwrt/immortalwrt"
@@ -143,10 +146,10 @@ svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mos
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 #svn_export "main" "general/golang" "feeds/packages/lang/golang" "https://github.com/breakings/OpenWrt"
-svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lucky"
-svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luci-app-easytier"
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
+svn_export "main" "luci-app-ddns-go" "package/luci-app-ddns-go" "https://github.com/sirpdboy/luci-app-ddns-go"
+svn_export "main" "ddns-go" "package/ddns-go" "https://github.com/sirpdboy/ddns-go"
 
 sed -i "/mediaurlbase/d" package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest

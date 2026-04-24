@@ -17,6 +17,7 @@ svn_export() {
 # 依赖和冲突
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/applications/luci-app-cloudflared
+rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-nlbwmon
@@ -33,6 +34,7 @@ rm -rf feeds/packages/utils/dockerd
 rm -rf feeds/packages/utils/containerd
 rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/net/aria2
+rm -rf feeds/packages/net/ddns-go
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-design
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon feeds/luci/themes/luci-theme-argon
@@ -52,6 +54,7 @@ git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtes
 #git clone --depth 1 https://github.com/hudra0/luci-app-qosmate package/luci-app-qosmate
 #git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
+git clone --depth 1 https://github.com/rchen14b/luci-theme-glass package/luci-theme-glass
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "master" "applications/luci-app-cloudflared" "feeds/luci/applications/luci-app-cloudflared" "https://github.com/openwrt/luci"
 svn_export "main" "luci-app-bandix" "package/luci-app-bandix" "https://github.com/timsaya/luci-app-bandix"
@@ -74,6 +77,8 @@ svn_export "openwrt-24.10" "utils/cgroupfs-mount" "feeds/packages/utils/cgroupfs
 svn_export "master" "net/cloudflared" "feeds/packages/net/cloudflared" "https://github.com/openwrt/packages"
 svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luci-app-easytier"
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
+svn_export "main" "luci-app-ddns-go" "package/luci-app-ddns-go" "https://github.com/sirpdboy/luci-app-ddns-go"
+svn_export "main" "ddns-go" "package/ddns-go" "https://github.com/sirpdboy/ddns-go"
 
 sed -i "/mediaurlbase/d" package/luci-theme-design/root/etc/uci-defaults/30_luci-theme-design
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
