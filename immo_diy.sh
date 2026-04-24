@@ -63,8 +63,6 @@ svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
-svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lucky"
-svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "openwrt-25.12" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/coolsnowwolf/luci"
 svn_export "openwrt-25.12" "collections/luci-lib-docker" "feeds/luci/collections/luci-lib-docker" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/coolsnowwolf/packages"

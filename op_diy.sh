@@ -95,8 +95,6 @@ svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "v2dat" "package/v2dat" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "master" "package/emortal" "package/emortal" "https://github.com/immortalwrt/immortalwrt"
-svn_export "main" "lucky" "package/lucky" "https://github.com/gdy666/luci-app-lucky"
-svn_export "main" "luci-app-lucky" "package/luci-app-lucky" "https://github.com/gdy666/luci-app-lucky"
 svn_export "main" "easytier" "package/easytier" "https://github.com/EasyTier/luci-app-easytier"
 svn_export "main" "luci-app-easytier" "package/luci-app-easytier" "https://github.com/EasyTier/luci-app-easytier"
 
