@@ -75,7 +75,7 @@ git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/pack
 
 # 下载插件
 git clone --depth 1 https://github.com/zyqfork/luci-app-pushbot feeds/luci/applications/luci-app-pushbot
-git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
+git clone --depth 1 https://github.com/OldCoding/luci-app-kodexplorer package/luci-app-kodexplorer
 git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 git clone --depth 1 https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/openwrt-passwall-packages
