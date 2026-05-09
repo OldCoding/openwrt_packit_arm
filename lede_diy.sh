@@ -14,8 +14,6 @@ svn_export() {
 
 # 删除冲突软件和依赖
 rm -rf tools/libdeflate
-rm -rf package/lean/ddns-scripts_aliyun
-rm -rf package/lean/ddns-scripts_dnspod
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/luci/applications/luci-app-aria2
 rm -rf feeds/luci/applications/luci-app-cloudflared
@@ -113,8 +111,6 @@ svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-c
 svn_export "master" "libs/libtorrent-rasterbar" "feeds/packages/libs/libtorrent-rasterbar" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/smartdns" "feeds/packages/net/smartdns" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/ddns-scripts" "feeds/packages/net/ddns-scripts" "https://github.com/immortalwrt/packages"
-svn_export "master" "net/ddns-scripts_aliyun" "feeds/packages/net/ddns-scripts_aliyun" "https://github.com/immortalwrt/packages"
-svn_export "master" "net/ddns-scripts_dnspod" "feeds/packages/net/ddns-scripts_dnspod" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/tiff" "feeds/packages/libs/tiff" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdht" "feeds/packages/libs/libdht" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libutp" "feeds/packages/libs/libutp" "https://github.com/immortalwrt/packages"
