@@ -1,20 +1,44 @@
 #!/bin/bash
-svn_export() {
-	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
- 	echo -e "clone $4/$2 to $3"
-	TMP_DIR="$(mktemp -d)" || exit 1
- 	ORI_DIR="$PWD"
-	[ -d "$3" ] || mkdir -p "$3"
-	TGT_DIR="$(cd "$3"; pwd)"
-	git clone --depth 1 -b "$1" "$4" "$TMP_DIR" >/dev/null 2>&1 && \
-	cd "$TMP_DIR/$2" && rm -rf .git >/dev/null 2>&1 && \
-	cp -af . "$TGT_DIR/" && cd "$ORI_DIR"
-	rm -rf "$TMP_DIR"
-}
 
-#rm -rf package/libs/mbedtls
-#rm -rf package/libs/ustream-ssl
-#rm -rf package/libs/uclient
+# 定义全局临时缓存根目录
+DL_CACHE="/tmp/openwrt_pkg_cache"
+[ -d "$DL_CACHE" ] || mkdir -p "$DL_CACHE"
+
+svn_export() {
+    # 参数说明: $1=分支, $2=子目录, $3=目标目录, $4=仓库地址
+    local BRANCH=$1
+    local SUB_DIR=$2
+    local TARGET_DIR=$3
+    local REPO_URL=$4
+
+    # 提取作者名和仓库名 (例如从 https://github.com/immortalwrt/luci 提取 immortalwrt-luci)
+    local REPO_IDENTIFIER=$(echo "$REPO_URL" | sed 's|https://github.com/||' | tr '/' '-')
+    # 组合成：作者-仓库-分支
+    local CACHE_NAME="${REPO_IDENTIFIER}-${BRANCH}"
+    local LOCAL_REPO_DIR="$DL_CACHE/$CACHE_NAME"
+
+    # 检查缓存是否存在，不存在则克隆
+    if [ ! -d "$LOCAL_REPO_DIR" ]; then
+        echo -e "Initial cloning $REPO_URL ($BRANCH) to cache..."
+        git clone --depth 1 -b "$BRANCH" "$REPO_URL" "$LOCAL_REPO_DIR" >/dev/null 2>&1
+    else
+        echo -e "Using cached repo for $REPO_URL ($BRANCH)"
+    fi
+
+    # 确保目标目录存在
+    [ -d "$TARGET_DIR" ] || mkdir -p "$TARGET_DIR"
+    
+    # 执行拷贝：只从缓存中提取需要的子目录
+    if [ -d "$LOCAL_REPO_DIR/$SUB_DIR" ]; then
+        echo -e "Exporting $SUB_DIR to $TARGET_DIR"
+        cp -af "$LOCAL_REPO_DIR/$SUB_DIR/." "$TARGET_DIR/"
+        # 清除可能带入的 .git 信息（如果有）
+        rm -rf "$TARGET_DIR/.git"
+    else
+        echo -e "Error: Subdirectory $SUB_DIR not found in $REPO_URL"
+        return 1
+    fi
+}
 
 find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 find ./ | grep Makefile | grep mosdns | xargs rm -f
@@ -22,8 +46,7 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 # Rust编译错误-download-ci-llvm
 sed -i 's/download-ci-llvm=true/download-ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 # 删除冲突软件和依赖
-rm -rf feeds/packages/lang/golang 
-rm -rf feeds/luci/applications/luci-app-dockerman
+#rm -rf feeds/packages/lang/golang 
 rm -rf feeds/luci/applications/luci-app-nlbwmon
 rm -rf feeds/packages/net/aria2
 rm -rf feeds/packages/utils/docker-compose
@@ -33,13 +56,14 @@ rm -rf feeds/packages/utils/containerd
 rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/luci/themes/luci-theme-design
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 git clone --depth 1 https://github.com/sbwml/feeds_packages_net_aria2 feeds/packages/net/aria2
 curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json > feeds/luci/modules/luci-base/root/usr/share/luci/menu.d/luci-base.json
-git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
+#git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 # 下载插件
 git clone --depth 1 https://github.com/zyqfork/luci-app-pushbot package/luci-app-pushbot
-git clone --depth 1 https://github.com/OldCoding/luci-app-kodexplorer package/luci-app-kodexplorer
+git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
 git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
@@ -49,9 +73,6 @@ git clone --depth 1 https://github.com/sirpdboy/luci-app-adguardhome package/adg
 git clone --depth 1 https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
 git clone --depth 1 https://github.com/sirpdboy/netspeedtest package/netspeedtest
-#git clone --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic package/luci-app-unblockneteasemusic
-#git clone --depth 1 https://github.com/hudra0/luci-app-qosmate package/luci-app-qosmate
-#git clone --depth 1 https://github.com/hudra0/qosmate package/qosmate
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
 git clone --depth 1 https://github.com/rchen14b/luci-theme-glass package/luci-theme-glass
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
@@ -60,18 +81,14 @@ svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://git
 svn_export "main" "luci-app-amlogic" "package/luci-app-amlogic" "https://github.com/ophub/luci-app-amlogic"
 svn_export "dev" "luci-app-openclash" "package/luci-app-openclash" "https://github.com/vernesong/OpenClash"
 svn_export "master" "applications/luci-app-qbittorrent" "feeds/luci/applications/luci-app-qbittorrent" "https://github.com/immortalwrt/luci"
-svn_export "openwrt-25.12" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/coolsnowwolf/luci"
-svn_export "openwrt-25.12" "collections/luci-lib-docker" "feeds/luci/collections/luci-lib-docker" "https://github.com/coolsnowwolf/luci"
 svn_export "master" "applications/luci-app-wechatpush" "feeds/luci/applications/luci-app-wechatpush" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-ramfree" "feeds/luci/applications/luci-app-ramfree" "https://github.com/immortalwrt/luci"
-svn_export "master" "applications/luci-app-webadmin" "feeds/luci/applications/luci-app-webadmin" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-zerotier" "feeds/luci/applications/luci-app-zerotier" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-diskman" "feeds/luci/applications/luci-app-diskman" "https://github.com/immortalwrt/luci"
 svn_export "master" "applications/luci-app-autoreboot" "feeds/luci/applications/luci-app-autoreboot" "https://github.com/immortalwrt/luci"
 svn_export "main" "luci-app-bandix" "package/luci-app-bandix" "https://github.com/timsaya/luci-app-bandix"
 svn_export "main" "openwrt-bandix" "package/openwrt-bandix" "https://github.com/timsaya/openwrt-bandix"
 svn_export "master" "net/qBittorrent-Enhanced-Edition" "feeds/packages/net/qBittorrent-Enhanced-Edition" "https://github.com/immortalwrt/packages"
-svn_export "master" "net/vlmcsd" "feeds/packages/net/vlmcsd" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/qt6base" "feeds/packages/libs/qt6base" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libtorrent-rasterbar" "feeds/packages/libs/libtorrent-rasterbar" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-conversion" "https://github.com/immortalwrt/packages"
@@ -81,9 +98,10 @@ svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github
 svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/coolsnowwolf/packages"
 svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/coolsnowwolf/packages"
-svn_export "master" "utils/cgroupfs-mount" "feeds/packages/utils/cgroupfs-mount" "https://github.com/coolsnowwolf/packages"
-svn_export "main" "luci-app-ddns-go" "package/luci-app-ddns-go" "https://github.com/sirpdboy/luci-app-ddns-go"
-svn_export "main" "ddns-go" "package/ddns-go" "https://github.com/sirpdboy/ddns-go"
+svn_export "main" "luci-app-ddns-go" "package/luci-app-ddns-go" "https://github.com/OldCoding/luci-app-ddns-go"
+svn_export "main" "ddns-go" "package/ddns-go" "https://github.com/OldCoding/luci-app-ddns-go"
+
+
 
 svn_export "v5" "luci-app-mosdns" "package/luci-app-mosdns" "https://github.com/sbwml/luci-app-mosdns"
 svn_export "v5" "mosdns" "package/mosdns" "https://github.com/sbwml/luci-app-mosdns"
@@ -97,12 +115,11 @@ mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 mv ./package/openlist/* ./package/ && rm -rf ./package/openlist
 mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 
-#svn_export "master" "package/libs/mbedtls" "package/libs/mbedtls" "https://github.com/coolsnowwolf/lede"
-#svn_export "master" "package/libs/ustream-ssl" "package/libs/ustream-ssl" "https://github.com/coolsnowwolf/lede"
-#svn_export "master" "package/libs/uclient" "package/libs/uclient" "https://github.com/coolsnowwolf/lede"
+rm -rf ./package/helloworld/simple-obfs
+
 
 # turboacc 补丁
-curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+#curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
 # 安装插件
 ./scripts/feeds update -i
@@ -143,16 +160,10 @@ chmod +x ./convert_translation.sh && bash ./convert_translation.sh
 curl -sfL -o ./luci-app-passwall/root/usr/share/passwall/rules/gfwlist https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt
 # OpenClash
 cd ./luci-app-openclash/root/etc/openclash
-#CORE_VER=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/core_version
-#CORE_TUN=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/premium/clash-linux-arm64
-#CORE_DEV=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/dev/clash-linux-arm64.tar.gz
 CORE_MATE=https://github.com/vernesong/OpenClash/raw/refs/heads/core/dev/smart/clash-linux-arm64.tar.gz
-#TUN_VER=$(curl -sfL $CORE_VER | sed -n "2{s/\r$//;p;q}")
 curl -sfL -o ./Country.mmdb https://github.com/alecthw/mmdb_china_ip_list/raw/release/Country.mmdb
 curl -sfL -o ./GeoSite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geosite.dat
 curl -sfL -o ./GeoIP.dat https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geoip.dat
 mkdir ./core && cd ./core
-#curl -sfL -o ./tun.gz "$CORE_TUN"-"$TUN_VER".gz && gzip -d ./tun.gz && mv ./tun ./clash_tun
 curl -sfL -o ./meta.tar.gz "$CORE_MATE" && tar -zxf ./meta.tar.gz && mv ./clash ./clash_meta
-#curl -sfL -o ./dev.tar.gz "$CORE_DEV" && tar -zxf ./dev.tar.gz
 chmod +x ./clash* ; rm -rf ./*.gz

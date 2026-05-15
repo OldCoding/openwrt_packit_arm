@@ -209,15 +209,6 @@ jobs:
         CONFIG_PACKAGE_ipv6helper=y
         EOF
 
-        # DDNS
-        cat >> .config <<EOF
-        CONFIG_PACKAGE_ddns-scripts=y
-        CONFIG_PACKAGE_ddns-scripts-cloudflare=y
-        CONFIG_PACKAGE_ddns-scripts-dnspod=y
-        CONFIG_PACKAGE_ddns-scripts-dnspod-com=y
-        CONFIG_PACKAGE_ddns-scripts_aliyun=y
-        EOF
-
         # 镜像设置
         cat >> .config <<EOF
         # CONFIG_TARGET_ROOTFS_INITRAMFS is not set
