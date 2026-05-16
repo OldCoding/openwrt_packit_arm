@@ -49,11 +49,6 @@ sed -i 's/download-ci-llvm=true/download-ci-llvm=false/g' feeds/packages/lang/ru
 #rm -rf feeds/packages/lang/golang 
 rm -rf feeds/luci/applications/luci-app-nlbwmon
 rm -rf feeds/packages/net/aria2
-rm -rf feeds/packages/utils/docker-compose
-rm -rf feeds/packages/utils/docker
-rm -rf feeds/packages/utils/dockerd
-rm -rf feeds/packages/utils/containerd
-rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/luci/themes/luci-theme-design
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
@@ -93,11 +88,6 @@ svn_export "master" "libs/qt6base" "feeds/packages/libs/qt6base" "https://github
 svn_export "master" "libs/libtorrent-rasterbar" "feeds/packages/libs/libtorrent-rasterbar" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-conversion" "https://github.com/immortalwrt/packages"
 svn_export "master" "utils/qt6tools" "feeds/packages/utils/qt6tools" "https://github.com/immortalwrt/packages"
-svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/coolsnowwolf/packages"
-svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/coolsnowwolf/packages"
-svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/coolsnowwolf/packages"
-svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/coolsnowwolf/packages"
-svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/coolsnowwolf/packages"
 svn_export "main" "luci-app-ddns-go" "package/luci-app-ddns-go" "https://github.com/OldCoding/luci-app-ddns-go"
 svn_export "main" "ddns-go" "package/ddns-go" "https://github.com/OldCoding/luci-app-ddns-go"
 

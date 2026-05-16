@@ -60,6 +60,12 @@ rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/luci/applications/luci-app-zerotier
+rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/packages/utils/docker-compose
+rm -rf feeds/packages/utils/docker
+rm -rf feeds/packages/utils/dockerd
+rm -rf feeds/packages/utils/containerd
+rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/net/smartdns
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/packages/net/mosdns
@@ -122,6 +128,12 @@ svn_export "master" "libs/tiff" "feeds/packages/libs/tiff" "https://github.com/i
 svn_export "master" "libs/libdht" "feeds/packages/libs/libdht" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libutp" "feeds/packages/libs/libutp" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libb64" "feeds/packages/libs/libb64" "https://github.com/immortalwrt/packages"
+svn_export "master" "applications/luci-app-dockerman" "feeds/luci/applications/luci-app-dockerman" "https://github.com/immortalwrt/luci"
+svn_export "master" "utils/docker-compose" "feeds/packages/utils/docker-compose" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/docker" "feeds/packages/utils/docker" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/dockerd" "feeds/packages/utils/dockerd" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/containerd" "feeds/packages/utils/containerd" "https://github.com/immortalwrt/packages"
+svn_export "master" "utils/runc" "feeds/packages/utils/runc" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/wget" "feeds/packages/net/wget" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/cloudflared" "feeds/packages/net/cloudflared" "https://github.com/openwrt/packages"
 svn_export "master" "net/tailscale" "feeds/packages/net/tailscale" "https://github.com/immortalwrt/packages"
