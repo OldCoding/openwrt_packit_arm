@@ -240,6 +240,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-adguardhome=y
         CONFIG_PACKAGE_luci-app-diskman=y
         CONFIG_PACKAGE_luci-app-dockerman=y
+        # CONFIG_PACKAGE_luci-app-ddns is not set
         CONFIG_PACKAGE_luci-app-ddns-go=y
         CONFIG_PACKAGE_luci-app-easytier=y
         CONFIG_PACKAGE_easytier=y
@@ -294,6 +295,9 @@ jobs:
 
         # 必备软件包:
         cat >> .config <<EOF
+        CONFIG_PACKAGE_php8=y
+        CONFIG_PHP8_LIBXML=y
+        CONFIG_PHP8_SYSTEMTZDATA=y
         CONFIG_PACKAGE_perl=y
         CONFIG_PACKAGE_perl-http-date=y
         CONFIG_PACKAGE_perlbase-file=y
