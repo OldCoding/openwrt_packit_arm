@@ -144,6 +144,8 @@ mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 mv ./package/openlist/* ./package/ && rm -rf ./package/openlist
 mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 
+sed -i "s|+qbittorrent$|+qbittorrent-enhanced-edition|g" feeds/luci/applications/luci-app-qbittorrent/Makefile
+
 # 编译 po2lmo (如果有po2lmo可跳过)
 #pushd package/luci-app-openclash/tools/po2lmo
 #make && sudo make install

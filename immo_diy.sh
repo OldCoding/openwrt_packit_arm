@@ -109,6 +109,8 @@ mv ./package/openlist/* ./package/ && rm -rf ./package/openlist
 mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 mv ./package/netdata/luci-app-netdata ./package/ && rm -rf ./package/netdata
 
+sed -i "s|+qbittorrent$|+qbittorrent-enhanced-edition|g" Makefile
+
 # turboacc 补丁
 #curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
