@@ -63,7 +63,7 @@ curl -sfL https://github.com/immortalwrt/luci/raw/master/modules/luci-base/root/
 
 # 下载插件
 git clone --depth 1 https://github.com/zyqfork/luci-app-pushbot package/luci-app-pushbot
-git clone --depth 1 https://github.com/danchexiaoyang/luci-app-kodexplorer package/luci-app-kodexplorer
+git clone --depth 1 https://github.com/OldCoding/luci-app-kodexplorer package/luci-app-kodexplorer
 git clone --depth 1 https://github.com/sbwml/luci-app-openlist2 package/openlist
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
