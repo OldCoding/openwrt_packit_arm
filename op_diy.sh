@@ -46,7 +46,8 @@ find ./ | grep Makefile | grep mosdns | xargs rm -f
 # Rust编译错误-download-ci-llvm
 sed -i 's/download-ci-llvm=true/download-ci-llvm=false/g' feeds/packages/lang/rust/Makefile
 # 删除冲突软件和依赖
-#rm -rf feeds/packages/lang/golang 
+#rm -rf feeds/packages/lang/golang
+rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-nlbwmon
 rm -rf feeds/packages/net/aria2
 rm -rf feeds/packages/libs/libtorrent-rasterbar
@@ -70,6 +71,7 @@ git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/lu
 git clone --depth 1 https://github.com/OldCoding/netspeedtest package/netspeedtest
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
 git clone --depth 1 https://github.com/rchen14b/luci-theme-glass package/luci-theme-glass
+git clone --depth 1 https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/Openwrt-Passwall/openwrt-passwall"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/Openwrt-Passwall/openwrt-passwall2"
