@@ -75,6 +75,7 @@ git clone --depth 1 https://github.com/OldCoding/netspeedtest package/netspeedte
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
 git clone --depth 1 https://github.com/OldCoding/luci-theme-glass package/luci-theme-glass
 git clone --depth 1 https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
+git clone --depth 1 https://github.com/OldCoding/OpenWrt-qBittorrent-Enhanced-Edition package/openwrt-qbee
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "master" "applications/luci-app-cloudflared" "feeds/luci/applications/luci-app-cloudflared" "https://github.com/openwrt/luci"
 svn_export "main" "luci-app-bandix" "package/luci-app-bandix" "https://github.com/timsaya/luci-app-bandix"
@@ -97,6 +98,7 @@ mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 mv ./package/openlist/* ./package/ && rm -rf ./package/openlist
 mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 mv ./package/netdata/luci-app-netdata ./package/ && rm -rf ./package/netdata
+mv ./package/openwrt-qbee/* ./package/ && rm -rf ./package/openwrt-qbee
 
 sed -i "s|+qbittorrent$|+qbittorrent-enhanced-edition|g" feeds/luci/applications/luci-app-qbittorrent/Makefile
 

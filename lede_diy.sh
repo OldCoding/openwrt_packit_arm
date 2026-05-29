@@ -107,6 +107,7 @@ git clone --depth 1 https://github.com/OldCoding/netspeedtest package/netspeedte
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
 git clone --depth 1 https://github.com/rchen14b/luci-theme-glass package/luci-theme-glass
 git clone --depth 1 https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
+git clone --depth 1 https://github.com/OldCoding/OpenWrt-qBittorrent-Enhanced-Edition package/openwrt-qbee
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "master" "tools/libdeflate" "tools/libdeflate" "https://github.com/immortalwrt/immortalwrt"
 svn_export "master" "libs/libdeflate" "feeds/packages/libs/libdeflate" "https://github.com/immortalwrt/packages"
@@ -157,6 +158,7 @@ sed -i "/mediaurlbase/d" package/luci-theme-design/root/etc/uci-defaults/30_luci
 mv ./package/netspeedtest/* ./package/ && rm -rf ./package/netspeedtest
 mv ./package/openlist/* ./package/ && rm -rf ./package/openlist
 mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
+mv ./package/openwrt-qbee/* ./package/ && rm -rf ./package/openwrt-qbee
 
 sed -i "s|+qbittorrent$|+qbittorrent-enhanced-edition|g" feeds/luci/applications/luci-app-qbittorrent/Makefile
 
