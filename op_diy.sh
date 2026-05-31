@@ -50,6 +50,10 @@ sed -i 's/download-ci-llvm=true/download-ci-llvm=false/g' feeds/packages/lang/ru
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-nlbwmon
 rm -rf feeds/packages/net/aria2
+rm -rf feeds/packages/utils/docker
+rm -rf feeds/packages/utils/dockerd
+rm -rf feeds/packages/utils/containerd
+rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/libs/libtorrent-rasterbar
 rm -rf feeds/luci/themes/luci-theme-design
 rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
@@ -73,6 +77,10 @@ git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luc
 git clone --depth 1 https://github.com/rchen14b/luci-theme-glass package/luci-theme-glass
 git clone --depth 1 https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 git clone --depth 1 https://github.com/OldCoding/OpenWrt-qBittorrent-Enhanced-Edition package/openwrt-qbee
+git clone --depth 1 https://github.com/sbwml/packages_utils_docker feeds/packages/utils/docker
+git clone --depth 1 https://github.com/sbwml/packages_utils_dockerd feeds/packages/utils/dockerd
+git clone --depth 1 https://github.com/sbwml/packages_utils_containerd feeds/packages/utils/containerd
+git clone --depth 1 https://github.com/sbwml/packages_utils_runc feeds/packages/utils/runc
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "main" "luci-app-passwall" "package/luci-app-passwall" "https://github.com/Openwrt-Passwall/openwrt-passwall"
 svn_export "main" "luci-app-passwall2" "package/luci-app-passwall2" "https://github.com/Openwrt-Passwall/openwrt-passwall2"
