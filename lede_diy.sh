@@ -127,6 +127,7 @@ svn_export "master" "libs/qt6base" "feeds/packages/libs/qt6base" "https://github
 svn_export "master" "libs/libdouble-conversion" "feeds/packages/libs/libdouble-conversion" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libtorrent-rasterbar" "feeds/packages/libs/libtorrent-rasterbar" "https://github.com/immortalwrt/packages"
 svn_export "master" "net/smartdns" "feeds/packages/net/smartdns" "https://github.com/immortalwrt/packages"
+svn_export "master" "net/aria2" "feeds/packages/net/aria2" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/tiff" "feeds/packages/libs/tiff" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libdht" "feeds/packages/libs/libdht" "https://github.com/immortalwrt/packages"
 svn_export "master" "libs/libutp" "feeds/packages/libs/libutp" "https://github.com/immortalwrt/packages"
