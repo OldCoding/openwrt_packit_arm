@@ -122,9 +122,10 @@ jobs:
         echo "DATE1=$(date "+%Y-%m-%d")" >> $GITHUB_ENV
         echo "KERNEL_VER=$(cat $GITHUB_WORKSPACE/KernelVersion)" >> $GITHUB_ENV
         echo "VER=R$(date +%Y.%m.%d)" >> $GITHUB_ENV
+        sed -i "/video/d" feeds.conf.default
 
     - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a
+      run: cd openwrt && ./scripts/feeds update -a
 
     - name: File Diy Patch
       run: |
