@@ -62,6 +62,7 @@ rm -rf feeds/packages/utils/containerd
 rm -rf feeds/packages/utils/runc
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-design
+
 git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon feeds/luci/themes/luci-theme-argon
 git clone --depth 1 https://github.com/OldCoding/luci-app-kodexplorer package/luci-app-kodexplorer
 #git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
@@ -106,10 +107,12 @@ mv ./package/adguardhome/* ./package/ && rm -rf ./package/adguardhome
 mv ./package/netdata/luci-app-netdata ./package/ && rm -rf ./package/netdata
 mv ./package/openwrt-qbee/* ./package/ && rm -rf ./package/openwrt-qbee
 
-sed -i "s|+qbittorrent$|+qbittorrent-enhanced-edition|g" feeds/luci/applications/luci-app-qbittorrent/Makefile
+# aria2补丁
+curl --create-dirs -o feeds/packages/net/aria2/patches/010-increase-max-connections-and-reduce-split-size.patch https://raw.githubusercontent.com/OldCoding/aria2-patch/main/010-increase-max-connections-and-reduce-split-size.patch
+curl -o feeds/packages/net/ariang/Makefile https://raw.githubusercontent.com/OldCoding/aria2-patch/main/Makefile
 
 # turboacc 补丁
-#curl -sSL https://raw.githubusercontent.com/mufeng05/turboacc/main/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
+curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 
 # 安装插件
 ./scripts/feeds update -i
@@ -117,7 +120,6 @@ sed -i "s|+qbittorrent$|+qbittorrent-enhanced-edition|g" feeds/luci/applications
 
 # 调整菜单位置
 sed -i "s|services|nas|g" package/luci-app-openlist2/root/usr/share/luci/menu.d/luci-app-openlist2.json
-sed -i "s|services|nas|g" feeds/luci/applications/luci-app-qbittorrent/root/usr/share/luci/menu.d/luci-app-qbittorrent.json
 sed -i "s|services|vpn|g" package/luci-app-tailscale/root/usr/share/luci/menu.d/luci-app-tailscale-community.json
 # 微信推送&全能推送
 sed -i "s|qidian|bilibili|g" package/luci-app-pushbot/root/usr/bin/pushbot/pushbot
