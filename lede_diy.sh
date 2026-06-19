@@ -106,7 +106,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/lu
 git clone --depth 1 https://github.com/OldCoding/luci-app-filebrowser package/luci-app-filebrowser
 git clone --depth 1 https://github.com/OldCoding/netspeedtest package/netspeedtest
 git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luci-theme-design
-git clone --depth 1 https://github.com/rchen14b/luci-theme-glass package/luci-theme-glass
+git clone --depth 1 https://github.com/OldCoding/luci-theme-glass package/luci-theme-glass
 git clone --depth 1 https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 git clone --depth 1 https://github.com/OldCoding/OpenWrt-qBittorrent-Enhanced-Edition package/openwrt-qbee
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
