@@ -255,6 +255,8 @@ jobs:
         # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client is not set
         # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Server is not set
         CONFIG_PACKAGE_luci-app-pushbot=y
+        CONFIG_PACKAGE_luci-app-homeproxy=y
+        CONFIG_PACKAGE_luci-app-nikki=y
         CONFIG_PACKAGE_luci-app-smartdns=y
         CONFIG_PACKAGE_smartdns-ui=y
         CONFIG_PACKAGE_luci-app-samba4=y
