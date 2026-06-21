@@ -84,6 +84,10 @@ rm -rf feeds/packages/net/zerotier
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/utils/coremark
 rm -rf feeds/packages/utils/smartmontools
+rm -rf feeds/packages/utils/docker
+rm -rf feeds/packages/utils/dockerd
+rm -rf feeds/packages/utils/containerd
+rm -rf feeds/packages/utils/runc
 rm -rf feeds/packages/libs/tiff
 rm -rf feeds/packages/libs/libdht
 rm -rf feeds/packages/libs/libutp
@@ -112,6 +116,10 @@ git clone --depth 1 https://github.com/papagaye744/luci-theme-design package/luc
 git clone --depth 1 https://github.com/OldCoding/luci-theme-glass package/luci-theme-glass
 git clone --depth 1 https://github.com/sbwml/luci-app-dockerman feeds/luci/applications/luci-app-dockerman
 git clone --depth 1 https://github.com/OldCoding/OpenWrt-qBittorrent-Enhanced-Edition package/openwrt-qbee
+git clone --depth 1 https://github.com/sbwml/packages_utils_docker feeds/packages/utils/docker
+git clone --depth 1 https://github.com/sbwml/packages_utils_dockerd feeds/packages/utils/dockerd
+git clone --depth 1 https://github.com/sbwml/packages_utils_containerd feeds/packages/utils/containerd
+git clone --depth 1 https://github.com/sbwml/packages_utils_runc feeds/packages/utils/runc
 svn_export "master" "luci-app-tailscale-community" "package/luci-app-tailscale" "https://github.com/Tokisaki-Galaxy/luci-app-tailscale-community"
 svn_export "master" "tools/libdeflate" "tools/libdeflate" "https://github.com/immortalwrt/immortalwrt"
 svn_export "master" "libs/libdeflate" "feeds/packages/libs/libdeflate" "https://github.com/immortalwrt/packages"
